@@ -11,10 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f3758f8f58fdef43803eb9be1df0608, type: 3}
   m_Name: PhotonServerSettings
   m_EditorClassIdentifier: 
-  AppID: 
+  AppID: 767de033-f2bd-4a71-9265-d40de21102ff
   VoiceAppID: 
   ChatAppID: 
-  HostType: 0
+  HostType: 1
   PreferredRegion: 0
   EnabledRegions: -1
   Protocol: 0
@@ -26,5 +26,83 @@ MonoBehaviour:
   PunLogging: 0
   NetworkLogging: 1
   RunInBackground: 1
-  RpcList: []
-  DisableAutoOpenWizard: 0
+  RpcList:
+  - Aid
+  - AllGunOff
+  - BigBulletGet
+  - BloodOff
+  - BloodOn
+  - Chat
+  - Cube_Get
+  - Destroy
+  - DestroyAid
+  - DestroyBullet
+  - DestroyHandGun
+  - DestroyM107
+  - DestroyM4
+  - DestroyRpc
+  - DestroyShotGun
+  - DestroyUzi
+  - DropItem
+  - GameFinish
+  - GameStarter
+  - GetAid
+  - Handgun_Audio
+  - HandGunDamage
+  - HandGunOn
+  - Head_HandGunDamage
+  - Head_M107Damage
+  - Head_M4Damage
+  - Head_UziDamage
+  - HouseSpawn
+  - InstantiateRpc
+  - ItemDestroy
+  - ItemOnDestroy
+  - ItemSpawnReturn
+  - ItemStart
+  - KillCount
+  - KillText
+  - LifeLightBall
+  - M107_Audio
+  - M107Damage
+  - M107On
+  - M4_Audio
+  - M4Damage
+  - M4On
+  - MfourEquip
+  - MiddleBulletGet
+  - MSEquip
+  - OffSpawn
+  - OnDestroy
+  - OnDestroyer
+  - OnHandGunEquip
+  - OnPlayerDestroy
+  - OnShotGunEquip
+  - OnSpawn
+  - OnUziEquip
+  - PickupItemInit
+  - PlayerCreate
+  - PlayerDelete
+  - PunPickup
+  - PunPickupSimple
+  - PunRespawn
+  - ReflecOff
+  - ReflecOn
+  - RequestForPickupItems
+  - RequestForPickupTimes
+  - SetLevel
+  - SetName
+  - SetStatus
+  - Shirld
+  - ShotGun_Audio
+  - ShotGunBulletGet
+  - ShotGunDamage
+  - ShotGunOn
+  - SmallBulletGet
+  - Spawn
+  - StartSetUp
+  - Uzi_Audio
+  - UziDamage
+  - UziOn
+  - WeaPonOffSet
+  DisableAutoOpenWizard: 1

@@ -21,7 +21,8 @@ namespace UnityStandardAssets.CrossPlatformInput
         // カメラの角度を格納する変数（初期値に0,0を代入）
         public Vector2 newAngle_x =new Vector2(0, 0);
         public Vector2 newAngle_y = new Vector2(0, 0);
-       
+
+        public GameObject player;
 
 
         int m_Id;
@@ -83,8 +84,8 @@ namespace UnityStandardAssets.CrossPlatformInput
         public void OnPointerDown(PointerEventData data)
         {
 
-            mainCamera = PhotonControll.player.GetComponent<UnityChanControlScriptWithRgidBody>().player_camera;
-            camera_Stork = PhotonControll.player.GetComponent<UnityChanControlScriptWithRgidBody>().p_camera_Stork;
+            mainCamera = player.GetComponent<UnityChanControlScriptWithRgidBody>().player_camera;
+            camera_Stork = player.GetComponent<UnityChanControlScriptWithRgidBody>().p_camera_Stork;
 
             m_Dragging = true;
             m_Id = data.pointerId;

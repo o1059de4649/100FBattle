@@ -20,9 +20,9 @@ namespace UnityStandardAssets.CrossPlatformInput
         // Update is called once per frame
         void Update()
         {
-            if(inRoomChat == null){
+            /*if(inRoomChat == null){
                 inRoomChat = GameObject.Find("ChatManager").GetComponent<InRoomChat>();
-            }
+            }*/
            
         }
 

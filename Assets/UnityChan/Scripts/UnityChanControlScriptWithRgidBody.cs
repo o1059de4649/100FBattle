@@ -220,19 +220,19 @@ namespace UnityStandardAssets.CrossPlatformInput
 
 
 
-            if (!u_photonView.isMine)
+            /*if (!u_photonView.isMine)
             {
                 return;
-            }
-           
-         
+            }*/
+
+
 
             protect_calc = protect * 0.3f + 1 + protectPlus;
           
            
 
-            r = CrossPlatformInputManager.GetAxisRaw("Hori");
-            v = CrossPlatformInputManager.GetAxisRaw("Vert");
+            r = CrossPlatformInputManager.GetAxisRaw("Horizontal");
+            v = CrossPlatformInputManager.GetAxisRaw("Vertical");
 
                
           

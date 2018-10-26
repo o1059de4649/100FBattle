@@ -21,7 +21,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 		{
 			Absolute, // operates from teh center of the image
 			Relative, // operates from the center of the initial touch
-			Swipe,// swipe to touch touch no maintained center
+			Swipe, // swipe to touch touch no maintained center
 		}
 
 
@@ -39,13 +39,13 @@ namespace UnityStandardAssets.CrossPlatformInput
 		bool m_UseY; // Toggle for using the Y axis
 		CrossPlatformInputManager.VirtualAxis m_HorizontalVirtualAxis; // Reference to the joystick in the cross platform input
 		CrossPlatformInputManager.VirtualAxis m_VerticalVirtualAxis; // Reference to the joystick in the cross platform input
-        bool m_Dragging;
+		bool m_Dragging;
 		int m_Id = -1;
-		 Vector2 m_PreviousTouchPos; // swipe style control touch
-        public Vector3 m_Center;//カスタム
+		Vector2 m_PreviousTouchPos; // swipe style control touch
+
 
 #if !UNITY_EDITOR
-
+    private Vector3 m_Center;
     private Image m_Image;
 #else
 		Vector3 m_PreviousMouse;
@@ -100,8 +100,6 @@ namespace UnityStandardAssets.CrossPlatformInput
 
 		public void OnPointerDown(PointerEventData data)
 		{
-            
-            Debug.Log(m_Id.ToString());
 			m_Dragging = true;
 			m_Id = data.pointerId;
 #if !UNITY_EDITOR
@@ -110,7 +108,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 #endif
 		}
 
-		void FixedUpdate()
+		void Update()
 		{
 			if (!m_Dragging)
 			{
@@ -130,25 +128,20 @@ namespace UnityStandardAssets.CrossPlatformInput
             pointerDelta.y *= Ysensitivity;
 #else
 				Vector2 pointerDelta;
-               
 				pointerDelta.x = Input.mousePosition.x - m_PreviousMouse.x;
 				pointerDelta.y = Input.mousePosition.y - m_PreviousMouse.y;
-                m_PreviousMouse = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f);
+				m_PreviousMouse = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f);
 #endif
 				UpdateVirtualAxes(new Vector3(pointerDelta.x, pointerDelta.y, 0));
-
-               
 			}
 		}
 
 
 		public void OnPointerUp(PointerEventData data)
 		{
-           
-
 			m_Dragging = false;
 			m_Id = -1;
-            UpdateVirtualAxes(Vector3.zero);
+			UpdateVirtualAxes(Vector3.zero);
 		}
 
 		void OnDisable()
@@ -159,10 +152,5 @@ namespace UnityStandardAssets.CrossPlatformInput
 			if (CrossPlatformInputManager.AxisExists(verticalAxisName))
 				CrossPlatformInputManager.UnRegisterVirtualAxis(verticalAxisName);
 		}
-
-
-
-
-
 	}
 }

@@ -14,20 +14,16 @@ namespace UnityStandardAssets.CrossPlatformInput
 
 
 		private static VirtualInput activeInput;
-        private static VirtualInput activeInput_walk;
 
 		private static VirtualInput s_TouchInput;
 		private static VirtualInput s_HardwareInput;
-        private static VirtualInput s_TouchInput_walk;
 
 
 		static CrossPlatformInputManager()
 		{
 			s_TouchInput = new MobileInput();
-            s_TouchInput_walk = new MobileInput();
 			s_HardwareInput = new StandaloneInput();
 #if MOBILE_INPUT
-            activeInput_walk = s_TouchInput_walk;
             activeInput = s_TouchInput;
 #else
 			activeInput = s_HardwareInput;
@@ -62,11 +58,6 @@ namespace UnityStandardAssets.CrossPlatformInput
 		{
 			activeInput.RegisterVirtualAxis(axis);
 		}
-
-        public static void RegisterVirtualAxisWalk(VirtualAxis axis)
-        {
-            activeInput_walk.RegisterVirtualAxis(axis);
-        }
 
 
 		public static void RegisterVirtualButton(VirtualButton button)
