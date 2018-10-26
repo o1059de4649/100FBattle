@@ -8,7 +8,7 @@ namespace UnityStandardAssets.CrossPlatformInput
     {
         Slider expbarslider;
         public Text exp_text;
-        GameObject p_player;
+        public GameObject p_player;
 
         public float bar_exp_point;
         public float bar_Max_exp_point;
@@ -30,10 +30,10 @@ namespace UnityStandardAssets.CrossPlatformInput
             }
 
 
-            bar_exp_point = PhotonControll.player.GetComponent<UnityChanControlScriptWithRgidBody>().exp_point;
-            bar_Max_exp_point = PhotonControll.player.GetComponent<UnityChanControlScriptWithRgidBody>().Max_exp_point;
+            bar_exp_point = p_player.GetComponent<UnityChanControlScriptWithRgidBody>().exp_point;
+            bar_Max_exp_point = p_player.GetComponent<UnityChanControlScriptWithRgidBody>().Max_exp_point;
 
-            exp_text.text = (PhotonControll.player.GetComponent<UnityChanControlScriptWithRgidBody>().player_Level.ToString());
+            exp_text.text = (p_player.GetComponent<UnityChanControlScriptWithRgidBody>().player_Level.ToString());
             expbarslider.value = bar_exp_point / bar_Max_exp_point;
 
         }

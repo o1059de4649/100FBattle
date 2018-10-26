@@ -8,7 +8,7 @@ namespace UnityStandardAssets.CrossPlatformInput
     {
         Slider hpbarslider;
 
-        GameObject p_player;
+        public GameObject p_player;
         // Use this for initialization
         void Start()
         {
@@ -20,18 +20,14 @@ namespace UnityStandardAssets.CrossPlatformInput
         // Update is called once per frame
         void Update()
         {
-            if(p_player == null){
-                p_player = PhotonControll.player;
-            }
+           
 
-            if (PhotonControll.playerCreate > 0)
-            {
-                if (p_player)
-                {
+           
+                
                     hpbarslider.value = p_player.GetComponent<UnityChanControlScriptWithRgidBody>().life;
-                }
                
-            }
+               
+
         }
     }
 }
