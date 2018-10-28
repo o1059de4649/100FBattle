@@ -6,6 +6,8 @@ namespace UnityStandardAssets.CrossPlatformInput
     public class SkeletonStatus : MonoBehaviour
     {
         public float life;
+        public float _maxLife;
+        float _preLife;
         public int monster_level;
         GameObject player;
         Animator anim;
@@ -27,11 +29,19 @@ namespace UnityStandardAssets.CrossPlatformInput
             anim = GetComponent<Animator>();
             life += Random.Range(100.0f, 120.0f);
             life += monster_level;
+            _maxLife = life;
         }
 
         // Update is called once per frame
         void Update()
         {
+            if (life <= 0)
+            {
+                v = 0;
+                Death();
+
+            }
+
             _delay_attack += Time.deltaTime;
 
             transform.LookAt(player.transform);
@@ -47,6 +57,13 @@ namespace UnityStandardAssets.CrossPlatformInput
             {
                 v = 2;
             }
+
+
+
+            if(_preLife != life){
+                anim.SetTrigger("Hit1");
+            }
+            _preLife = life;
 
         }
 
@@ -67,6 +84,11 @@ namespace UnityStandardAssets.CrossPlatformInput
                 Invoke("OffAttack", 1.0f);
             }
 
+        }
+
+        void Death(){
+            anim.SetTrigger("Fall1");
+            Destroy(this.gameObject, 2.0f);
         }
 
         void OffAttack(){
