@@ -5,41 +5,58 @@ namespace UnityStandardAssets.CrossPlatformInput
 {
     public class SkeletonStatus : MonoBehaviour
     {
-        public float life;
+        public float _life;
         public float _maxLife;
         float _preLife;
-        public int monster_level;
+        public int _monster_level;
         GameObject player;
         Animator anim;
         Rigidbody rb;
+        public GameObject lifeball;
+        public GameObject boneball;
+        bool _isDeath = false;
+        public GameObject _spawnPosObj;
+        float _randomPos;
 
         [SerializeField]
         private float h;
         [SerializeField]
         private float v;
 
+        [SerializeField]
+        private float _itemDropForce;
+        private float _itemDropForceRL;
+
         private Vector3 velocity;
         float _delay_attack;
         public BoxCollider boxCollider;
+
+        public bool _isMagic = false;
         // Use this for initialization
         void Start()
         {
             player = GameObject.Find("Player");
             rb = GetComponent<Rigidbody>();
             anim = GetComponent<Animator>();
-            life += Random.Range(100.0f, 120.0f);
-            life += monster_level;
-            _maxLife = life;
+
+          
+
+            _maxLife += Random.Range(100.0f,120.0f);
+            _maxLife += _monster_level;
+            _life = _maxLife;
+          
         }
 
         // Update is called once per frame
         void Update()
         {
-            if (life <= 0)
+            if (_life <= 0)
             {
                 v = 0;
-                Death();
 
+                if(_isDeath == false){
+                    Death();
+                }
             }
 
             _delay_attack += Time.deltaTime;
@@ -60,12 +77,21 @@ namespace UnityStandardAssets.CrossPlatformInput
 
 
 
-            if(_preLife != life){
+            if(_preLife != _life){
+                _randomPos = Random.Range(-2,2);
                 anim.SetTrigger("Hit1");
+
+                if(_isMagic == false){
+                    GameObject _boneball = Instantiate(boneball, _spawnPosObj.transform.position + new Vector3(_randomPos, _randomPos, _randomPos), Quaternion.identity);
+                }
+               
+               
             }
-            _preLife = life;
+            _preLife = _life;
 
         }
+
+
 
         public void OnTriggerStay(Collider col)
         {
@@ -87,7 +113,10 @@ namespace UnityStandardAssets.CrossPlatformInput
         }
 
         void Death(){
+            _delay_attack = -100;
             anim.SetTrigger("Fall1");
+            _isDeath = true;
+            GameObject _lifeball = Instantiate(lifeball, _spawnPosObj.transform.position, Quaternion.identity);
             Destroy(this.gameObject, 2.0f);
         }
 
@@ -95,6 +124,6 @@ namespace UnityStandardAssets.CrossPlatformInput
             boxCollider.enabled = false;
         }
 
-
+       
     }
 }

@@ -150,6 +150,9 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         private PhotonTransformView photonTransformView;
 
+        public float _boneEssence = 0;
+        public float _magicPower = 1;
+
         // 初期化
         void Start()
         {

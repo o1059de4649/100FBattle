@@ -27,12 +27,13 @@ namespace UnityStandardAssets.CrossPlatformInput
         public void OnTriggerEnter(Collider col)
         {
             _kukuri_effect.SetActive(true);
-            Invoke("OffEffect", 2.0f);
+            Invoke("OffEffect", 0.7f);
 
             if (col.gameObject.tag == "Enemy")
             {
                 if(_waitTime >= 0.5f){
-                    col.gameObject.GetComponent<SkeletonStatus>().life -= _swordPower;
+                    col.gameObject.GetComponent<SkeletonStatus>()._life -= _swordPower;
+                    col.gameObject.GetComponent<SkeletonStatus>()._isMagic = false;
                     _waitTime = 0;
                 }
 

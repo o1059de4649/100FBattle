@@ -20,7 +20,7 @@ public class HpTextEnemy : MonoBehaviour {
             if (this.gameObject.name == "Skeleton_hpbar")
             {
                 slider.maxValue = skeleton.GetComponent<SkeletonStatus>()._maxLife;
-                slider.value = skeleton.GetComponent<SkeletonStatus>().life;
+                slider.value = skeleton.GetComponent<SkeletonStatus>()._life;
             }
 	}
 }

@@ -51,7 +51,7 @@ GameObject:
   - component: {fileID: 224389959915811708}
   - component: {fileID: 222548813560933438}
   - component: {fileID: 114753810840020324}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -266,7 +266,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224000158681983592}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -408,7 +408,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224942509555558306}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -530,7 +530,7 @@ GameObject:
   - component: {fileID: 224063844267842202}
   - component: {fileID: 114928655526218666}
   - component: {fileID: 114054959024204150}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Skeleton_hpbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -607,7 +607,7 @@ GameObject:
   - component: {fileID: 224377260661528234}
   - component: {fileID: 222626262883116486}
   - component: {fileID: 114135269442934646}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -810,6 +810,21 @@ GameObject:
   - component: {fileID: 4186842742165164}
   m_Layer: 0
   m_Name: Bip01 Spine3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1961601133039294
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4526828790794848}
+  m_Layer: 0
+  m_Name: SpawnPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1178,6 +1193,19 @@ Transform:
   m_Father: {fileID: 4755576618197808}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4526828790794848
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1961601133039294}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4972249896471216}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4587442821409416
 Transform:
   m_ObjectHideFlags: 1
@@ -1489,6 +1517,7 @@ Transform:
   - {fileID: 4695062416013626}
   - {fileID: 4280803368706882}
   - {fileID: 224360820286542860}
+  - {fileID: 4526828790794848}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1849,11 +1878,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d870bb8fc1b29491eb9347671f6dfcdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 0
+  _life: 0
   _maxLife: 0
-  monster_level: 1
+  _monster_level: 0
+  lifeball: {fileID: 1693653089469054, guid: aa193a0f23d034314aa62fbf57cda66a, type: 2}
+  boneball: {fileID: 1972189473834348, guid: 32e2b87aed505451aa1bd813cc9d9b02, type: 2}
+  _spawnPosObj: {fileID: 1961601133039294}
   h: 0
   v: 0
+  _itemDropForce: 0
   boxCollider: {fileID: 65261260189802550}
 --- !u!135 &135493871698945742
 SphereCollider:
