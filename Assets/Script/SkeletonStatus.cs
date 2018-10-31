@@ -45,8 +45,8 @@ namespace UnityStandardAssets.CrossPlatformInput
             enemyCount = GameObject.Find("FloorControl").GetComponent<EnemyCount>();
             enemyCount._enemyCount++;
 
-            _maxLife += Random.Range(100.0f,120.0f);
-            _maxLife += _monster_level;
+          
+
             _life = _maxLife;
           
         }

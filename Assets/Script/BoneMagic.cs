@@ -22,7 +22,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         {
             if (enemyObj.tag == "Enemy")
             {
-                if(enemyObj.name == "Skeleton(Clone)"){
+                if(enemyObj.name == "Skeleton(Clone)" || enemyObj.name == "SkeletonWeak1(Clone)" || enemyObj.name == "SkeletonWeak2(Clone)" || enemyObj.name == "SkeletonMedium1(Clone)" || enemyObj.name == "SkeletonMedium2(Clone)" ){
                     
                     enemyObj.GetComponent<SkeletonStatus>()._life -= player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPower;
                     enemyObj.GetComponent<SkeletonStatus>()._isMagic = true;

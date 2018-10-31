@@ -4782,12 +4782,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monster:
-  - {fileID: 1681615702762436, guid: e891445afbff34f89bc2f551e411f71a, type: 2}
+  - {fileID: 1685447650224284, guid: 7163027e3ede44905805e2a43a36149e, type: 2}
+  - {fileID: 1826731161927674, guid: d3f14dfe144ec473c96c564bfd358a92, type: 2}
   - {fileID: 1870020938508802, guid: 37686fc0c458241edacb5e890a6764e1, type: 2}
-  _howEnemy: 0300000003000000
+  - {fileID: 1681615702762436, guid: e891445afbff34f89bc2f551e411f71a, type: 2}
+  - {fileID: 1634905194212010, guid: 3bdc9ea3b7403415c8a119a5f151f88e, type: 2}
+  - {fileID: 1034563873169194, guid: a8bcfddafa61e4367b409acfe4347689, type: 2}
+  _howEnemy: 030000000300000003000000030000000300000003000000
   floorClearFrag: {fileID: 114129689463890726}
   _preStopWall: {fileID: 1648697160882814}
-  _howEnemyCount: 0000000000000000
+  _howEnemyCount: 000000000000000000000000000000000000000000000000
 --- !u!114 &114459201446622478
 MonoBehaviour:
   m_ObjectHideFlags: 1

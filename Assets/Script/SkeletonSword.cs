@@ -11,7 +11,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         void Start()
         {
             boxCollider = GetComponent<BoxCollider>();
-            _swordPower = 10;
+
         }
 
         // Update is called once per frame
