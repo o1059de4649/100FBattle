@@ -27,6 +27,13 @@ namespace UnityStandardAssets.CrossPlatformInput
                     enemyObj.GetComponent<SkeletonStatus>()._life -= player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPower;
                     enemyObj.GetComponent<SkeletonStatus>()._isMagic = true;
                 }
+
+                if (enemyObj.name == "Imomusi(Clone)")
+                {
+
+                    enemyObj.GetComponent<SkeletonStatus>()._life -= player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPower * 2;
+                    enemyObj.GetComponent<SkeletonStatus>()._isMagic = true;
+                }
             }
         }
 

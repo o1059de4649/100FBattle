@@ -4783,10 +4783,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monster:
   - {fileID: 1681615702762436, guid: e891445afbff34f89bc2f551e411f71a, type: 2}
-  _howEnemy: 03000000
+  - {fileID: 1870020938508802, guid: 37686fc0c458241edacb5e890a6764e1, type: 2}
+  _howEnemy: 0300000003000000
   floorClearFrag: {fileID: 114129689463890726}
   _preStopWall: {fileID: 1648697160882814}
-  _howEnemyCount: 00000000
+  _howEnemyCount: 0000000000000000
 --- !u!114 &114459201446622478
 MonoBehaviour:
   m_ObjectHideFlags: 1

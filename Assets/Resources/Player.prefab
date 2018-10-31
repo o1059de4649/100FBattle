@@ -5814,7 +5814,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1265629013653732}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.24, z: 0.832}
+  m_LocalPosition: {x: 0, y: 0.54, z: -20.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4963264512779768}
@@ -9618,6 +9618,9 @@ MonoBehaviour:
   _boneEssence: 0
   _magicPower: 1
   _SwordPower: 1
+  _money: 0
+  _MoveSpeedRL: 2
+  _isStringed: 0
 --- !u!114 &114567390073467546
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -32298,7 +32301,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1872357319011578}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -28}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
   m_Children: []
   m_Father: {fileID: 224692012481774928}
@@ -32306,7 +32309,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 773.9, y: -357.9}
+  m_AnchoredPosition: {x: 650.7, y: -466.7}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224858966939604396

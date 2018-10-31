@@ -8,6 +8,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         public float _life;
         public float _maxLife;
         public float _exp;
+        public float _enemyMoney;
         float _preLife;
         public int _monster_level;
         GameObject player;
@@ -125,6 +126,7 @@ namespace UnityStandardAssets.CrossPlatformInput
             _isDeath = true;
             GameObject _lifeball = Instantiate(lifeball, _spawnPosObj.transform.position, Quaternion.identity);
             player.GetComponent<UnityChanControlScriptWithRgidBody>().exp_point += _exp;
+            player.GetComponent<UnityChanControlScriptWithRgidBody>()._money += _enemyMoney;
             Destroy(this.gameObject, 2.0f);
 
         }

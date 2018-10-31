@@ -153,7 +153,11 @@ namespace UnityStandardAssets.CrossPlatformInput
         public float _boneEssence = 0;
         public float _magicPower = 1;
         public float _SwordPower = 1;
+        public float _money;
+        public float _MoveSpeedRL = 2;
         // 初期化
+
+        public bool _isStringed = false;
         void Start()
         {
             photonTransformView = GetComponent<PhotonTransformView>();
@@ -300,11 +304,11 @@ namespace UnityStandardAssets.CrossPlatformInput
             //以下のvの閾値は、Mecanim側のトランジションと一緒に調整する
             if (r > 0.1)
             {
-                h_velocity *= 2;       // 移動速度を掛ける
+                h_velocity *= _MoveSpeedRL;       // 移動速度を掛ける
             }
             else if (r < -0.1)
             {
-                h_velocity *= 2;  // 移動速度を掛ける
+                h_velocity *= _MoveSpeedRL;  // 移動速度を掛ける
             }
 
 
@@ -934,6 +938,21 @@ namespace UnityStandardAssets.CrossPlatformInput
             gun_audio.PlayOneShot(cube_get);
         }
 
+        public void OnWormString(){
+            forwardSpeed *= 0.5f;
+            backwardSpeed *= 0.5f;
+            _MoveSpeedRL *= 0.5f;
+            _isStringed = true;
+            Invoke("OffWormString", 2.0f);
+        }
+
+        public void OffWormString(){
+            forwardSpeed = 7;
+            backwardSpeed = 2;
+            _MoveSpeedRL = 2;
+            _isStringed = false;
+
+        }
 
     }
 }

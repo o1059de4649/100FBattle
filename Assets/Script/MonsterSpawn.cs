@@ -11,11 +11,14 @@ namespace UnityStandardAssets.CrossPlatformInput
         public FloorClearFrag floorClearFrag;
         public GameObject _preStopWall;
         public int[] _howEnemyCount;
+
+        EnemyCount enemyCount;
         // Use this for initialization
         void Start()
         {
+            enemyCount = GameObject.Find("FloorControl").GetComponent<EnemyCount>();
             _howEnemyCount[0] = _howEnemy[0];
-
+            _howEnemyCount[1] = _howEnemy[1];
         }
 
         // Update is called once per frame
@@ -34,6 +37,15 @@ namespace UnityStandardAssets.CrossPlatformInput
 
                     _preStopWall.SetActive(true);
                    
+                }
+
+                if (_howEnemyCount[1] >= 1 && enemyCount._FloorLevel >= 5)
+                {
+                    Instantiate(monster[1], transform.position + new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10)), Quaternion.identity);
+                    _howEnemyCount[1]--;
+
+                    _preStopWall.SetActive(true);
+
                 }
 
 
