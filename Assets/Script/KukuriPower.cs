@@ -9,13 +9,14 @@ namespace UnityStandardAssets.CrossPlatformInput
         public float _swordPower;
         float _waitTime;
         public GameObject _kukuri_effect;
-       
+        public UnityChanControlScriptWithRgidBody _uniyuchanControl;
 
         // Use this for initialization
         void Start()
         {
             boxCollider = GetComponent<BoxCollider>();
-            _swordPower = 10;
+            _swordPower = 10 + _uniyuchanControl._SwordPower;
+
         }
 
         // Update is called once per frame

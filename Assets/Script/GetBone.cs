@@ -13,7 +13,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         // Use this for initialization
         void Start()
         {
-
+            Destroy(this.gameObject, 100.0f);
         }
 
         // Update is called once per frame
@@ -31,7 +31,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 transform.LookAt(col.gameObject.transform);
                 velocity = new Vector3(h, 0, v);
                 velocity = transform.TransformDirection(velocity);
-                transform.localPosition += velocity * Time.fixedDeltaTime;
+                transform.localPosition += velocity * Time.fixedDeltaTime * 3;
                 v += Time.deltaTime;
             }
         }

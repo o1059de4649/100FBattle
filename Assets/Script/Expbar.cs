@@ -25,9 +25,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         // Update is called once per frame
         void Update()
         {
-            if(!PhotonControll.player){
-                return;
-            }
+            
 
 
             bar_exp_point = p_player.GetComponent<UnityChanControlScriptWithRgidBody>().exp_point;

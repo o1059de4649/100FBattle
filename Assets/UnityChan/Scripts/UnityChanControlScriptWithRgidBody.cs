@@ -152,7 +152,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         public float _boneEssence = 0;
         public float _magicPower = 1;
-
+        public float _SwordPower = 1;
         // 初期化
         void Start()
         {

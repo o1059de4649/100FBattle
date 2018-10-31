@@ -7,6 +7,7 @@ namespace UnityStandardAssets.CrossPlatformInput
     {
         public float _life;
         public float _maxLife;
+        public float _exp;
         float _preLife;
         public int _monster_level;
         GameObject player;
@@ -32,6 +33,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         public BoxCollider boxCollider;
 
         public bool _isMagic = false;
+        EnemyCount enemyCount;
         // Use this for initialization
         void Start()
         {
@@ -39,7 +41,8 @@ namespace UnityStandardAssets.CrossPlatformInput
             rb = GetComponent<Rigidbody>();
             anim = GetComponent<Animator>();
 
-          
+            enemyCount = GameObject.Find("FloorControl").GetComponent<EnemyCount>();
+            enemyCount._enemyCount++;
 
             _maxLife += Random.Range(100.0f,120.0f);
             _maxLife += _monster_level;
@@ -61,7 +64,10 @@ namespace UnityStandardAssets.CrossPlatformInput
 
             _delay_attack += Time.deltaTime;
 
-            transform.LookAt(player.transform);
+            if(_isDeath == false){
+                transform.LookAt(player.transform);
+            }
+          
             velocity = new Vector3(h, 0, v);
             velocity = transform.TransformDirection(velocity);
 
@@ -77,7 +83,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
 
 
-            if(_preLife != _life){
+            if(_preLife != _life && _isDeath == false){
                 _randomPos = Random.Range(-2,2);
                 anim.SetTrigger("Hit1");
 
@@ -113,11 +119,14 @@ namespace UnityStandardAssets.CrossPlatformInput
         }
 
         void Death(){
+            enemyCount._enemyCount--;
             _delay_attack = -100;
             anim.SetTrigger("Fall1");
             _isDeath = true;
             GameObject _lifeball = Instantiate(lifeball, _spawnPosObj.transform.position, Quaternion.identity);
+            player.GetComponent<UnityChanControlScriptWithRgidBody>().exp_point += _exp;
             Destroy(this.gameObject, 2.0f);
+
         }
 
         void OffAttack(){
