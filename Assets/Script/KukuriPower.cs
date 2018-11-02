@@ -15,13 +15,14 @@ namespace UnityStandardAssets.CrossPlatformInput
         void Start()
         {
             boxCollider = GetComponent<BoxCollider>();
-            _swordPower = 10 + _uniyuchanControl._SwordPower;
+           
 
         }
 
         // Update is called once per frame
         void Update()
         {
+           
             _waitTime += Time.deltaTime;
         }
 
@@ -33,7 +34,7 @@ namespace UnityStandardAssets.CrossPlatformInput
             if (col.gameObject.tag == "Enemy")
             {
                 if(_waitTime >= 0.5f){
-                    col.gameObject.GetComponent<SkeletonStatus>()._life -= _swordPower;
+                    col.gameObject.GetComponent<SkeletonStatus>()._life -= _swordPower - _uniyuchanControl._SwordPower;
                     col.gameObject.GetComponent<SkeletonStatus>()._isMagic = false;
                     _waitTime = 0;
                 }

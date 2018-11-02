@@ -28,28 +28,20 @@ namespace UnityStandardAssets.CrossPlatformInput
            
 
 
-            if (PhotonControll.playerCreate > 0)
-            {
-
-                if (y_CameraTarget == null)
-                {
-                    y_CameraTarget = PhotonControll.player.transform.Find("CameraStork").gameObject;
-                }
-            }
+           
 
             if(cameraRotate.m_Dragging == false){
                 return;
             }
 
            
-            if (photonView.isMine)
-            {
+           
                 
                 float y = CrossPlatformInputManager.GetAxis("Mouse Y");
                 y = cameraRotate.newAngle_y.x;
                 y_CameraTarget.transform.Rotate(-y * speed,0, 0);
 
-            }
+
 
            
 

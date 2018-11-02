@@ -155,17 +155,31 @@ namespace UnityStandardAssets.CrossPlatformInput
         public float _SwordPower = 1;
         public float _money;
         public float _MoveSpeedRL = 2;
+
+
         // 初期化
 
         public bool _isStringed = false;
         void Start()
         {
+            exp_point = PlayerPrefs.GetFloat("Exp", 0);
+            player_Level = PlayerPrefs.GetInt("Level", 0);
+            _SwordPower = PlayerPrefs.GetFloat("Power", 0) + 1;
+            maxLife = PlayerPrefs.GetFloat("MaxLife", 0);
+
+           
+            _money =PlayerPrefs.GetFloat("Money", 0);
+            _magicPower = PlayerPrefs.GetFloat("MagicPower", 0) + 1;
+
+            maxLife = life + lifePlus;
+            life = maxLife;
+
             photonTransformView = GetComponent<PhotonTransformView>();
           
 
 
             u_photonView = GetComponent<PhotonView>();
-            if (u_photonView.isMine)
+           /* if (u_photonView.isMine)
             {
                 photonControll = GameObject.Find("PhotonController");
 
@@ -205,7 +219,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 head.gameObject.tag = "MyHead";
                
                
-            }
+            }*/
 
 
             // Animatorコンポーネントを取得する

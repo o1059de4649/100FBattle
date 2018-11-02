@@ -11,7 +11,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         public float speed = 1;
         public GameObject _player;
         public CameraRotate cameraRotate;
-
+        public float x;
         // Use this for initialization
         void Start()
         {
@@ -22,23 +22,20 @@ namespace UnityStandardAssets.CrossPlatformInput
         void FixedUpdate()
         {
             
-            if(!photonView.isMine){
-                return;
-            }
+           
 
             if (cameraRotate.m_Dragging == false)
             {
                 return;
             }
 
-            if (photonView.isMine)
-            {
+
                
-                float x= CrossPlatformInputManager.GetAxis("Mouse X");
+                
                 x = cameraRotate.newAngle_x.y;
                     transform.Rotate(0,-x * speed, 0);
  
-            }
+
 
         }
 

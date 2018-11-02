@@ -20,10 +20,10 @@ namespace UnityStandardAssets.CrossPlatformInput
         // Update is called once per frame
         void Update()
         {
-           
 
-           
-                
+
+
+            hpbarslider.maxValue = p_player.GetComponent<UnityChanControlScriptWithRgidBody>().maxLife;
                     hpbarslider.value = p_player.GetComponent<UnityChanControlScriptWithRgidBody>().life;
                
                

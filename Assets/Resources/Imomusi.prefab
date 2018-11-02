@@ -888,7 +888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _life: 0
-  _maxLife: 0
+  _maxLife: 85
   _exp: 15
   _enemyMoney: 15
   _monster_level: 0

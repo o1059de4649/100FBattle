@@ -37,7 +37,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         private void OnCollisionEnter(Collision collision)
         {
             if(collision.gameObject.tag == "Player"){
-                collision.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>().life += collision.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>().maxLife * 0.07f;
+                collision.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>().life += collision.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>().maxLife * 0.1f;
                 collision.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>().maxLife++;
                 Destroy(this.gameObject);
             }

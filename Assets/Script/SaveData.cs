@@ -11,16 +11,24 @@ namespace UnityStandardAssets.CrossPlatformInput
         public int p_BlueCube;
         public int p_GreenCube;
         public float p_exp;
-        public float p_lifePlus;
+        public float p_maxLife;
         public float p_Protect;
-        public float p_BulletPower;
+        public float p_Power;
 
+        public float p_magicPower;
+        public float p_money;
+
+        public int p_MaxFloor;
         public string player_name;
-       
+        public GameObject player;
+        public EnemyCount enemyCount;
+
+        public int p_floorLevel;
         // Use this for initialization
         void Start()
         {
-          
+            player = GameObject.Find("Player");
+            enemyCount = GameObject.Find("FloorControl").GetComponent<EnemyCount>();
         }
 
         // Update is called once per frame
@@ -30,15 +38,20 @@ namespace UnityStandardAssets.CrossPlatformInput
         }
 
         public void Save(){
-            p_exp = PhotonControll.player.GetComponent<UnityChanControlScriptWithRgidBody>().exp_point;
-            player_name = GameObject.Find("PhotonController").GetComponent<PhotonControll>().playerName.text;
-            p_Level = PhotonControll.player.GetComponent<UnityChanControlScriptWithRgidBody>().player_Level;
-            p_RedCube = PhotonControll.player.GetComponent<UnityChanControlScriptWithRgidBody>().red_Cube;
-            p_BlueCube = PhotonControll.player.GetComponent<UnityChanControlScriptWithRgidBody>().blue_Cube;
-            p_GreenCube = PhotonControll.player.GetComponent<UnityChanControlScriptWithRgidBody>().green_Cube;
-            p_lifePlus = PhotonControll.player.GetComponent<UnityChanControlScriptWithRgidBody>().lifePlus;
-            p_Protect = PhotonControll.player.GetComponent<UnityChanControlScriptWithRgidBody>().protectPlus;
-            p_BulletPower = PhotonControll.player.GetComponent<UnityChanControlScriptWithRgidBody>().bullet_Power;
+            p_exp = player.GetComponent<UnityChanControlScriptWithRgidBody>().exp_point;
+
+            p_Level = player.GetComponent<UnityChanControlScriptWithRgidBody>().player_Level;
+            p_RedCube = player.GetComponent<UnityChanControlScriptWithRgidBody>().red_Cube;
+            p_BlueCube = player.GetComponent<UnityChanControlScriptWithRgidBody>().blue_Cube;
+            p_GreenCube = player.GetComponent<UnityChanControlScriptWithRgidBody>().green_Cube;
+            p_Protect = player.GetComponent<UnityChanControlScriptWithRgidBody>().protectPlus;
+
+
+            p_maxLife = player.GetComponent<UnityChanControlScriptWithRgidBody>().maxLife;
+            p_Power = player.GetComponent<UnityChanControlScriptWithRgidBody>()._SwordPower;
+            p_magicPower = player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPower;
+            p_money = player.GetComponent<UnityChanControlScriptWithRgidBody>()._money;
+            p_MaxFloor = enemyCount._MaxFloorLevel;
 
             PlayerPrefs.SetFloat("Exp", p_exp);
             PlayerPrefs.SetInt("Level", p_Level);
@@ -46,12 +59,25 @@ namespace UnityStandardAssets.CrossPlatformInput
             PlayerPrefs.SetInt("RedCube", p_RedCube);
             PlayerPrefs.SetInt("BlueCube", p_BlueCube);
             PlayerPrefs.SetInt("GreenCube", p_GreenCube);
-            PlayerPrefs.SetFloat("LifePuls",p_lifePlus);
+            PlayerPrefs.SetFloat("MaxLife",p_maxLife);
             PlayerPrefs.SetFloat("ProtectPlus", p_Protect);
-            PlayerPrefs.SetFloat("BulletPower", p_BulletPower);
+            PlayerPrefs.SetFloat("Power", p_Power);
 
+            PlayerPrefs.SetFloat("MagicPower", p_magicPower);
+            PlayerPrefs.SetFloat("Money", p_money);
+            PlayerPrefs.SetInt("FloorLevel", p_MaxFloor);
 
             PlayerPrefs.Save();
+        }
+
+        public void OnTriggerEnter(Collider collider)
+        {
+            if(collider.gameObject.tag == "Player"){
+                collider.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>().life = collider.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>().maxLife;
+                Save();
+            }
+
+
         }
     }
 
