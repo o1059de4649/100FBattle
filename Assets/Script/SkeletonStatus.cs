@@ -35,6 +35,8 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         public bool _isMagic = false;
         EnemyCount enemyCount;
+
+        public bool _isString = false;
         // Use this for initialization
         void Start()
         {
@@ -54,6 +56,8 @@ namespace UnityStandardAssets.CrossPlatformInput
         // Update is called once per frame
         void Update()
         {
+            
+
             if (_life <= 0)
             {
                 v = 0;
@@ -61,6 +65,12 @@ namespace UnityStandardAssets.CrossPlatformInput
                 if(_isDeath == false){
                     Death();
                 }
+            }
+
+            if (_isString)
+            {
+                OnString();
+                return;
             }
 
             _delay_attack += Time.deltaTime;
@@ -135,6 +145,15 @@ namespace UnityStandardAssets.CrossPlatformInput
             boxCollider.enabled = false;
         }
 
-       
+        void OnString(){
+            v = 0;
+            Invoke("OffString", 10.0f);
+        }
+
+        void OffString(){
+            _isString = false;
+        }
+
+
     }
 }

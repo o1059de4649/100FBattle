@@ -151,6 +151,8 @@ namespace UnityStandardAssets.CrossPlatformInput
         private PhotonTransformView photonTransformView;
 
         public float _boneEssence = 0;
+        public float _stringEssence = 0;
+
         public float _magicPower = 1;
         public float _SwordPower = 1;
         public float _money;

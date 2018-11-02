@@ -427,7 +427,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1736445200157464}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.97, z: 0}
+  m_LocalPosition: {x: 0, y: 4.85, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4641093058338758}
@@ -893,13 +893,14 @@ MonoBehaviour:
   _enemyMoney: 15
   _monster_level: 0
   lifeball: {fileID: 1693653089469054, guid: aa193a0f23d034314aa62fbf57cda66a, type: 2}
-  boneball: {fileID: 1972189473834348, guid: 32e2b87aed505451aa1bd813cc9d9b02, type: 2}
+  boneball: {fileID: 1709005759039386, guid: 8c4e9a0c1509f4048a89671650784add, type: 2}
   _spawnPosObj: {fileID: 1736445200157464}
   h: 0
   v: 0
   _itemDropForce: 0
   boxCollider: {fileID: 65503198626155266}
   _isMagic: 0
+  _isString: 0
 --- !u!135 &135045941652928452
 SphereCollider:
   m_ObjectHideFlags: 1
