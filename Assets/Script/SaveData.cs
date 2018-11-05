@@ -48,7 +48,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
 
             p_maxLife = player.GetComponent<UnityChanControlScriptWithRgidBody>().maxLife;
-            p_Power = player.GetComponent<UnityChanControlScriptWithRgidBody>()._SwordPower;
+            p_Power = player.GetComponent<UnityChanControlScriptWithRgidBody>()._attackPower;
             p_magicPower = player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPower;
             p_money = player.GetComponent<UnityChanControlScriptWithRgidBody>()._money;
             p_MaxFloor = enemyCount._MaxFloorLevel;
@@ -61,7 +61,7 @@ namespace UnityStandardAssets.CrossPlatformInput
             PlayerPrefs.SetInt("GreenCube", p_GreenCube);
             PlayerPrefs.SetFloat("MaxLife",p_maxLife);
             PlayerPrefs.SetFloat("ProtectPlus", p_Protect);
-            PlayerPrefs.SetFloat("Power", p_Power);
+            PlayerPrefs.SetFloat("PowerPlus", p_Power);
 
             PlayerPrefs.SetFloat("MagicPower", p_magicPower);
             PlayerPrefs.SetFloat("Money", p_money);

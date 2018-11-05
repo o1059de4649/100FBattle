@@ -24,7 +24,10 @@ namespace UnityStandardAssets.CrossPlatformInput
         {
             if (col.gameObject.tag == "Player")
             {
-                
+                if(col.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>()._isCrystal == true){
+                    col.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>().life -= _swordPower / 3;
+                    return;
+                }
                 col.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>().life -= _swordPower;
             }
         }

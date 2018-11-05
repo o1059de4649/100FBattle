@@ -34,7 +34,7 @@ namespace UnityStandardAssets.CrossPlatformInput
             if (col.gameObject.tag == "Enemy")
             {
                 if(_waitTime >= 0.5f){
-                    col.gameObject.GetComponent<SkeletonStatus>()._life -= _swordPower - _uniyuchanControl._SwordPower;
+                    col.gameObject.GetComponent<SkeletonStatus>()._life -= _swordPower;
                     col.gameObject.GetComponent<SkeletonStatus>()._isMagic = false;
                     _waitTime = 0;
                 }
