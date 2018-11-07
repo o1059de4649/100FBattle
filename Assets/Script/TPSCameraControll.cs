@@ -9,7 +9,7 @@ namespace UnityStandardAssets.CrossPlatformInput
     {
        
         public float speed = 1;
-        public GameObject _player;
+
         public CameraRotate cameraRotate;
         public float x;
         // Use this for initialization

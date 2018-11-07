@@ -154,12 +154,18 @@ namespace UnityStandardAssets.CrossPlatformInput
         public float _stringEssence = 0;
         public float _fireEssence = 0;
         public float _CrystalEssence = 0;
+        public float _iceEssence = 0;
+
+        public float _maxEssence = 0;
+        public float _maxEssencePlus;
 
         public float _magicPower = 1;
+       
         public float _SwordPower = 1;
         public float _money;
         public float _MoveSpeedRL = 2;
 
+        public float _magicPowerPlus = 0;
         public float _attackPower = 0;
 
         public bool _isCrystal = false;
@@ -168,20 +174,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         public GameObject _crystalParticle;
         void Start()
         {
-            exp_point = PlayerPrefs.GetFloat("Exp", 0);
-            player_Level = PlayerPrefs.GetInt("Level", 0);
-
-            _SwordPower = PlayerPrefs.GetFloat("PowerPlus", 0) + player_Level * 0.5f;
-            maxLife = PlayerPrefs.GetFloat("MaxLife", 0);
-
-           
-            _money =PlayerPrefs.GetFloat("Money", 0);
-            _magicPower = PlayerPrefs.GetFloat("MagicPower", 0) + 1;
-
-
-            maxLife = life + lifePlus + player_Level;
-            life = maxLife;
-
+            SetUp();
             photonTransformView = GetComponent<PhotonTransformView>();
           
 
@@ -242,7 +235,28 @@ namespace UnityStandardAssets.CrossPlatformInput
             orgVectColCenter = col.center;
         }
 
+        public void SetUp(){
+            exp_point = PlayerPrefs.GetFloat("Exp", 0);
+            player_Level = PlayerPrefs.GetInt("Level", 0);
+            _SwordPower = PlayerPrefs.GetFloat("PowerPlus", 0) + player_Level * 0.5f;
+            maxLife = PlayerPrefs.GetFloat("MaxLife", 0);
+            _money = PlayerPrefs.GetFloat("Money", 0);
+            _magicPower = PlayerPrefs.GetFloat("MagicPowerPlus", 0) + player_Level * 0.2f;
 
+            _boneEssence = PlayerPrefs.GetFloat("BoneEssence", 0);
+            _stringEssence = PlayerPrefs.GetFloat("StringEssence", 0);
+            _fireEssence = PlayerPrefs.GetFloat("FireEssence", 0);
+            _CrystalEssence = PlayerPrefs.GetFloat("CrystalEssence", 0);
+            _iceEssence = PlayerPrefs.GetFloat("IceEssence", 0);
+
+            _maxEssence = PlayerPrefs.GetFloat("EssencePlus", 0) + 30;
+
+
+            maxLife = life + lifePlus + player_Level;
+            life = maxLife;
+            Max_exp_point = player_Level * 50 + 100;
+
+        }
         // 以下、メイン処理.リジッドボディと絡めるので、FixedUpdate内で処理を行う.
         void FixedUpdate()
         {
@@ -263,15 +277,40 @@ namespace UnityStandardAssets.CrossPlatformInput
             r = CrossPlatformInputManager.GetAxisRaw("Horizontal");
             v = CrossPlatformInputManager.GetAxisRaw("Vertical");
 
-          
-          
+          //エッセンス管理
+            if(_maxEssence < _boneEssence){
+                _boneEssence = _maxEssence;
+            }
 
+            if (_maxEssence < _stringEssence)
+            {
+                _stringEssence = _maxEssence;
+            }
 
+            if (_maxEssence < _fireEssence)
+            {
+                _fireEssence = _maxEssence;
+            }
+
+            if (_maxEssence < _iceEssence)
+            {
+                _iceEssence = _maxEssence;
+            }
+
+            if (_maxEssence < _CrystalEssence)
+            {
+                _CrystalEssence = _maxEssence;
+            }
+            //エッセンス管理終了
+
+            //レベル管理
             if(Max_exp_point <= exp_point){
-                exp_point -= 100;
+                exp_point -= Max_exp_point;
+                Max_exp_point += player_Level * 50;
                 player_Level++;
             }
 
+            //ライフ管理
             if(life > maxLife){
                 life = maxLife;
             }
@@ -581,7 +620,7 @@ namespace UnityStandardAssets.CrossPlatformInput
             anim.SetBool("AssualtADS", false);
         }
 
-
+        /*
         [PunRPC]
         public void OnPlayerDestroy()
         {
@@ -645,15 +684,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         }
 
 
-        [PunRPC]
-        public void SetStatus(){
-
-            if(u_photonView.isMine){
-                return;
-            }
-
-           
-        }
+       
 
         [PunRPC]
         public void ItemSpawnReturn(){
@@ -959,6 +990,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         {
             gun_audio.PlayOneShot(cube_get);
         }
+        */
 
         public void OnWormString(){
             forwardSpeed *= 0.5f;

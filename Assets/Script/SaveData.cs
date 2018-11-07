@@ -23,6 +23,14 @@ namespace UnityStandardAssets.CrossPlatformInput
         public GameObject player;
         public EnemyCount enemyCount;
 
+        public float p_boneEssence;
+        public float p_stringEssence;
+        public float p_fireEssence;
+        public float p_iceEddence;
+        public float p_crystalEssence;
+
+        public float p_EssencePlus;
+
         public int p_floorLevel;
         // Use this for initialization
         void Start()
@@ -49,9 +57,18 @@ namespace UnityStandardAssets.CrossPlatformInput
 
             p_maxLife = player.GetComponent<UnityChanControlScriptWithRgidBody>().maxLife;
             p_Power = player.GetComponent<UnityChanControlScriptWithRgidBody>()._attackPower;
-            p_magicPower = player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPower;
+            p_magicPower = player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPowerPlus;
             p_money = player.GetComponent<UnityChanControlScriptWithRgidBody>()._money;
             p_MaxFloor = enemyCount._MaxFloorLevel;
+
+            p_boneEssence = player.GetComponent<UnityChanControlScriptWithRgidBody>()._boneEssence;
+            p_stringEssence = player.GetComponent<UnityChanControlScriptWithRgidBody>()._stringEssence;
+            p_fireEssence = player.GetComponent<UnityChanControlScriptWithRgidBody>()._fireEssence;
+            p_iceEddence = player.GetComponent<UnityChanControlScriptWithRgidBody>()._iceEssence;
+            p_crystalEssence = player.GetComponent<UnityChanControlScriptWithRgidBody>()._CrystalEssence;
+
+            p_EssencePlus = player.GetComponent<UnityChanControlScriptWithRgidBody>()._maxEssencePlus;
+
 
             PlayerPrefs.SetFloat("Exp", p_exp);
             PlayerPrefs.SetInt("Level", p_Level);
@@ -63,9 +80,20 @@ namespace UnityStandardAssets.CrossPlatformInput
             PlayerPrefs.SetFloat("ProtectPlus", p_Protect);
             PlayerPrefs.SetFloat("PowerPlus", p_Power);
 
-            PlayerPrefs.SetFloat("MagicPower", p_magicPower);
+            PlayerPrefs.SetFloat("MagicPowerPlus", p_magicPower);
             PlayerPrefs.SetFloat("Money", p_money);
             PlayerPrefs.SetInt("FloorLevel", p_MaxFloor);
+
+            PlayerPrefs.SetFloat("BoneEssence", p_boneEssence);
+            PlayerPrefs.SetFloat("StringEssence", p_stringEssence);
+            PlayerPrefs.SetFloat("FireEssence", p_fireEssence);
+            PlayerPrefs.SetFloat("IceEssence", p_iceEddence);
+            PlayerPrefs.SetFloat("CrystalEssence", p_crystalEssence);
+
+            PlayerPrefs.SetFloat("EssencePlus", p_EssencePlus);
+
+
+
 
             PlayerPrefs.Save();
         }
@@ -73,8 +101,12 @@ namespace UnityStandardAssets.CrossPlatformInput
         public void OnTriggerEnter(Collider collider)
         {
             if(collider.gameObject.tag == "Player"){
+                
+
                 collider.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>().life = collider.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>().maxLife;
                 Save();
+
+                player.GetComponent<UnityChanControlScriptWithRgidBody>().SetUp();
             }
 
 

@@ -2217,7 +2217,7 @@ BoxCollider:
   m_GameObject: {fileID: 1307358149412434}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.5, y: 1.33, z: 0.15}
   m_Center: {x: 0, y: 0.36, z: 0}
@@ -2354,7 +2354,7 @@ MonoBehaviour:
   h: 0
   v: 0
   _itemDropForce: 0
-  boxCollider: {fileID: 65488044690961016}
+  boxCollider: {fileID: 65671366025333420}
   _isMagic: 0
   _isString: 0
 --- !u!114 &114307100797492960
@@ -16438,8 +16438,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -5, y: 0}
-  m_SizeDelta: {x: -20, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224136409789343246
 RectTransform:
@@ -16493,7 +16493,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 10, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224437261670685634
 RectTransform:

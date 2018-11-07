@@ -28,6 +28,10 @@ namespace UnityStandardAssets.CrossPlatformInput
             _howEnemyCount[8] = _howEnemy[8];
             _howEnemyCount[9] = _howEnemy[9];
             _howEnemyCount[10] = _howEnemy[10];
+            _howEnemyCount[11] = _howEnemy[11];
+            _howEnemyCount[12] = _howEnemy[12];
+            _howEnemyCount[13] = _howEnemy[13];
+            _howEnemyCount[14] = _howEnemy[14];
         }
 
         // Update is called once per frame
@@ -102,7 +106,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
                 }
 
-                if (_howEnemyCount[7] >= 1 && 26 > enemyCount._FloorLevel && enemyCount._FloorLevel >= 20)
+                if (_howEnemyCount[7] >= 1 && 30 > enemyCount._FloorLevel && enemyCount._FloorLevel >= 20)
                 {
                     Instantiate(monster[7], transform.position + new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10)), Quaternion.identity);
                     _howEnemyCount[7]--;
@@ -120,6 +124,8 @@ namespace UnityStandardAssets.CrossPlatformInput
 
                 }
 
+               
+
                 if (_howEnemyCount[9] >= 1 && 30 > enemyCount._FloorLevel && enemyCount._FloorLevel >= 24)
                 {
                     Instantiate(monster[9], transform.position + new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10)), Quaternion.identity);
@@ -133,6 +139,42 @@ namespace UnityStandardAssets.CrossPlatformInput
                 {
                     Instantiate(monster[10], transform.position + new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10)), Quaternion.identity);
                     _howEnemyCount[10]--;
+
+                    _preStopWall.SetActive(true);
+
+                }
+
+                if (_howEnemyCount[11] >= 1 && enemyCount._FloorLevel == 30)
+                {
+                    Instantiate(monster[11], transform.position + new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10)), Quaternion.identity);
+                    _howEnemyCount[11]--;
+
+                    _preStopWall.SetActive(true);
+
+                }
+
+                if (_howEnemyCount[13] >= 1 && 35 > enemyCount._FloorLevel && enemyCount._FloorLevel >= 30)
+                {
+                    Instantiate(monster[13], transform.position + new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10)), Quaternion.identity);
+                    _howEnemyCount[13]--;
+
+                    _preStopWall.SetActive(true);
+
+                }
+
+                if (_howEnemyCount[12] >= 1 && 35 > enemyCount._FloorLevel && enemyCount._FloorLevel >= 30)
+                {
+                    Instantiate(monster[12], transform.position + new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10)), Quaternion.identity);
+                    _howEnemyCount[12]--;
+
+                    _preStopWall.SetActive(true);
+
+                }
+
+                if (_howEnemyCount[14] >= 1 && 38 > enemyCount._FloorLevel && enemyCount._FloorLevel >= 33)
+                {
+                    Instantiate(monster[14], transform.position + new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10)), Quaternion.identity);
+                    _howEnemyCount[14]--;
 
                     _preStopWall.SetActive(true);
 

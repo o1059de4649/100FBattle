@@ -9,10 +9,9 @@ namespace UnityStandardAssets.CrossPlatformInput
     {
         public float speed = 1;
         public GameObject y_CameraTarget;
-        GameObject p_player;
+
         public CameraRotate cameraRotate;
-        RaycastHit hit;
-        Ray ray;
+        public float y;
        
         // Use this for initialization
         void Start()
@@ -37,7 +36,7 @@ namespace UnityStandardAssets.CrossPlatformInput
            
            
                 
-                float y = CrossPlatformInputManager.GetAxis("Mouse Y");
+                
                 y = cameraRotate.newAngle_y.x;
                 y_CameraTarget.transform.Rotate(-y * speed,0, 0);
 

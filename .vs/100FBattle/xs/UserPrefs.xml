@@ -1,23 +1,17 @@
 ﻿<Properties StartupConfiguration="{3E78C741-62A7-DB31-C2C9-7D30606E98C1}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/FireButton.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/UnityChan/Scripts/UnityChanControlScriptWithRgidBody.cs">
     <Files>
       <File FileName="Assets/Script/SkeletonStatus.cs" Line="150" Column="40" />
-      <File FileName="Assets/Script/SkeletonSword.cs" Line="29" Column="18" />
-      <File FileName="Assets/Script/SaveData.cs" Line="51" Column="94" />
-      <File FileName="Assets/Script/StringButton.cs" Line="10" Column="1" />
-      <File FileName="Assets/Script/StringMagic.cs" Line="14" Column="10" />
-      <File FileName="Assets/Script/GetString.cs" Line="17" Column="46" />
-      <File FileName="Assets/Script/MonsterSpawn.cs" Line="101" Column="1" />
-      <File FileName="Assets/Script/KukuriPower.cs" Line="37" Column="88" />
-      <File FileName="Assets/Script/GetFire.cs" Line="4" Column="1" />
-      <File FileName="Assets/Script/BoneMagic.cs" Line="4" Column="1" />
-      <File FileName="Assets/Script/FireMagic.cs" Line="29" Column="148" />
-      <File FileName="Assets/Script/FireButton.cs" Line="44" Column="1" />
-      <File FileName="Assets/UnityChan/Scripts/UnityChanControlScriptWithRgidBody.cs" Line="165" Column="40" />
-      <File FileName="Assets/Script/GetCrystal.cs" Line="44" Column="110" />
-      <File FileName="Assets/Script/CrystalMagic.cs" Line="10" Column="3" />
-      <File FileName="Assets/Script/CrystalButton.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/SkeletonSword.cs" Line="29" Column="28" />
+      <File FileName="Assets/Script/SaveData.cs" Line="95" Column="1" />
+      <File FileName="Assets/UnityChan/Scripts/UnityChanControlScriptWithRgidBody.cs" Line="257" Column="53" />
+      <File FileName="Assets/Script/MonsterSpawn.cs" Line="113" Column="1" />
+      <File FileName="Assets/Script/WeaponTable.cs" Line="39" Column="27" />
+      <File FileName="Assets/Script/WeaponShopExit.cs" Line="22" Column="1" />
+      <File FileName="Assets/Script/SwordUpdate.cs" Line="26" Column="90" />
+      <File FileName="Assets/Script/MagicPowerUpdate.cs" Line="31" Column="1" />
+      <File FileName="Assets/Script/EssenceUpdate.cs" Line="29" Column="93" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

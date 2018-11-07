@@ -23,7 +23,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         {
             if (enemyObj.tag == "Enemy")
             {
-                if (enemyObj.name == "golem(Clone)")
+                if (enemyObj.name == "golem(Clone)" || enemyObj.name == "icedemon(Clone)")
                 {
                     enemyObj.GetComponent<SkeletonStatus>()._life -= player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPower * 3;
                     enemyObj.GetComponent<SkeletonStatus>()._isMagic = true;
@@ -36,7 +36,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                     enemyObj.GetComponent<SkeletonStatus>()._isMagic = true;
                 }
 
-                if (enemyObj.name == "Imomusi(Clone)" || enemyObj.name == "ImomusiBoss(Clone)")
+                if (enemyObj.name == "Imomusi(Clone)" || enemyObj.name == "ImomusiBoss(Clone)" || enemyObj.name == "Imomusi2(Clone)")
                 {
 
                     enemyObj.GetComponent<SkeletonStatus>()._life -= player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPower * 3;

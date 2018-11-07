@@ -10,13 +10,13 @@ namespace UnityStandardAssets.CrossPlatformInput
         float _waitTime;
         public GameObject _kukuri_effect;
         public UnityChanControlScriptWithRgidBody _uniyuchanControl;
-
+        GameObject player;
         // Use this for initialization
         void Start()
         {
             boxCollider = GetComponent<BoxCollider>();
-           
 
+            player = GameObject.Find("Player");
         }
 
         // Update is called once per frame
@@ -35,6 +35,7 @@ namespace UnityStandardAssets.CrossPlatformInput
             {
                 if(_waitTime >= 0.5f){
                     col.gameObject.GetComponent<SkeletonStatus>()._life -= _swordPower;
+                    col.gameObject.GetComponent<SkeletonStatus>()._life -= player.GetComponent<UnityChanControlScriptWithRgidBody>()._SwordPower;
                     col.gameObject.GetComponent<SkeletonStatus>()._isMagic = false;
                     _waitTime = 0;
                 }
