@@ -37,6 +37,8 @@ namespace UnityStandardAssets.CrossPlatformInput
         EnemyCount enemyCount;
 
         public bool _isString = false;
+
+        public GameObject _instatinateParticle;
         // Use this for initialization
         void Start()
         {
@@ -47,8 +49,8 @@ namespace UnityStandardAssets.CrossPlatformInput
             enemyCount = GameObject.Find("FloorControl").GetComponent<EnemyCount>();
             enemyCount._enemyCount++;
 
-          
-
+            GameObject obj = Instantiate(_instatinateParticle,this.transform.position, Quaternion.identity);
+            Destroy(obj, 2.0f);
             _life = _maxLife;
           
         }
@@ -56,7 +58,9 @@ namespace UnityStandardAssets.CrossPlatformInput
         // Update is called once per frame
         void Update()
         {
-            
+            if(_maxLife <= _life){
+                _life = _maxLife;
+            }
 
             if (_life <= 0)
             {

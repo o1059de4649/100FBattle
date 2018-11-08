@@ -951,6 +951,8 @@ MonoBehaviour:
   boxCollider: {fileID: 65503198626155266}
   _isMagic: 0
   _isString: 0
+  _instatinateParticle: {fileID: 1502997631485746, guid: c2a3bf05ee52e43f6a6293313f3da7a2,
+    type: 2}
 --- !u!135 &135045941652928452
 SphereCollider:
   m_ObjectHideFlags: 1

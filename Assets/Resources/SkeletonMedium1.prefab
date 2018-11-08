@@ -1991,6 +1991,8 @@ MonoBehaviour:
   boxCollider: {fileID: 65016879655364984}
   _isMagic: 0
   _isString: 0
+  _instatinateParticle: {fileID: 1502997631485746, guid: c2a3bf05ee52e43f6a6293313f3da7a2,
+    type: 2}
 --- !u!114 &114913572562967396
 MonoBehaviour:
   m_ObjectHideFlags: 1
