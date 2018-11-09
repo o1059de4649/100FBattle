@@ -25,20 +25,20 @@ namespace UnityStandardAssets.CrossPlatformInput
 
             if (enemyObj.tag == "Enemy")
             {
-                if (enemyObj.name == "golem(Clone)")
+                if (enemyObj.name == "golem(Clone)"||enemyObj.name == "Shell_Crab(Clone)")
                 {
                     enemyObj.GetComponent<SkeletonStatus>()._life -= player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPower * 1.5f;
                     enemyObj.GetComponent<SkeletonStatus>()._isMagic = true;
                 }
 
-                if (enemyObj.name == "SkeletonDarkKnight(Clone)"||enemyObj.name == "Skeleton(Clone)" || enemyObj.name == "SkeletonWeak1(Clone)" || enemyObj.name == "SkeletonWeak2(Clone)" || enemyObj.name == "SkeletonMedium1(Clone)" || enemyObj.name == "SkeletonMedium2(Clone)" || enemyObj.name == "SkeletonStrong(Clone)" ||enemyObj.name == "demon(Clone)" || enemyObj.name == "demonBoss(Clone)")
+                if (enemyObj.name == "SkeletonWizard(Clone)"||enemyObj.name == "SkeletonDarkKnight(Clone)"||enemyObj.name == "Skeleton(Clone)" || enemyObj.name == "SkeletonWeak1(Clone)" || enemyObj.name == "SkeletonWeak2(Clone)" || enemyObj.name == "SkeletonMedium1(Clone)" || enemyObj.name == "SkeletonMedium2(Clone)" || enemyObj.name == "SkeletonStrong(Clone)" ||enemyObj.name == "demon(Clone)" || enemyObj.name == "demonBoss(Clone)")
                 {
                     enemyObj.GetComponent<SkeletonStatus>()._life -= player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPower * 3;
                     enemyObj.GetComponent<SkeletonStatus>()._isMagic = true;
 
                 }
 
-                if (enemyObj.name == "Imomusi(Clone)" || enemyObj.name == "ImomusiBoss(Clone)" || enemyObj.name == "Imomusi2(Clone)" || enemyObj.name == "icedemon(Clone)"|| enemyObj.name == "ImomusiDark(Clone)")
+                if (enemyObj.name == "wizard(Clone)"||enemyObj.name == "Imomusi(Clone)" || enemyObj.name == "ImomusiBoss(Clone)" || enemyObj.name == "Imomusi2(Clone)" || enemyObj.name == "icedemon(Clone)"|| enemyObj.name == "ImomusiDark(Clone)")
                 {
                     enemyObj.GetComponent<SkeletonStatus>()._life -= player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPower * 0.5f;
                     enemyObj.GetComponent<SkeletonStatus>()._isMagic = true;

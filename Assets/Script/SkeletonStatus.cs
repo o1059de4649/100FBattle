@@ -39,6 +39,8 @@ namespace UnityStandardAssets.CrossPlatformInput
         public bool _isString = false;
 
         public GameObject _instatinateParticle;
+
+        public float _runSpeed = 1;
         // Use this for initialization
         void Start()
         {
@@ -83,7 +85,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 transform.LookAt(player.transform);
             }
           
-            velocity = new Vector3(h, 0, v);
+            velocity = new Vector3(h, 0, v * _runSpeed);
             velocity = transform.TransformDirection(velocity);
 
             transform.localPosition += velocity * Time.fixedDeltaTime;

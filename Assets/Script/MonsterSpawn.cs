@@ -32,6 +32,9 @@ namespace UnityStandardAssets.CrossPlatformInput
             _howEnemyCount[12] = _howEnemy[12];
             _howEnemyCount[13] = _howEnemy[13];
             _howEnemyCount[14] = _howEnemy[14];
+            _howEnemyCount[15] = _howEnemy[15];
+            _howEnemyCount[16] = _howEnemy[16];
+            _howEnemyCount[17] = _howEnemy[17];
         }
 
         // Update is called once per frame
@@ -43,6 +46,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         private void OnTriggerStay(Collider col)
         {
             if(col.gameObject.tag == "Player"){
+                //SkeletonWeak1
                 if (_howEnemyCount[0] >= 1 && 5 > enemyCount._FloorLevel)
                 {
                     Instantiate(monster[0], transform.position + new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10)), Quaternion.identity);
@@ -52,6 +56,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                    
                 }
 
+                //SkeletonWeak2
                 if (_howEnemyCount[1] >= 1 && 8 > enemyCount._FloorLevel && enemyCount._FloorLevel >= 3)
                 {
                     Instantiate(monster[1], transform.position + new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10)), Quaternion.identity);
@@ -61,6 +66,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
                 }
 
+                //imomusi
                 if (_howEnemyCount[2] >= 1 && 15 > enemyCount._FloorLevel && enemyCount._FloorLevel >= 6)
                 {
                     Instantiate(monster[2], transform.position + new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10)), Quaternion.identity);
@@ -70,6 +76,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
                 }
 
+                //Skeleton
                 if (_howEnemyCount[3] >= 1 && 15 > enemyCount._FloorLevel && enemyCount._FloorLevel >= 10)
                 {
                     Instantiate(monster[3], transform.position + new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10)), Quaternion.identity);
@@ -79,6 +86,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
                 }
 
+                //SkeletonMedium1
                 if (_howEnemyCount[4] >= 1 && 17 > enemyCount._FloorLevel && enemyCount._FloorLevel >= 12)
                 {
                     Instantiate(monster[4], transform.position + new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10)), Quaternion.identity);
@@ -88,6 +96,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
                 }
 
+                //SkeletonMedium2
                 if (_howEnemyCount[5] >= 1 && 19 > enemyCount._FloorLevel && enemyCount._FloorLevel >= 14)
                 {
                     Instantiate(monster[5], transform.position + new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10)), Quaternion.identity);
@@ -97,6 +106,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
                 }
 
+                //demon
                 if (_howEnemyCount[6] >= 1 && 23 > enemyCount._FloorLevel && enemyCount._FloorLevel >= 17)
                 {
                     Instantiate(monster[6], transform.position + new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10)), Quaternion.identity);
@@ -106,6 +116,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
                 }
 
+                //gorem
                 if (_howEnemyCount[7] >= 1 && 30 > enemyCount._FloorLevel && enemyCount._FloorLevel >= 20)
                 {
                     Instantiate(monster[7], transform.position + new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10)), Quaternion.identity);
@@ -115,6 +126,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
                 }
 
+                //SkeletonStong
                 if (_howEnemyCount[8] >= 1 && enemyCount._FloorLevel == 10)
                 {
                     Instantiate(monster[8], transform.position + new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10)), Quaternion.identity);
@@ -125,7 +137,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 }
 
                
-
+                //imomusi2
                 if (_howEnemyCount[9] >= 1 && 30 > enemyCount._FloorLevel && enemyCount._FloorLevel >= 24)
                 {
                     Instantiate(monster[9], transform.position + new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10)), Quaternion.identity);
@@ -135,6 +147,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
                 }
 
+                //imomusiBoss
                 if (_howEnemyCount[10] >= 1 && enemyCount._FloorLevel == 20)
                 {
                     Instantiate(monster[10], transform.position + new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10)), Quaternion.identity);
@@ -144,6 +157,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
                 }
 
+                //demonboss
                 if (_howEnemyCount[11] >= 1 && enemyCount._FloorLevel == 30)
                 {
                     Instantiate(monster[11], transform.position + new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10)), Quaternion.identity);
@@ -153,6 +167,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
                 }
 
+                //icedemon
                 if (_howEnemyCount[13] >= 1 && 35 > enemyCount._FloorLevel && enemyCount._FloorLevel >= 30)
                 {
                     Instantiate(monster[13], transform.position + new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10)), Quaternion.identity);
@@ -162,6 +177,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
                 }
 
+                //SkeletonDarkKnight
                 if (_howEnemyCount[12] >= 1 && 35 > enemyCount._FloorLevel && enemyCount._FloorLevel >= 30)
                 {
                     Instantiate(monster[12], transform.position + new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10)), Quaternion.identity);
@@ -171,6 +187,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
                 }
 
+                //imomusiDark
                 if (_howEnemyCount[14] >= 1 && 38 > enemyCount._FloorLevel && enemyCount._FloorLevel >= 33)
                 {
                     Instantiate(monster[14], transform.position + new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10)), Quaternion.identity);
@@ -180,6 +197,35 @@ namespace UnityStandardAssets.CrossPlatformInput
 
                 }
 
+                //Shell_Crab
+                if (_howEnemyCount[15] >= 1 && 40 > enemyCount._FloorLevel && enemyCount._FloorLevel >= 36)
+                {
+                    Instantiate(monster[15], transform.position + new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10)), Quaternion.identity);
+                    _howEnemyCount[15]--;
+
+                    _preStopWall.SetActive(true);
+
+                }
+
+                //SkeletonWizard
+                if (_howEnemyCount[16] >= 1 && 33 > enemyCount._FloorLevel && enemyCount._FloorLevel >= 27)
+                {
+                    Instantiate(monster[16], transform.position + new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10)), Quaternion.identity);
+                    _howEnemyCount[16]--;
+
+                    _preStopWall.SetActive(true);
+
+                }
+
+                //wizard
+                if (_howEnemyCount[17] >= 1 && 47 > enemyCount._FloorLevel && enemyCount._FloorLevel >= 41)
+                {
+                    Instantiate(monster[17], transform.position + new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10)), Quaternion.identity);
+                    _howEnemyCount[17]--;
+
+                    _preStopWall.SetActive(true);
+
+                }
 
             }
 
