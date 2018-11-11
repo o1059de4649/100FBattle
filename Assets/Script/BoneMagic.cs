@@ -27,7 +27,8 @@ namespace UnityStandardAssets.CrossPlatformInput
                    enemyObj.name == "SkeletonWeak2(Clone)" || enemyObj.name == "SkeletonMedium1(Clone)" ||
                    enemyObj.name == "SkeletonMedium2(Clone)" || enemyObj.name == "demon(Clone)" ||
                    enemyObj.name == "SkeletonStrong(Clone)" || enemyObj.name == "demonBoss(Clone)"||
-                   enemyObj.name == "SkeletonWizard(Clone)"||enemyObj.name == "wizard(Clone)")
+                   enemyObj.name == "SkeletonWizard(Clone)"||enemyObj.name == "wizard(Clone)"||
+                   enemyObj.name == "troll(Clone)"||enemyObj.name == "goblin(Clone)"||enemyObj.name == "Hobgoblin(Clone)")
                 {
                     
                     enemyObj.GetComponent<SkeletonStatus>()._life -= player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPower;

@@ -41,6 +41,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         public GameObject _instatinateParticle;
 
         public float _runSpeed = 1;
+        public float _animDelay = 1.0f;
         // Use this for initialization
         void Start()
         {
@@ -130,7 +131,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 boxCollider.enabled = true;
                 anim.SetTrigger("Attack1h1");
                 _delay_attack = 0;
-                Invoke("OffAttack", 1.0f);
+                Invoke("OffAttack", _animDelay);
             }
 
         }

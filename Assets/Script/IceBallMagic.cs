@@ -43,6 +43,12 @@ namespace UnityStandardAssets.CrossPlatformInput
                     enemyObj.GetComponent<SkeletonStatus>()._life -= player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPower * 0.5f;
                     enemyObj.GetComponent<SkeletonStatus>()._isMagic = true;
                 }
+
+                if (enemyObj.name == "troll(Clone)" || enemyObj.name == "goblin(Clone)" || enemyObj.name == "Hobgoblin(Clone)")
+                {
+                    enemyObj.GetComponent<SkeletonStatus>()._life -= player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPower;
+                    enemyObj.GetComponent<SkeletonStatus>()._isMagic = true;
+                }
                 Destroy(this.gameObject, 10.0f);
             }
         }

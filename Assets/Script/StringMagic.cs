@@ -28,7 +28,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                     enemyObj.name == "SkeletonMedium1(Clone)" || enemyObj.name == "SkeletonMedium2(Clone)" ||
                     enemyObj.name == "golem(Clone)" || enemyObj.name == "icedemon(Clone)"|| 
                     enemyObj.name == "ImomusiDark(Clone)" || enemyObj.name == "SkeletonWizard(Clone)"||
-                    enemyObj.name == "wizard(Clone)")
+                    enemyObj.name == "wizard(Clone)"||enemyObj.name == "troll(Clone)" || enemyObj.name == "goblin(Clone)" || enemyObj.name == "Hobgoblin(Clone)")
                 {
                     enemyObj.GetComponent<SkeletonStatus>()._isString = true;
 

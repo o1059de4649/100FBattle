@@ -2632,7 +2632,7 @@ MonoBehaviour:
   _fireBallet: {fileID: 1184410982970324, guid: b15565955c4724a9f8105ed058633374,
     type: 2}
   _bulletSpawner: {fileID: 1649529733485158}
-  speed: 2000
+  speed: 50
   _magicDeelay: 0.1
 --- !u!114 &114124313960978190
 MonoBehaviour:
@@ -2710,6 +2710,7 @@ MonoBehaviour:
   _instatinateParticle: {fileID: 1502997631485746, guid: c2a3bf05ee52e43f6a6293313f3da7a2,
     type: 2}
   _runSpeed: 1
+  _animDelay: 1
 --- !u!114 &114519870100937154
 MonoBehaviour:
   m_ObjectHideFlags: 1

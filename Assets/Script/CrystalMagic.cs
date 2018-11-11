@@ -25,7 +25,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
             if (enemyObj.tag == "Enemy")
             {
-                if(enemyObj.name == "golem(Clone)"||enemyObj.name == "Shell_Crab(Clone)"){
+                if(enemyObj.name == "golem(Clone)"||enemyObj.name == "Shell_Crab(Clone)"||enemyObj.name == "troll(Clone)" || enemyObj.name == "goblin(Clone)" || enemyObj.name == "Hobgoblin(Clone)"){
                     enemyObj.GetComponent<SkeletonStatus>()._life -= player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPower * 0.1f;
                     enemyObj.GetComponent<SkeletonStatus>()._isMagic = true;
                 }
