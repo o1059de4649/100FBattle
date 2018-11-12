@@ -1779,7 +1779,7 @@ BoxCollider:
   m_GameObject: {fileID: 1013452866236854}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.67, y: 0.26587215, z: 3.6}
   m_Center: {x: -0.00017782726, y: -0.0032403863, z: 2.1}
@@ -1860,7 +1860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aee8733a5c5b2435fb29993f2905c762, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _swordPower: 10
+  _swordPower: 25
 --- !u!114 &114482277173275290
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2024,6 +2024,8 @@ MonoBehaviour:
   _isString: 0
   _instatinateParticle: {fileID: 1502997631485746, guid: c2a3bf05ee52e43f6a6293313f3da7a2,
     type: 2}
+  _runSpeed: 1
+  _animDelay: 1
 --- !u!135 &135429618627244430
 SphereCollider:
   m_ObjectHideFlags: 1

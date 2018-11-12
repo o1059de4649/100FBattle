@@ -38,7 +38,7 @@ namespace UnityStandardAssets.CrossPlatformInput
             _howEnemyCount[18] = _howEnemy[18];
             _howEnemyCount[19] = _howEnemy[19];
             _howEnemyCount[20] = _howEnemy[20];
-
+            _howEnemyCount[21] = _howEnemy[21];
         }
 
         // Update is called once per frame
@@ -256,6 +256,16 @@ namespace UnityStandardAssets.CrossPlatformInput
                 {
                     Instantiate(monster[20], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
                     _howEnemyCount[20]--;
+
+                    _preStopWall.SetActive(true);
+
+                }
+
+                //Golem
+                if (_howEnemyCount[21] >= 1 && enemyCount._FloorLevel == 50)
+                {
+                    Instantiate(monster[21], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
+                    _howEnemyCount[21]--;
 
                     _preStopWall.SetActive(true);
 

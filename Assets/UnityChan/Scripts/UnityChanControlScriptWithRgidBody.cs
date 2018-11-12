@@ -239,7 +239,7 @@ namespace UnityStandardAssets.CrossPlatformInput
             exp_point = PlayerPrefs.GetFloat("Exp", 0);
             player_Level = PlayerPrefs.GetInt("Level", 0);
             _SwordPower = PlayerPrefs.GetFloat("PowerPlus", 0) + player_Level * 0.5f;
-            maxLife = PlayerPrefs.GetFloat("MaxLife", 0);
+            lifePlus = PlayerPrefs.GetFloat("LifePlus", 0);
             _money = PlayerPrefs.GetFloat("Money", 0);
             _magicPower = PlayerPrefs.GetFloat("MagicPowerPlus", 0) + player_Level * 0.2f;
 
@@ -252,7 +252,7 @@ namespace UnityStandardAssets.CrossPlatformInput
             _maxEssence = PlayerPrefs.GetFloat("EssencePlus", 0) + 30;
 
 
-            maxLife = life + lifePlus + player_Level;
+            maxLife = 100 + lifePlus + player_Level;
             life = maxLife;
             Max_exp_point = player_Level * 50 + 100;
 

@@ -22,7 +22,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         // Update is called once per frame
         void Update()
         {
-            _maxCost = player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPowerPlus * 500;
+            _maxCost = player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPowerPlus * 250;
             _showCost = _maxCost + 100;
             costText.text = ("コスト" + _showCost);
         }

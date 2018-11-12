@@ -820,7 +820,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aee8733a5c5b2435fb29993f2905c762, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _swordPower: 15
+  _swordPower: 30
 --- !u!114 &114371275111425532
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -881,6 +881,8 @@ MonoBehaviour:
   _isString: 0
   _instatinateParticle: {fileID: 1502997631485746, guid: c2a3bf05ee52e43f6a6293313f3da7a2,
     type: 2}
+  _runSpeed: 1
+  _animDelay: 1
 --- !u!114 &114868806063949128
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -11,7 +11,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         public int p_BlueCube;
         public int p_GreenCube;
         public float p_exp;
-        public float p_maxLife;
+        public float p_lifePlus;
         public float p_Protect;
         public float p_Power;
 
@@ -55,7 +55,7 @@ namespace UnityStandardAssets.CrossPlatformInput
             p_Protect = player.GetComponent<UnityChanControlScriptWithRgidBody>().protectPlus;
 
 
-            p_maxLife = player.GetComponent<UnityChanControlScriptWithRgidBody>().maxLife;
+            p_lifePlus = player.GetComponent<UnityChanControlScriptWithRgidBody>().lifePlus;
             p_Power = player.GetComponent<UnityChanControlScriptWithRgidBody>()._attackPower;
             p_magicPower = player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPowerPlus;
             p_money = player.GetComponent<UnityChanControlScriptWithRgidBody>()._money;
@@ -76,7 +76,7 @@ namespace UnityStandardAssets.CrossPlatformInput
             PlayerPrefs.SetInt("RedCube", p_RedCube);
             PlayerPrefs.SetInt("BlueCube", p_BlueCube);
             PlayerPrefs.SetInt("GreenCube", p_GreenCube);
-            PlayerPrefs.SetFloat("MaxLife",p_maxLife);
+            PlayerPrefs.SetFloat("LifePlus",p_lifePlus);
             PlayerPrefs.SetFloat("ProtectPlus", p_Protect);
             PlayerPrefs.SetFloat("PowerPlus", p_Power);
 

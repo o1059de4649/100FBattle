@@ -1,11 +1,11 @@
 ﻿<Properties StartupConfiguration="{3E78C741-62A7-DB31-C2C9-7D30606E98C1}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/FloorDestroy.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/HpGage.cs">
     <Files>
       <File FileName="Assets/Script/SkeletonStatus.cs" Line="44" Column="40" />
       <File FileName="Assets/Script/SkeletonSword.cs" Line="29" Column="28" />
       <File FileName="Assets/Script/SaveData.cs" Line="6" Column="5" />
-      <File FileName="Assets/UnityChan/Scripts/UnityChanControlScriptWithRgidBody.cs" Line="321" Column="17" />
+      <File FileName="Assets/UnityChan/Scripts/UnityChanControlScriptWithRgidBody.cs" Line="255" Column="18" />
       <File FileName="Assets/Script/WeaponTable.cs" Line="39" Column="27" />
       <File FileName="Assets/Script/WeaponShopExit.cs" Line="27" Column="29" />
       <File FileName="Assets/Script/SwordUpdate.cs" Line="20" Column="10" />
@@ -22,6 +22,8 @@
       <File FileName="Assets/Script/MonsterSpawn.cs" Line="226" Column="18" />
       <File FileName="Assets/Script/ShowMoney.cs" Line="22" Column="54" />
       <File FileName="Assets/Script/FloorDestroy.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/LifeGet.cs" Line="41" Column="99" />
+      <File FileName="Assets/Script/HpGage.cs" Line="5" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
