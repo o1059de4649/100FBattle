@@ -36,7 +36,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                     Instantiate(floor[0], _floorSpawnPos.transform.position, Quaternion.identity);
                     _howFloor[0]--;
 
-                    enemyCount._FloorLevel++;
+                    enemyCount._floorLevel++;
                    
                 }
 

@@ -31,7 +31,7 @@ namespace UnityStandardAssets.CrossPlatformInput
             Int32.TryParse(_floorLevel_string, out _floorLevel_int);
 
             if(enemyCount._MaxFloorLevel >= _floorLevel_int){
-                enemyCount._FloorLevel = _floorLevel_int;
+                enemyCount._floorLevel = _floorLevel_int;
             }
            
         }

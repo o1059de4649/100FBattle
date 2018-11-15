@@ -6,7 +6,7 @@ namespace UnityStandardAssets.CrossPlatformInput
     public class EnemyCount : MonoBehaviour
     {
         public int _enemyCount = 0;
-        public int _FloorLevel = 0;
+        public int _floorLevel = 0;
         public int _MaxFloorLevel = 0;
         // Use this for initialization
         void Start()
@@ -17,8 +17,8 @@ namespace UnityStandardAssets.CrossPlatformInput
         // Update is called once per frame
         void Update()
         {
-            if(_MaxFloorLevel <= _FloorLevel){
-                _MaxFloorLevel = _FloorLevel;  
+            if(_MaxFloorLevel <= _floorLevel){
+                _MaxFloorLevel = _floorLevel;  
             }
         }
     }

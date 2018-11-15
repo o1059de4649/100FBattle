@@ -18,7 +18,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         // Update is called once per frame
         void Update()
         {
-            _FloorText.text = (enemyCount._FloorLevel.ToString() + "F" + "/" + enemyCount._MaxFloorLevel.ToString() + "F");
+            _FloorText.text = (enemyCount._floorLevel.ToString() + "F" + "/" + enemyCount._MaxFloorLevel.ToString() + "F");
         }
 
 

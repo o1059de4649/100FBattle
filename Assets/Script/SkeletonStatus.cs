@@ -22,8 +22,8 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         [SerializeField]
         private float h;
-        [SerializeField]
-        private float v;
+
+        public float v;
 
         [SerializeField]
         private float _itemDropForce;
@@ -42,9 +42,17 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         public float _runSpeed = 1;
         public float _animDelay = 1.0f;
+
+        public float _enemyWeak = 1;
+
+        public float _bloodEssence;
         // Use this for initialization
         void Start()
         {
+
+            _monster_level = GameObject.Find("FloorControl").GetComponent<EnemyCount>()._floorLevel + Random.Range(0,35);
+
+
             player = GameObject.Find("Player");
             rb = GetComponent<Rigidbody>();
             anim = GetComponent<Animator>();
@@ -54,7 +62,11 @@ namespace UnityStandardAssets.CrossPlatformInput
 
             GameObject obj = Instantiate(_instatinateParticle,this.transform.position, Quaternion.identity);
             Destroy(obj, 2.0f);
+            _maxLife += _maxLife/100 * _monster_level * _enemyWeak;
             _life = _maxLife;
+
+            _exp += _monster_level;
+            _enemyMoney += _monster_level;
           
         }
 
@@ -128,6 +140,7 @@ namespace UnityStandardAssets.CrossPlatformInput
           
 
             if(_delay_attack >= 1.5f){
+                v = 0;
                 boxCollider.enabled = true;
                 anim.SetTrigger("Attack1h1");
                 _delay_attack = 0;
@@ -144,6 +157,7 @@ namespace UnityStandardAssets.CrossPlatformInput
             GameObject _lifeball = Instantiate(lifeball, _spawnPosObj.transform.position, Quaternion.identity);
             player.GetComponent<UnityChanControlScriptWithRgidBody>().exp_point += _exp;
             player.GetComponent<UnityChanControlScriptWithRgidBody>()._money += _enemyMoney;
+            player.GetComponent<UnityChanControlScriptWithRgidBody>()._bloodEssence += _bloodEssence;
             Destroy(this.gameObject, 2.0f);
 
         }

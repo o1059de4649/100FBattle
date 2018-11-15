@@ -159,6 +159,8 @@ namespace UnityStandardAssets.CrossPlatformInput
         public float _maxEssence = 0;
         public float _maxEssencePlus;
 
+        public float _bloodEssence;
+
         public float _magicPower = 1;
        
         public float _SwordPower = 1;
@@ -250,7 +252,7 @@ namespace UnityStandardAssets.CrossPlatformInput
             _iceEssence = PlayerPrefs.GetFloat("IceEssence", 0);
 
             _maxEssence = PlayerPrefs.GetFloat("EssencePlus", 0) + 30;
-
+            _bloodEssence = PlayerPrefs.GetFloat("Blood", 0);
 
             maxLife = 100 + lifePlus + player_Level;
             life = maxLife;

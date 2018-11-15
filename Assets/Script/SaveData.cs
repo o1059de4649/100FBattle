@@ -32,6 +32,8 @@ namespace UnityStandardAssets.CrossPlatformInput
         public float p_EssencePlus;
 
         public int p_floorLevel;
+
+        public float p_blood;
         // Use this for initialization
         void Start()
         {
@@ -69,6 +71,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
             p_EssencePlus = player.GetComponent<UnityChanControlScriptWithRgidBody>()._maxEssencePlus;
 
+            p_blood = player.GetComponent<UnityChanControlScriptWithRgidBody>()._bloodEssence;
 
             PlayerPrefs.SetFloat("Exp", p_exp);
             PlayerPrefs.SetInt("Level", p_Level);
@@ -91,6 +94,7 @@ namespace UnityStandardAssets.CrossPlatformInput
             PlayerPrefs.SetFloat("CrystalEssence", p_crystalEssence);
 
             PlayerPrefs.SetFloat("EssencePlus", p_EssencePlus);
+            PlayerPrefs.SetFloat("Blood", p_blood);
 
 
 

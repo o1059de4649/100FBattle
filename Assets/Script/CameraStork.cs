@@ -22,7 +22,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         {
            
 
-
+           
             if(transform.localEulerAngles.z == 180 && transform.localEulerAngles.x < 90){
                 transform.localEulerAngles = new Vector3(80, 0, 0);
             }
@@ -40,11 +40,11 @@ namespace UnityStandardAssets.CrossPlatformInput
             {
                 transform.localEulerAngles = new Vector3(280, 0, 0);
             }
-           
+        
           
        
                 
-                this.transform.position = p_player.transform.position + new Vector3(0,1.4f,0);
+            /*this.transform.position = p_player.transform.position + new Vector3(0,1.4f,0);*/
 
 
 

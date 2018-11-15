@@ -94,7 +94,7 @@ namespace UnityStandardAssets.CrossPlatformInput
             newAngle_x = mainCamera.transform.localEulerAngles;
             newAngle_y = camera_Stork.transform.localEulerAngles;
             // マウス座標を変数"lastMousePosition"に格納
-            lastMousePosition = Input.touches[m_Id].position;//カスタム
+            lastMousePosition = Input.touches[m_Id].position;
         }
 
         public void OnPointerUp(PointerEventData data)
