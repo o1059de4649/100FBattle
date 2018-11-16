@@ -10272,7 +10272,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 26226a610bac0489f848c491ca93abd9, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ffa56ab000d59419a8222c539bcfdcce, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -10767,10 +10767,10 @@ MonoBehaviour:
   - {fileID: 1608466207998050}
   _material:
   - {fileID: 2100000, guid: 4167230534a52bb4d9073a435cafff7a, type: 2}
+  - {fileID: 2100000, guid: 049886ac1c9be8d4db643c92eee3880f, type: 2}
+  - {fileID: 2100000, guid: b2b1efd5c01d2a04e975a4b2fa45450b, type: 2}
+  - {fileID: 2100000, guid: 4e29041d727444b679145f56fc022d56, type: 2}
   - {fileID: 2100000, guid: 55549c75a53c5764e9b4f00d0fcac65e, type: 2}
-  - {fileID: 2100000, guid: 4ed1a347f45c05f4091e4fde28078e30, type: 2}
-  - {fileID: 2100000, guid: 4ed1a347f45c05f4091e4fde28078e30, type: 2}
-  - {fileID: 2100000, guid: 2e31641d026b7f2489c754114f93bce8, type: 2}
   plane: {fileID: 1645395083646290}
   walls: {fileID: 1769216292808850}
   door:

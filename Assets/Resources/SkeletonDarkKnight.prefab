@@ -1913,7 +1913,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _text: {fileID: 114026983558014180}
   user_skeletonStatus: {fileID: 114979383185712016}
-  _name: {fileID: 0}
+  _name: {fileID: 114774098304108826}
 --- !u!114 &114427024342429788
 MonoBehaviour:
   m_ObjectHideFlags: 1

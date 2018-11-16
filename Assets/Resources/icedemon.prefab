@@ -2119,7 +2119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 114992157975068724}
-  user_skeletonStatus: {fileID: 0}
+  user_skeletonStatus: {fileID: 114436604646826388}
   _name: {fileID: 114376715262331506}
 --- !u!114 &114376715262331506
 MonoBehaviour:
