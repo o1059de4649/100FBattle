@@ -34,6 +34,8 @@ namespace UnityStandardAssets.CrossPlatformInput
         public int p_floorLevel;
 
         public float p_blood;
+
+        public float p_wallSpace;
         // Use this for initialization
         void Start()
         {
@@ -73,6 +75,10 @@ namespace UnityStandardAssets.CrossPlatformInput
 
             p_blood = player.GetComponent<UnityChanControlScriptWithRgidBody>()._bloodEssence;
 
+            p_wallSpace = player.GetComponent<UnityChanControlScriptWithRgidBody>()._wallSpace;
+
+
+
             PlayerPrefs.SetFloat("Exp", p_exp);
             PlayerPrefs.SetInt("Level", p_Level);
             PlayerPrefs.SetString("playername", player_name);
@@ -95,6 +101,8 @@ namespace UnityStandardAssets.CrossPlatformInput
 
             PlayerPrefs.SetFloat("EssencePlus", p_EssencePlus);
             PlayerPrefs.SetFloat("Blood", p_blood);
+
+            PlayerPrefs.SetFloat("WallSpace",p_wallSpace);
 
 
 

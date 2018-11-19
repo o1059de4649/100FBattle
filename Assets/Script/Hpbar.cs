@@ -24,7 +24,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
 
             hpbarslider.maxValue = p_player.GetComponent<UnityChanControlScriptWithRgidBody>().maxLife;
-                    hpbarslider.value = p_player.GetComponent<UnityChanControlScriptWithRgidBody>().life;
+            hpbarslider.value = Mathf.RoundToInt(p_player.GetComponent<UnityChanControlScriptWithRgidBody>().life);
                
                
 

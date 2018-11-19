@@ -2312,6 +2312,8 @@ MonoBehaviour:
   lifeball: {fileID: 1693653089469054, guid: aa193a0f23d034314aa62fbf57cda66a, type: 2}
   boneball: {fileID: 1538896532872384, guid: 5b6ba73bc2f814897acc9df6ebdcd61f, type: 2}
   _spawnPosObj: {fileID: 1715474932333324}
+  _damegeText: {fileID: 1147092225557134, guid: 4843089e9b2cf4f94bffdd30c24740d2,
+    type: 2}
   h: 0
   v: 0
   _itemDropForce: 0

@@ -44,7 +44,7 @@ namespace UnityStandardAssets.CrossPlatformInput
           
        
                 
-            /*this.transform.position = p_player.transform.position + new Vector3(0,1.4f,0);*/
+            this.transform.position = p_player.transform.position + new Vector3(0,1.4f,0);
 
 
 

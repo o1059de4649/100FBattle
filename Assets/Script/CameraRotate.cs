@@ -84,8 +84,8 @@ namespace UnityStandardAssets.CrossPlatformInput
         public void OnPointerDown(PointerEventData data)
         {
 
-            mainCamera = player.GetComponent<UnityChanControlScriptWithRgidBody>().player_camera;
-            camera_Stork = player.GetComponent<UnityChanControlScriptWithRgidBody>().p_camera_Stork;
+            mainCamera = player;//.GetComponent<UnityChanControlScriptWithRgidBody>().player_camera;
+            camera_Stork = player.GetComponent<UnityChanControlScriptWithRgidBody>().player_camera;//p_camera_Stork;
 
             m_Dragging = true;
             m_Id = data.pointerId;
@@ -95,6 +95,7 @@ namespace UnityStandardAssets.CrossPlatformInput
             newAngle_y = camera_Stork.transform.localEulerAngles;
             // マウス座標を変数"lastMousePosition"に格納
             lastMousePosition = Input.touches[m_Id].position;
+           
         }
 
         public void OnPointerUp(PointerEventData data)

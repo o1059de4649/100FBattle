@@ -3,7 +3,14 @@ guid: d870bb8fc1b29491eb9347671f6dfcdc
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - lifeball: {instanceID: 0}
+  - boneball: {instanceID: 0}
+  - _spawnPosObj: {instanceID: 0}
+  - _damegeText: {fileID: 1147092225557134, guid: 4843089e9b2cf4f94bffdd30c24740d2,
+      type: 2}
+  - boxCollider: {instanceID: 0}
+  - _instatinateParticle: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

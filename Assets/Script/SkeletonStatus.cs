@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 namespace UnityStandardAssets.CrossPlatformInput
 {
     public class SkeletonStatus : MonoBehaviour
@@ -18,6 +19,9 @@ namespace UnityStandardAssets.CrossPlatformInput
         public GameObject boneball;
         bool _isDeath = false;
         public GameObject _spawnPosObj;
+
+        public GameObject _damegeText;
+
         float _randomPos;
 
         [SerializeField]
@@ -46,6 +50,8 @@ namespace UnityStandardAssets.CrossPlatformInput
         public float _enemyWeak = 1;
 
         public float _bloodEssence;
+        float _timeHitDamage;
+        GameObject camera;
         // Use this for initialization
         void Start()
         {
@@ -54,6 +60,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
 
             player = GameObject.Find("Player");
+            camera = GameObject.Find("Player/CameraStork/MainCamera");
             rb = GetComponent<Rigidbody>();
             anim = GetComponent<Animator>();
 
@@ -105,6 +112,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
 
             v += Time.deltaTime;
+            _timeHitDamage += Time.deltaTime;
             anim.SetFloat("speedh", v);
             if (v >= 2)
             {
@@ -112,10 +120,18 @@ namespace UnityStandardAssets.CrossPlatformInput
             }
 
 
-
             if(_preLife != _life && _isDeath == false){
                 _randomPos = Random.Range(-2,2);
                 anim.SetTrigger("Hit1");
+
+                if(_timeHitDamage >= 0.3f){
+                    GameObject damegeText = Instantiate(_damegeText, _spawnPosObj.transform.position, Quaternion.identity);
+                    damegeText.GetComponentInChildren<Text>().text = ((Mathf.RoundToInt(_preLife) - Mathf.RoundToInt(_life)).ToString());
+                    damegeText.transform.LookAt(camera.transform);
+                    Destroy(damegeText, 3.0f);
+                    _timeHitDamage = 0;
+                }
+              
 
                 if(_isMagic == false){
                     GameObject _boneball = Instantiate(boneball, _spawnPosObj.transform.position + new Vector3(_randomPos, _randomPos, _randomPos), Quaternion.identity);

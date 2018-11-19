@@ -160,6 +160,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         public float _maxEssencePlus;
 
         public float _bloodEssence;
+        public float _wallSpace;
 
         public float _magicPower = 1;
        
@@ -176,6 +177,8 @@ namespace UnityStandardAssets.CrossPlatformInput
         public GameObject _crystalParticle;
         void Start()
         {
+            duo_Panel = GameObject.Find("DualTouchControls");
+            duo_Panel.GetComponent<Canvas>().enabled = true;
             SetUp();
             photonTransformView = GetComponent<PhotonTransformView>();
           
@@ -254,6 +257,8 @@ namespace UnityStandardAssets.CrossPlatformInput
             _maxEssence = PlayerPrefs.GetFloat("EssencePlus", 0) + 30;
             _bloodEssence = PlayerPrefs.GetFloat("Blood", 0);
 
+            _wallSpace = PlayerPrefs.GetFloat("WallSpace", 0);
+
             maxLife = 100 + lifePlus + player_Level;
             life = maxLife;
             Max_exp_point = player_Level * 50 + 100;
@@ -318,12 +323,9 @@ namespace UnityStandardAssets.CrossPlatformInput
             }
        
 
-            if (life <= 0 && u_photonView.isMine)
+            if (life <= 0)
             {
-
-                photonControll.GetComponent<SaveData>().Save();
-                photonControll.GetComponent<PhotonControll>().InstantiatePlayer();
-                u_photonView.RPC("OnPlayerDestroy", PhotonTargets.All);
+                SceneManager.LoadScene("MyRoom");
             }
 
 
