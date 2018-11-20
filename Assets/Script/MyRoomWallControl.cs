@@ -20,11 +20,11 @@ namespace UnityStandardAssets.CrossPlatformInput
 
             _wallSpace = PlayerPrefs.GetFloat("WallSpace");
 
-            forwardWall.transform.position += new Vector3(0, 0, -_wallSpace);
-            backWall.transform.position += new Vector3(0, 0, _wallSpace);
-            rightWall.transform.position += new Vector3(_wallSpace, 0, 0);
-            leftWall.transform.position += new Vector3(-_wallSpace, 0, 0);
-            upWall.transform.position += new Vector3(0, _wallSpace, 0);
+            forwardWall.transform.position += new Vector3(0, 0, _wallSpace)/1.5f;
+            backWall.transform.position += new Vector3(0, 0, -_wallSpace)/ 1.5f;
+            rightWall.transform.position += new Vector3(_wallSpace, 0, 0)/ 1.5f;
+            leftWall.transform.position += new Vector3(-_wallSpace, 0, 0)/ 1.5f;
+            upWall.transform.position += new Vector3(0, _wallSpace, 0)/ 1.5f;
         }
 
         // Update is called once per frame
