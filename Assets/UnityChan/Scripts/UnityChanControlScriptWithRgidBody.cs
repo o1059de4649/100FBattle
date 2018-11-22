@@ -5,6 +5,7 @@
 //
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 namespace UnityStandardAssets.CrossPlatformInput
@@ -175,6 +176,8 @@ namespace UnityStandardAssets.CrossPlatformInput
         public bool _isStringed = false;
 
         public GameObject _crystalParticle;
+
+        public List<int> itemList = new List<int>();
         void Start()
         {
             duo_Panel = GameObject.Find("DualTouchControls");

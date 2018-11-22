@@ -5,89 +5,24 @@ namespace UnityStandardAssets.CrossPlatformInput
 {
     public class MyRoomObjectMovement : MonoBehaviour
     {
-        private Vector3 velocity;
-        private Vector3 h_velocity;
-
-        public float forwardSpeed = 7.0f;
-        public float backwardSpeed = 2.0f;
-        public float _MoveSpeedRL = 2;
-
-        float r;
-        float v;
+       
 
         public GameObject _spawnPos;
+        public GameObject player;
+        UnityChanControlScriptWithRgidBody _uc;
+        public string[] item_name;
         // Use this for initialization
         void Start()
         {
             _spawnPos = GameObject.Find("PlayerMyRoom/CameraStork/MainCamera/SpawnPos");
+            player = GameObject.FindWithTag("Player");
+            _uc = player.GetComponent<UnityChanControlScriptWithRgidBody>();
+            item_name = GetComponent<MyRoomSaveSystem>().item_name;
         }
 
         // Update is called once per frame
         void Update()
         {
-
-
-
-
-
-
-            //旧式
-            /*r = CrossPlatformInputManager.GetAxisRaw("Horizontal");
-            v = CrossPlatformInputManager.GetAxisRaw("Vertical");
-
-            if (v >= 1)
-            {
-                v = 1;
-            }
-
-            if (v < -1)
-            {
-                v = -1;
-            }
-
-
-            if (r >= 1)
-            {
-                r = 1;
-            }
-
-            if (r < -1)
-            {
-                r = -1;
-            }
-
-            // 以下、キャラクターの移動処理
-            h_velocity = new Vector3(r, 0, 0);        // 上下のキー入力からZ軸方向の移動量を取得
-                                                      // キャラクターのローカル空間での方向に変換
-            h_velocity = transform.TransformDirection(h_velocity);
-            //以下のvの閾値は、Mecanim側のトランジションと一緒に調整する
-            if (r > 0.1)
-            {
-                h_velocity *= _MoveSpeedRL;       // 移動速度を掛ける
-            }
-            else if (r < -0.1)
-            {
-                h_velocity *= _MoveSpeedRL;  // 移動速度を掛ける
-            }
-
-
-            // 以下、キャラクターの移動処理
-            velocity = new Vector3(0, 0, v);        // 上下のキー入力からZ軸方向の移動量を取得
-                                                    // キャラクターのローカル空間での方向に変換
-            velocity = transform.TransformDirection(velocity);
-            //以下のvの閾値は、Mecanim側のトランジションと一緒に調整する
-            if (v > 0.1)
-            {
-                velocity *= forwardSpeed;       // 移動速度を掛ける
-            }
-            else if (v < -0.1)
-            {
-                velocity *= backwardSpeed;  // 移動速度を掛ける
-            }
-
-            transform.localPosition += velocity * Time.fixedDeltaTime;
-            transform.localPosition += h_velocity * Time.fixedDeltaTime;
-            */
 
         }
 
@@ -110,6 +45,50 @@ namespace UnityStandardAssets.CrossPlatformInput
             transform.position += new Vector3(0, 3, 0);
         }
 
+        public void PickUp(){
+            if(this.gameObject.name == item_name[0]){
+                
+                _uc.itemList[0]++;
+            }
+
+            if (this.gameObject.name == item_name[1])
+            {
+           
+                _uc.itemList[1]++;
+            }
+
+            if (this.gameObject.name == item_name[2])
+            {
+          
+                _uc.itemList[2]++;
+            }
+
+            if (this.gameObject.name == item_name[3])
+            {
+               
+                _uc.itemList[3]++;
+            }
+
+            if (this.gameObject.name == item_name[4])
+            {
+               
+                _uc.itemList[4]++;
+            }
+
+            if (this.gameObject.name == item_name[5])
+            {
+               
+                _uc.itemList[5]++;
+            }
+
+            if (this.gameObject.name == item_name[6])
+            {
+               
+                _uc.itemList[6]++;
+            }
+
+            Destroy(this.gameObject);
+        }
 
     }
 }

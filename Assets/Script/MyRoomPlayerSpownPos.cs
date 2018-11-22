@@ -18,7 +18,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         // Update is called once per frame
         void Update()
         {
-            ray = new Ray(mainCamera.transform.position, transform.forward);
+            ray = new Ray(mainCamera.transform.position, mainCamera.transform.forward);
             if(Physics.Raycast(ray,out hit)){
                 spawnerPos.transform.position = hit.point;
             }

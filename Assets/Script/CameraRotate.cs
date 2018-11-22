@@ -17,7 +17,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         // マウス移動方向とカメラ回転方向を反転する判定フラグ
         public bool reverse;
         // マウス座標を格納する変数
-        private Vector2 lastMousePosition;
+        public Vector2 lastMousePosition;
         // カメラの角度を格納する変数（初期値に0,0を代入）
         public Vector2 newAngle_x =new Vector2(0, 0);
         public Vector2 newAngle_y = new Vector2(0, 0);
@@ -30,7 +30,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         // Use this for initialization
         void Start()
         {
-         
+           lastMousePosition =new Vector2(0,0);
         } 
 
         // Update is called once per frame
@@ -84,15 +84,15 @@ namespace UnityStandardAssets.CrossPlatformInput
         public void OnPointerDown(PointerEventData data)
         {
 
-            mainCamera = player;//.GetComponent<UnityChanControlScriptWithRgidBody>().player_camera;
-            camera_Stork = player.GetComponent<UnityChanControlScriptWithRgidBody>().player_camera;//p_camera_Stork;
+            mainCamera = player.GetComponent<UnityChanControlScriptWithRgidBody>().player_camera;
+            camera_Stork = player.GetComponent<UnityChanControlScriptWithRgidBody>().p_camera_Stork;
 
             m_Dragging = true;
             m_Id = data.pointerId;
 
             // カメラの角度を変数"newAngle"に格納
-            newAngle_x = mainCamera.transform.localEulerAngles;
-            newAngle_y = camera_Stork.transform.localEulerAngles;
+            //newAngle_x = mainCamera.transform.localEulerAngles;
+           //newAngle_y = camera_Stork.transform.localEulerAngles;
             // マウス座標を変数"lastMousePosition"に格納
             lastMousePosition = Input.touches[m_Id].position;
            
