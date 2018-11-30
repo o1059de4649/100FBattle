@@ -18,6 +18,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         void Start()
         {
             item_name = GameObject.Find("Portal").GetComponent<MyRoomSaveSystem>().item_name;
+
         }
 
         // Update is called once per frame
@@ -26,9 +27,84 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         }
 
+        public void ResetSpawn(){
+
+            for (int i = 0; i < item_name.Length; i++)
+            {
+                if (itemInputField.text == item_name[i])
+                {
+                    GameObject _obj = GameObject.Find(item_name[i]);
+                    _obj.transform.position = _spawnPos.transform.position;
+                    _obj.GetComponent<MyRoomSaveSystem>().SaveMyRoom();
+                }
+            } 
+
+
+            /*if(itemInputField.text == item_name[0]){
+                GameObject _obj = GameObject.Find(item_name[0]);
+                _obj.transform.position = _spawnPos.transform.position;
+                _obj.GetComponent<MyRoomSaveSystem>().SaveMyRoom();
+            }
+
+            if (itemInputField.text == item_name[1])
+            {
+                GameObject _obj = GameObject.Find(item_name[1]);
+                _obj.transform.position = _spawnPos.transform.position;
+                _obj.GetComponent<MyRoomSaveSystem>().SaveMyRoom();
+            }
+
+            if (itemInputField.text == item_name[2])
+            {
+                GameObject _obj = GameObject.Find(item_name[2]);
+                _obj.transform.position = _spawnPos.transform.position;
+                _obj.GetComponent<MyRoomSaveSystem>().SaveMyRoom();
+            }
+
+            if (itemInputField.text == item_name[3])
+            {
+                GameObject _obj = GameObject.Find(item_name[3]);
+                _obj.transform.position = _spawnPos.transform.position;
+                _obj.GetComponent<MyRoomSaveSystem>().SaveMyRoom();
+            }
+
+            if (itemInputField.text == item_name[4])
+            {
+                GameObject _obj = GameObject.Find(item_name[4]);
+                _obj.transform.position = _spawnPos.transform.position;
+                _obj.GetComponent<MyRoomSaveSystem>().SaveMyRoom();
+            }
+
+            if (itemInputField.text == item_name[5])
+            {
+                GameObject _obj = GameObject.Find(item_name[5]);
+                _obj.transform.position = _spawnPos.transform.position;
+                _obj.GetComponent<MyRoomSaveSystem>().SaveMyRoom();
+            }
+
+            if (itemInputField.text == item_name[6])
+            {
+                GameObject _obj = GameObject.Find(item_name[6]);
+                _obj.transform.position = _spawnPos.transform.position;
+                _obj.GetComponent<MyRoomSaveSystem>().SaveMyRoom();
+            }*/
+        }
+
         public void PutOn()
         {
 
+            for (int i = 0; i < item_name.Length; i++)
+            {
+                if (itemInputField.text == item_name[i] && _uc.itemList[i] >= 1)
+                {
+                    PlayerPrefs.DeleteKey(item_name[i]);
+                    GameObject itemObj = Instantiate(gameObjects[i], _spawnPos.transform.position, Quaternion.identity);
+                    itemObj.name = item_name[i];
+                    _uc.itemList[i]--;
+                    itemObj.GetComponent<MyRoomSaveSystem>().SaveMyRoom();
+                }
+            }
+
+            /*
             if(itemInputField.text == item_name[0] && _uc.itemList[0] >= 1){
                 PlayerPrefs.DeleteKey(item_name[0]);
                 GameObject itemObj = Instantiate(gameObjects[0], _spawnPos.transform.position,Quaternion.identity);
@@ -91,6 +167,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 _uc.itemList[6]--;
                 itemObj.GetComponent<MyRoomSaveSystem>().SaveMyRoom();
             }
+            */
 
         }
     }

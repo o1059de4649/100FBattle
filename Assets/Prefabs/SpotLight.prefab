@@ -1016,6 +1016,8 @@ MonoBehaviour:
   - Cabinet
   - Vase
   - Portal
+  n: 0
+  _text: {fileID: 114180391136517088}
 --- !u!114 &114586232457581404
 MonoBehaviour:
   m_ObjectHideFlags: 1

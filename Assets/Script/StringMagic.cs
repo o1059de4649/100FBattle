@@ -7,6 +7,12 @@ namespace UnityStandardAssets.CrossPlatformInput
     public class StringMagic : MonoBehaviour
     {
         public GameObject player;
+        public string[] _enemyname = {"SkeletonDarkKnight(Clone)","Skeleton(Clone)" 
+                    ,"SkeletonWeak1(Clone)", "SkeletonWeak2(Clone)"
+                    ,"SkeletonMedium1(Clone)","SkeletonMedium2(Clone)"
+                    ,"golem(Clone)" ,"icedemon(Clone)"
+                    ,"ImomusiDark(Clone)", "SkeletonWizard(Clone)"
+                    ,"wizard(Clone)","troll(Clone)", "goblin(Clone)", "Hobgoblin(Clone)"};
         // Use this for initialization
         void Start()
         {
@@ -23,17 +29,14 @@ namespace UnityStandardAssets.CrossPlatformInput
         {
             if (enemyObj.tag == "Enemy")
             {
-                if (enemyObj.name == "SkeletonDarkKnight(Clone)"||enemyObj.name == "Skeleton(Clone)" || 
-                    enemyObj.name == "SkeletonWeak1(Clone)" || enemyObj.name == "SkeletonWeak2(Clone)" ||
-                    enemyObj.name == "SkeletonMedium1(Clone)" || enemyObj.name == "SkeletonMedium2(Clone)" ||
-                    enemyObj.name == "golem(Clone)" || enemyObj.name == "icedemon(Clone)"|| 
-                    enemyObj.name == "ImomusiDark(Clone)" || enemyObj.name == "SkeletonWizard(Clone)"||
-                    enemyObj.name == "wizard(Clone)"||enemyObj.name == "troll(Clone)" || enemyObj.name == "goblin(Clone)" || enemyObj.name == "Hobgoblin(Clone)")
+
+                for (int i = 0; _enemyname.Length > i;i++)
                 {
-                    enemyObj.GetComponent<SkeletonStatus>()._isString = true;
-
+                    if (enemyObj.name == _enemyname[i])
+                    {
+                        enemyObj.GetComponent<SkeletonStatus>()._isString = true;
+                    }
                 }
-
               
             }
         }

@@ -1,27 +1,11 @@
 ﻿<Properties StartupConfiguration="{3E78C741-62A7-DB31-C2C9-7D30606E98C1}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/PutNewObjectMyRoom.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/MyRoomSaveSystem.cs">
     <Files>
-      <File FileName="Assets/Script/SkeletonStatus.cs" Line="130" Column="67" />
-      <File FileName="Assets/Script/SkeletonSword.cs" Line="29" Column="28" />
-      <File FileName="Assets/Script/SaveData.cs" Line="105" Column="59" />
-      <File FileName="Assets/UnityChan/Scripts/UnityChanControlScriptWithRgidBody.cs" Line="180" Column="28" />
-      <File FileName="Assets/Script/WeaponTable.cs" Line="39" Column="27" />
-      <File FileName="Assets/Script/WeaponShopExit.cs" Line="27" Column="29" />
-      <File FileName="Assets/Script/SwordUpdate.cs" Line="20" Column="10" />
-      <File FileName="Assets/Script/MonsterSpawn.cs" Line="325" Column="1" />
-      <File FileName="Assets/Script/AudioControl.cs" Line="96" Column="1" />
-      <File FileName="Assets/Script/Portal.cs" Line="24" Column="12" />
-      <File FileName="Assets/Script/MyRoomWallControl.cs" Line="27" Column="78" />
-      <File FileName="Assets/Script/WallSpaceUpdate.cs" Line="37" Column="104" />
-      <File FileName="Assets/Script/EssenceUpdate.cs" Line="6" Column="1" />
-      <File FileName="Assets/Script/MyRoomSaveSystem.cs" Line="15" Column="13" />
-      <File FileName="Assets/Script/MyRoomObjectMovement.cs" Line="124" Column="13" />
+      <File FileName="Assets/Script/MyRoomSaveSystem.cs" Line="110" Column="54" />
       <File FileName="Assets/Script/MyRoomPlayerSpownPos.cs" Line="21" Column="88" />
-      <File FileName="Assets/Script/TPSControll_y.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/TPSCameraControll.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/CameraRotate.cs" Line="92" Column="1" />
-      <File FileName="Assets/Script/PutNewObjectMyRoom.cs" Line="17" Column="10" />
+      <File FileName="Assets/Script/MyRoomObjectMovement.cs" Line="54" Column="30" />
+      <File FileName="Assets/Script/PutNewObjectMyRoom.cs" Line="100" Column="10" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

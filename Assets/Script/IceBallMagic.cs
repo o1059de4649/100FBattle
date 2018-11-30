@@ -6,6 +6,12 @@ namespace UnityStandardAssets.CrossPlatformInput
     public class IceBallMagic : MonoBehaviour
     {
         GameObject player;
+        public string[] _enemy_OneHalf = {"golem(Clone)","Shell_Crab(Clone)"};
+        public string[] _enemy_Three = {
+            "SkeletonWizard(Clone)","SkeletonDarkKnight(Clone)","SkeletonWeak1(Clone)","SkeletonWeak1(Clone)","SkeletonWeak2(Clone)",
+            "SkeletonMedium1(Clone)","SkeletonMedium2(Clone)","SkeletonStrong(Clone)","demon(Clone)","demonBoss(Clone)"};
+        public string[] _enemy_Half = {"wizard(Clone)", "Imomusi(Clone)","ImomusiBoss(Clone)","Imomusi2(Clone)","icedemon(Clone)","ImomusiDark(Clone)" };
+        public string[] _enemy_One = {"troll(Clone)", "goblin(Clone)","Hobgoblin(Clone)"};
         // Use this for initialization
         void Start()
         {
@@ -21,35 +27,48 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         private void OnTriggerEnter(Collider enemyObj)
         {
-            
+
 
             if (enemyObj.tag == "Enemy")
             {
-                if (enemyObj.name == "golem(Clone)"||enemyObj.name == "Shell_Crab(Clone)")
+                for (int i = 0; _enemy_OneHalf.Length > i; i++)
                 {
-                    enemyObj.GetComponent<SkeletonStatus>()._life -= player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPower * 1.5f;
-                    enemyObj.GetComponent<SkeletonStatus>()._isMagic = true;
+                    if (enemyObj.name == _enemy_Three[i])
+                    {
+                        enemyObj.GetComponent<SkeletonStatus>()._life -= player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPower * 1.5f;
+                        enemyObj.GetComponent<SkeletonStatus>()._isMagic = true;
+
+                    }
                 }
 
-                if (enemyObj.name == "SkeletonWizard(Clone)"||enemyObj.name == "SkeletonDarkKnight(Clone)"||enemyObj.name == "Skeleton(Clone)" || enemyObj.name == "SkeletonWeak1(Clone)" || enemyObj.name == "SkeletonWeak2(Clone)" || enemyObj.name == "SkeletonMedium1(Clone)" || enemyObj.name == "SkeletonMedium2(Clone)" || enemyObj.name == "SkeletonStrong(Clone)" ||enemyObj.name == "demon(Clone)" || enemyObj.name == "demonBoss(Clone)")
+                for (int i = 0; _enemy_Three.Length > i; i++)
                 {
-                    enemyObj.GetComponent<SkeletonStatus>()._life -= player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPower * 3;
-                    enemyObj.GetComponent<SkeletonStatus>()._isMagic = true;
+                    if (enemyObj.name == _enemy_Three[i])
+                    {
+                        enemyObj.GetComponent<SkeletonStatus>()._life -= player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPower * 3;
+                        enemyObj.GetComponent<SkeletonStatus>()._isMagic = true;
+
+                    }
 
                 }
 
-                if (enemyObj.name == "wizard(Clone)"||enemyObj.name == "Imomusi(Clone)" || enemyObj.name == "ImomusiBoss(Clone)" || enemyObj.name == "Imomusi2(Clone)" || enemyObj.name == "icedemon(Clone)"|| enemyObj.name == "ImomusiDark(Clone)")
+                for (int i = 0; _enemy_Three.Length > i; i++)
                 {
-                    enemyObj.GetComponent<SkeletonStatus>()._life -= player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPower * 0.5f;
+                    if (enemyObj.name == _enemy_Half[i]){
+                        enemyObj.GetComponent<SkeletonStatus>()._life -= player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPower * 0.5f;
                     enemyObj.GetComponent<SkeletonStatus>()._isMagic = true;
+                    }
                 }
 
-                if (enemyObj.name == "troll(Clone)" || enemyObj.name == "goblin(Clone)" || enemyObj.name == "Hobgoblin(Clone)")
+                for (int i = 0; _enemy_Three.Length > i; i++)
                 {
-                    enemyObj.GetComponent<SkeletonStatus>()._life -= player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPower;
-                    enemyObj.GetComponent<SkeletonStatus>()._isMagic = true;
+                    if (enemyObj.name == _enemy_One[i])
+                    {
+                        enemyObj.GetComponent<SkeletonStatus>()._life -= player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPower;
+                        enemyObj.GetComponent<SkeletonStatus>()._isMagic = true;
+                    }
+                    Destroy(this.gameObject, 10.0f);
                 }
-                Destroy(this.gameObject, 10.0f);
             }
         }
 

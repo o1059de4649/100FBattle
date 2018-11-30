@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 namespace UnityStandardAssets.CrossPlatformInput
 {
     public class MyRoomObjectMovement : MonoBehaviour
@@ -11,6 +12,8 @@ namespace UnityStandardAssets.CrossPlatformInput
         public GameObject player;
         UnityChanControlScriptWithRgidBody _uc;
         public string[] item_name;
+
+       
         // Use this for initialization
         void Start()
         {
@@ -18,6 +21,8 @@ namespace UnityStandardAssets.CrossPlatformInput
             player = GameObject.FindWithTag("Player");
             _uc = player.GetComponent<UnityChanControlScriptWithRgidBody>();
             item_name = GetComponent<MyRoomSaveSystem>().item_name;
+
+           
         }
 
         // Update is called once per frame
@@ -46,6 +51,13 @@ namespace UnityStandardAssets.CrossPlatformInput
         }
 
         public void PickUp(){
+            for(int i = 0;i < item_name.Length;i++){
+                if (this.gameObject.name == item_name[i])
+                {
+                    _uc.itemList[i]++;
+                }
+            }
+            /*
             if(this.gameObject.name == item_name[0]){
                 
                 _uc.itemList[0]++;
@@ -85,7 +97,7 @@ namespace UnityStandardAssets.CrossPlatformInput
             {
                
                 _uc.itemList[6]++;
-            }
+            }*/
 
             Destroy(this.gameObject);
         }
