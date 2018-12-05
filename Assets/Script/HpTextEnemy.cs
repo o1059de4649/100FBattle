@@ -7,20 +7,26 @@ namespace UnityStandardAssets.CrossPlatformInput
 public class HpTextEnemy : MonoBehaviour {
         Slider slider;
         public GameObject skeleton;
+        public SkeletonStatus skeleton_Status;
 	// Use this for initialization
 	void Start () {
             slider = GetComponent<Slider>();
 
-          
+            skeleton_Status = skeleton.GetComponent<SkeletonStatus>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-            
-            if (this.gameObject.name == "Skeleton_hpbar")
+
+            if(skeleton_Status == null){
+                slider.value = skeleton.GetComponent<PlayerTeamAI>()._life;
+                slider.maxValue = skeleton.GetComponent<PlayerTeamAI>()._maxLife;
+            }
+
+            if (this.gameObject.name == "Skeleton_hpbar" && skeleton_Status != null)
             {
-                slider.maxValue = skeleton.GetComponent<SkeletonStatus>()._maxLife;
-                slider.value = skeleton.GetComponent<SkeletonStatus>()._life;
+                slider.maxValue = skeleton_Status._maxLife;
+                slider.value = skeleton_Status._life;
             }
 	}
 }

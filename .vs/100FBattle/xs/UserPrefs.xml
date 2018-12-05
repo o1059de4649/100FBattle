@@ -1,11 +1,20 @@
 ﻿<Properties StartupConfiguration="{3E78C741-62A7-DB31-C2C9-7D30606E98C1}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/MyRoomSaveSystem.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/IceBallMagic.cs">
     <Files>
-      <File FileName="Assets/Script/MyRoomSaveSystem.cs" Line="110" Column="54" />
+      <File FileName="Assets/Script/MyRoomSaveSystem.cs" Line="34" Column="12" />
       <File FileName="Assets/Script/MyRoomPlayerSpownPos.cs" Line="21" Column="88" />
       <File FileName="Assets/Script/MyRoomObjectMovement.cs" Line="54" Column="30" />
-      <File FileName="Assets/Script/PutNewObjectMyRoom.cs" Line="100" Column="10" />
+      <File FileName="Assets/Script/PutNewObjectMyRoom.cs" Line="7" Column="2" />
+      <File FileName="Assets/Script/PlayerTeamAI.cs" Line="78" Column="45" />
+      <File FileName="Assets/Script/SkeletonStatus.cs" Line="45" Column="48" />
+      <File FileName="Assets/Script/SkeletonSword.cs" Line="6" Column="47" />
+      <File FileName="Assets/Script/HpTextEnemy.cs" Line="25" Column="13" />
+      <File FileName="Assets/Script/ShowLevelAuto.cs" Line="25" Column="64" />
+      <File FileName="Assets/Script/TeamNameSystemControl.cs" Line="26" Column="38" />
+      <File FileName="Assets/Script/EnemyCount.cs" Line="31" Column="13" />
+      <File FileName="Assets/Script/NKPrefabMan.cs" Line="49" Column="9" />
+      <File FileName="Assets/Script/IceBallMagic.cs" Line="57" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

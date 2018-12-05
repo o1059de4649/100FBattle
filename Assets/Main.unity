@@ -10467,6 +10467,9 @@ MonoBehaviour:
   _enemyCount: 0
   _floorLevel: 0
   _MaxFloorLevel: 0
+  _teamCount: 0
+  teamNameSysytem: {fileID: 1691105905076170, guid: 2cf2a845584454ebdbab187033b6a7e6,
+    type: 2}
 --- !u!1 &1635026168 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1265629013653732, guid: edc4dcfc433164a91a5d2e73f6e03e82,

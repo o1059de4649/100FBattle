@@ -11,7 +11,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         void Start()
         {
             boxCollider = GetComponent<BoxCollider>();
-
+            boxCollider.enabled = false;
         }
 
         // Update is called once per frame
@@ -22,6 +22,10 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         public void OnTriggerEnter(Collider col)
         {
+            if(col.gameObject.tag == "Enemy" && this.gameObject.GetComponentInParent<PlayerTeamAI>() != null){
+                col.gameObject.GetComponent<SkeletonStatus>()._life -= _swordPower + this.gameObject.GetComponentInParent<PlayerTeamAI>()._attackPlus;
+            }
+
             if (col.gameObject.tag == "Player")
             {
                 if(col.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>()._isCrystal == true){
@@ -29,6 +33,10 @@ namespace UnityStandardAssets.CrossPlatformInput
                     return;
                 }
                 col.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>().life -= _swordPower;
+            }
+
+            if(col.gameObject.tag =="Team"){
+                col.gameObject.GetComponent<PlayerTeamAI>()._life -= _swordPower;
             }
         }
     }

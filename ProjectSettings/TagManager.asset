@@ -8,6 +8,7 @@ TagManager:
   - Gun
   - EnemySword
   - Enemy
+  - Team
   layers:
   - Default
   - TransparentFX

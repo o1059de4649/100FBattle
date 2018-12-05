@@ -14,14 +14,16 @@ public class ShowLevelAuto : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-            
+            _text.text = ("Lv." + user_skeletonStatus._monster_level.ToString());
+            NameUpdate();
     }
 
     // Update is called once per frame
     void Update()
     {
-            _text.text = ("Lv." + user_skeletonStatus._monster_level.ToString());
-            NameUpdate();
+            if(user_skeletonStatus == null){
+                _name.text = this.transform.parent.parent.name;
+            }
 
     }
 

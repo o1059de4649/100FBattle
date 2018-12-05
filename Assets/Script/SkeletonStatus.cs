@@ -38,7 +38,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         public BoxCollider boxCollider;
 
         public bool _isMagic = false;
-        EnemyCount enemyCount;
+        public EnemyCount enemyCount;
 
         public bool _isString = false;
 
@@ -52,10 +52,11 @@ namespace UnityStandardAssets.CrossPlatformInput
         public float _bloodEssence;
         float _timeHitDamage;
         GameObject camera;
+        public GameObject teamNameSystem;
         // Use this for initialization
         void Start()
         {
-
+            teamNameSystem = GameObject.Find("FloorControl").GetComponent<EnemyCount>().teamNameSysytem;
             _monster_level = GameObject.Find("FloorControl").GetComponent<EnemyCount>()._floorLevel + Random.Range(0,35);
 
 
@@ -174,6 +175,15 @@ namespace UnityStandardAssets.CrossPlatformInput
             player.GetComponent<UnityChanControlScriptWithRgidBody>().exp_point += _exp;
             player.GetComponent<UnityChanControlScriptWithRgidBody>()._money += _enemyMoney;
             player.GetComponent<UnityChanControlScriptWithRgidBody>()._bloodEssence += _bloodEssence;
+
+            int count = Random.Range(1, 100);
+            if(count <= 2){
+                GameObject teamNameCanvas = Instantiate(teamNameSystem,this.transform.position, Quaternion.identity);
+                teamNameCanvas.transform.parent = this.transform;
+                return;
+            }
+
+           
             Destroy(this.gameObject, 2.0f);
 
         }
