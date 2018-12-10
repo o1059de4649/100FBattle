@@ -20,10 +20,10 @@ namespace UnityStandardAssets.CrossPlatformInput
         // Update is called once per frame
         void Update()
         {
-            if(_enemyCount < 0){
+           /* if(_enemyCount < 0){
                 _enemyCount = 0;
             }
-
+*/
             if (_teamCount < 0)
             {
                 _teamCount= 0;

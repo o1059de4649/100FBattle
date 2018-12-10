@@ -7,6 +7,7 @@ namespace UnityStandardAssets.CrossPlatformInput
     {
         BoxCollider boxCollider;
         public float _swordPower;
+        float _attackDelay;
         // Use this for initialization
         void Start()
         {
@@ -17,26 +18,42 @@ namespace UnityStandardAssets.CrossPlatformInput
         // Update is called once per frame
         void Update()
         {
+            _attackDelay += Time.deltaTime;
 
         }
 
         public void OnTriggerEnter(Collider col)
         {
-            if(col.gameObject.tag == "Enemy" && this.gameObject.GetComponentInParent<PlayerTeamAI>() != null){
-                col.gameObject.GetComponent<SkeletonStatus>()._life -= _swordPower + this.gameObject.GetComponentInParent<PlayerTeamAI>()._attackPlus;
-            }
-
-            if (col.gameObject.tag == "Player")
+            
+            if (col.gameObject.tag == "Enemy" && this.gameObject.GetComponentInParent<PlayerTeamAI>() != null)
             {
-                if(col.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>()._isCrystal == true){
-                    col.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>().life -= _swordPower / 3;
-                    return;
-                }
-                col.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>().life -= _swordPower;
+                col.gameObject.GetComponent<SkeletonStatus>()._life -= _swordPower + this.gameObject.GetComponentInParent<PlayerTeamAI>()._attackPlus;
+                this.gameObject.GetComponentInParent<PlayerTeamAI>()._exp += col.gameObject.GetComponent<SkeletonStatus>()._monster_level;
             }
 
-            if(col.gameObject.tag =="Team"){
-                col.gameObject.GetComponent<PlayerTeamAI>()._life -= _swordPower;
+            if (_attackDelay > 0.5f)
+            {
+
+
+
+                if (col.gameObject.tag == "Player" && this.gameObject.GetComponentInParent<PlayerTeamAI>() == null)
+                {
+                    if (col.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>()._isCrystal == true)
+                    {
+                        col.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>().life -= _swordPower / 3;
+                        _attackDelay = 0;
+                        return;
+                    }
+                    col.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>().life -= _swordPower;
+                }
+
+
+
+                if (col.gameObject.tag == "Team" && this.gameObject.GetComponentInParent<PlayerTeamAI>() == null)
+                {
+                    col.gameObject.GetComponent<PlayerTeamAI>()._life -= _swordPower / 2;
+                    _attackDelay = 0;
+                }
             }
         }
     }

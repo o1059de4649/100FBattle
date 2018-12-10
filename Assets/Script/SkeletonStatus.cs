@@ -37,25 +37,23 @@ namespace UnityStandardAssets.CrossPlatformInput
         float _delay_attack;
         public BoxCollider boxCollider;
 
-        public bool _isMagic = false;
+        public bool _isMagic = false,_isString = false;
         public EnemyCount enemyCount;
-
-        public bool _isString = false;
-
         public GameObject _instatinateParticle;
 
-        public float _runSpeed = 1;
-        public float _animDelay = 1.0f;
-
-        public float _enemyWeak = 1;
-
-        public float _bloodEssence;
+        public float _runSpeed = 1,_animDelay = 1.0f,_enemyWeak = 1,_bloodEssence,_probability = 8;
+       
         float _timeHitDamage;
         GameObject camera;
         public GameObject teamNameSystem;
+        GameObject team;
+       
+
         // Use this for initialization
         void Start()
         {
+
+            this.gameObject.name = this.gameObject.name.Replace("(Clone)","");
             teamNameSystem = GameObject.Find("FloorControl").GetComponent<EnemyCount>().teamNameSysytem;
             _monster_level = GameObject.Find("FloorControl").GetComponent<EnemyCount>()._floorLevel + Random.Range(0,35);
 
@@ -75,6 +73,8 @@ namespace UnityStandardAssets.CrossPlatformInput
 
             _exp += _monster_level;
             _enemyMoney += _monster_level;
+
+
           
         }
 
@@ -150,11 +150,26 @@ namespace UnityStandardAssets.CrossPlatformInput
         {
             if(col.gameObject.tag == "Player"){
                 OnAttack();
+                return;
+            }
+
+            if(col.gameObject.tag == "Team"){
+                
+                if(team == null){
+                    team = GameObject.FindWithTag("Team");
+                }
+
+                this.gameObject.transform.LookAt(team.transform);
+                OnAttack();
+                return;
             }
         }
 
         void OnAttack(){
-          
+            if(this.gameObject.tag == "Death"){
+                return;
+            }
+
 
             if(_delay_attack >= 1.5f){
                 v = 0;
@@ -177,9 +192,10 @@ namespace UnityStandardAssets.CrossPlatformInput
             player.GetComponent<UnityChanControlScriptWithRgidBody>()._bloodEssence += _bloodEssence;
 
             int count = Random.Range(1, 100);
-            if(count <= 2){
+            if(count <= _probability){
                 GameObject teamNameCanvas = Instantiate(teamNameSystem,this.transform.position, Quaternion.identity);
                 teamNameCanvas.transform.parent = this.transform;
+                this.gameObject.tag = "Death";
                 return;
             }
 

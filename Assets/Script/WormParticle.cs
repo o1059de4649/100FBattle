@@ -21,6 +21,13 @@ namespace UnityStandardAssets.CrossPlatformInput
                 playerObj.GetComponent<UnityChanControlScriptWithRgidBody>().OnWormString();
                    
             }
+
+            if(this.gameObject.GetComponentInParent<PlayerTeamAI>() != null)//仲間の時
+            {
+                if (playerObj.gameObject.tag == "Enemy"){
+                    playerObj.GetComponent<SkeletonStatus>()._isString = true;
+                }
+            }
         }
 
       

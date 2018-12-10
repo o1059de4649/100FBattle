@@ -119,6 +119,13 @@ namespace UnityStandardAssets.CrossPlatformInput
                 Save();
 
                 player.GetComponent<UnityChanControlScriptWithRgidBody>().SetUp();
+
+                GameObject[] team = new GameObject[3];
+                 team = GameObject.FindGameObjectsWithTag("Team");
+
+                for (int i = 0;  team.Length > i;i++){
+                    team[i].GetComponent<PlayerTeamAI>()._life += 99999;
+                }
             }
 
 

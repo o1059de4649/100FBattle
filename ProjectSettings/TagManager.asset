@@ -9,6 +9,7 @@ TagManager:
   - EnemySword
   - Enemy
   - Team
+  - Death
   layers:
   - Default
   - TransparentFX

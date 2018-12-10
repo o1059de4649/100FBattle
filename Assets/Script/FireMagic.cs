@@ -7,10 +7,10 @@ namespace UnityStandardAssets.CrossPlatformInput
     {
 
         public GameObject player;
-        public string[] _enemyname_Three = {"golem(Clone)","icedemon(Clone)","Shell_Crab(Clone)", "Imomusi(Clone)","ImomusiBoss(Clone)" , "Imomusi2(Clone)" ,"ImomusiDark(Clone)"};
-        public string[] _enemyname_LittleDamage = {"wizard(Clone)","SkeletonWizard(Clone)","SkeletonDarkKnight(Clone)","Skeleton(Clone)","SkeletonWeak1(Clone)",
-            "SkeletonWeak2(Clone)", "SkeletonMedium1(Clone)","SkeletonMedium2(Clone)","SkeletonStrong(Clone)"};
-        public string[] _enemyname_normal = {"troll(Clone)","goblin(Clone)","Hobgoblin(Clone)"};
+        private string[] _enemyname_Three = {"golem","icedemon","Shell_Crab", "Imomusi","ImomusiBoss" , "Imomusi2" ,"ImomusiDark"};
+        private string[] _enemyname_LittleDamage = {"wizard","SkeletonWizard","SkeletonDarkKnight","Skeleton","SkeletonWeak1",
+            "SkeletonWeak2", "SkeletonMedium1","SkeletonMedium2","SkeletonStrong"};
+        private string[] _enemyname_normal = {"troll","goblin","Hobgoblin"};
         // Use this for initialization
         void Start()
         {

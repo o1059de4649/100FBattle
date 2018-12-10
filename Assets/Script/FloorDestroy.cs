@@ -21,6 +21,8 @@ namespace UnityStandardAssets.CrossPlatformInput
         private void OnTriggerEnter(Collider other)
         {
             if(other.gameObject.tag == "Player"){
+                GameObject enemyDeath = GameObject.FindWithTag("Death");
+                Destroy(enemyDeath);
                 Destroy(_destroyObj);
             }
         }

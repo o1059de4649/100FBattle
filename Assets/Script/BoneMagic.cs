@@ -6,15 +6,15 @@ namespace UnityStandardAssets.CrossPlatformInput
     public class BoneMagic : MonoBehaviour
     {
         public GameObject player;
-        public string[] _enemyname_normal = {"SkeletonDarkKnight(Clone)","icedemon(Clone)","Skeleton(Clone)","SkeletonWeak1(Clone)","SkeletonWeak2(Clone)",
-            "SkeletonMedium1(Clone)","SkeletonMedium2(Clone)","demon(Clone)","SkeletonStrong(Clone)","demonBoss(Clone)",
-            "SkeletonWizard(Clone)","wizard(Clone)","troll(Clone)","goblin(Clone)","Hobgoblin(Clone)"};
+        private string[] _enemyname_normal = {"SkeletonDarkKnight","icedemon","Skeleton","SkeletonWeak1","SkeletonWeak2",
+            "SkeletonMedium1","SkeletonMedium2","demon","SkeletonStrong","demonBoss",
+            "SkeletonWizard","wizard","troll","goblin","Hobgoblin"};
 
-        public string[] _enemyname_weak = { "ImomusiDark(Clone)", "Imomusi(Clone)", "ImomusiBoss(Clone)", "Imomusi2(Clone)" };
+        private string[] _enemyname_weak = { "ImomusiDark", "Imomusi", "ImomusiBoss", "Imomusi2" };
         // Use this for initialization
         void Start()
         {
-
+            
         }
 
         // Update is called once per frame
@@ -27,10 +27,12 @@ namespace UnityStandardAssets.CrossPlatformInput
         {
             if (enemyObj.tag == "Enemy")
             {
-
+               
                 for (int i = 0; _enemyname_normal.Length > i; i++){
+                   
                     if (enemyObj.name == _enemyname_normal[i])
                     {
+                     
                         enemyObj.GetComponent<SkeletonStatus>()._life -= player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPower;
                         enemyObj.GetComponent<SkeletonStatus>()._isMagic = true;
                     }
@@ -40,7 +42,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
                 for (int i = 0; _enemyname_weak.Length > i; i++)
                 {
-                    if (enemyObj.name == _enemyname_weak[i])
+                    if (enemyObj.name == _enemyname_weak[i].Replace("Clone",""))
                     {
 
                         enemyObj.GetComponent<SkeletonStatus>()._life -= player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPower * 3;

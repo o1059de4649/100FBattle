@@ -7,12 +7,12 @@ namespace UnityStandardAssets.CrossPlatformInput
     public class StringMagic : MonoBehaviour
     {
         public GameObject player;
-        public string[] _enemyname = {"SkeletonDarkKnight(Clone)","Skeleton(Clone)" 
-                    ,"SkeletonWeak1(Clone)", "SkeletonWeak2(Clone)"
-                    ,"SkeletonMedium1(Clone)","SkeletonMedium2(Clone)"
-                    ,"golem(Clone)" ,"icedemon(Clone)"
-                    ,"ImomusiDark(Clone)", "SkeletonWizard(Clone)"
-                    ,"wizard(Clone)","troll(Clone)", "goblin(Clone)", "Hobgoblin(Clone)"};
+        private string[] _enemyname = {"SkeletonDarkKnight","Skeleton" 
+                    ,"SkeletonWeak1", "SkeletonWeak2"
+                    ,"SkeletonMedium1","SkeletonMedium2"
+                    ,"golem" ,"icedemon"
+                    ,"ImomusiDark", "SkeletonWizard"
+                    ,"wizard","troll", "goblin", "Hobgoblin"};
         // Use this for initialization
         void Start()
         {

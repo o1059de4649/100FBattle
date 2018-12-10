@@ -11,9 +11,12 @@ namespace UnityStandardAssets.CrossPlatformInput
         public GameObject[] content;
         GameObject Duo_Panel;
         InRoomChat inRoomChat;
+        bool isSetUp = false;
         // Use this for initialization
         void Start()
         {
+
+
             Duo_Panel = GameObject.Find("DualTouchControls");
         }
 
@@ -23,38 +26,53 @@ namespace UnityStandardAssets.CrossPlatformInput
             /*if(inRoomChat == null){
                 inRoomChat = GameObject.Find("ChatManager").GetComponent<InRoomChat>();
             }*/
-           
+            if (!isSetUp)
+            {
+                for (int i = 0; content.Length > i; i++)
+                {
+                    content[i].SetActive(true);
+                }
+                Invoke("SetOff", 1.0f);
+                isSetUp = true;
+            }
+
+
         }
 
         public void OnPointerClick(PointerEventData eventData)
         {
-         
+
 
             if (option_On == true)
             {
                 option_On = false;
-                content[0].SetActive(false);
-                content[1].SetActive(false);
-                content[2].SetActive(false);
-                content[3].SetActive(false);
-                content[4].SetActive(false);
+
+                for (int i = 0; content.Length > i; i++)
+                {
+                    content[i].SetActive(false);
+                }
                 Duo_Panel.GetComponent<Canvas>().enabled = true;
-                inRoomChat.IsVisible = false;
-            }else{
+
+            }
+            else
+            {
+
                 option_On = true;
-                content[0].SetActive(true);
-                content[1].SetActive(true);
-                content[2].SetActive(true);
-                content[3].SetActive(true);
-                content[4].SetActive(true);
+                for (int i = 0; content.Length > i; i++)
+                {
+                    content[i].SetActive(true);
+                }
                 Duo_Panel.GetComponent<Canvas>().enabled = false;
-                inRoomChat.IsVisible = true;
+
             }
         }
 
-
-
-
-
+        void SetOff()
+        {
+            for (int i = 0; content.Length > i; i++)
+            {
+                content[i].SetActive(false);
+            }
+        }
     }
-    }
+}

@@ -6,12 +6,12 @@ namespace UnityStandardAssets.CrossPlatformInput
     public class IceBallMagic : MonoBehaviour
     {
         GameObject player;
-        public string[] _enemy_OneHalf = {"golem(Clone)","Shell_Crab(Clone)"};
-        public string[] _enemy_Three = {
-            "SkeletonWizard(Clone)","SkeletonDarkKnight(Clone)","SkeletonWeak1(Clone)","SkeletonWeak1(Clone)","SkeletonWeak2(Clone)",
-            "SkeletonMedium1(Clone)","SkeletonMedium2(Clone)","SkeletonStrong(Clone)","demon(Clone)","demonBoss(Clone)"};
-        public string[] _enemy_Half = {"wizard(Clone)", "Imomusi(Clone)","ImomusiBoss(Clone)","Imomusi2(Clone)","icedemon(Clone)","ImomusiDark(Clone)" };
-        public string[] _enemy_One = {"troll(Clone)", "goblin(Clone)","Hobgoblin(Clone)"};
+        private string[] _enemy_OneHalf = {"golem","Shell_Crab"};
+        private string[] _enemy_Three = {
+            "SkeletonWizard","SkeletonDarkKnight","SkeletonWeak1","SkeletonWeak1","SkeletonWeak2",
+            "SkeletonMedium1","SkeletonMedium2","SkeletonStrong","demon","demonBoss"};
+        private string[] _enemy_Half = {"wizard", "Imomusi","ImomusiBoss","Imomusi2","icedemon","ImomusiDark" };
+        private string[] _enemy_One = {"troll", "goblin","Hobgoblin"};
         // Use this for initialization
         void Start()
         {
@@ -35,7 +35,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 {
                     if (enemyObj.name == _enemy_Three[i])
                     {
-                        enemyObj.GetComponent<SkeletonStatus>()._life -= player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPower * 1.5f;
+                        enemyObj.GetComponent<SkeletonStatus>()._life -= player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPower * 1.5f * 4;
                         enemyObj.GetComponent<SkeletonStatus>()._isMagic = true;
 
                     }
@@ -45,7 +45,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 {
                     if (enemyObj.name == _enemy_Three[i])
                     {
-                        enemyObj.GetComponent<SkeletonStatus>()._life -= player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPower * 3;
+                        enemyObj.GetComponent<SkeletonStatus>()._life -= player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPower * 3 * 4;
                         enemyObj.GetComponent<SkeletonStatus>()._isMagic = true;
 
                     }
@@ -55,7 +55,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 for (int i = 0; _enemy_Three.Length > i; i++)
                 {
                     if (enemyObj.name == _enemy_Half[i]){
-                        enemyObj.GetComponent<SkeletonStatus>()._life -= player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPower * 0.5f;
+                        enemyObj.GetComponent<SkeletonStatus>()._life -= player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPower * 0.5f* 4;
                     enemyObj.GetComponent<SkeletonStatus>()._isMagic = true;
                     }
                 }
@@ -64,7 +64,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 {
                     if (enemyObj.name == _enemy_One[i])
                     {
-                        enemyObj.GetComponent<SkeletonStatus>()._life -= player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPower;
+                        enemyObj.GetComponent<SkeletonStatus>()._life -= player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPower * 4;
                         enemyObj.GetComponent<SkeletonStatus>()._isMagic = true;
                     }
                     Destroy(this.gameObject, 10.0f);
