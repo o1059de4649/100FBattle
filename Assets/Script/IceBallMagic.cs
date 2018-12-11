@@ -9,7 +9,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         private string[] _enemy_OneHalf = {"golem","Shell_Crab"};
         private string[] _enemy_Three = {
             "SkeletonWizard","SkeletonDarkKnight","SkeletonWeak1","SkeletonWeak1","SkeletonWeak2",
-            "SkeletonMedium1","SkeletonMedium2","SkeletonStrong","demon","demonBoss"};
+            "SkeletonMedium1","SkeletonMedium2","SkeletonStrong","demon","demonBoss","Spider"};
         private string[] _enemy_Half = {"wizard", "Imomusi","ImomusiBoss","Imomusi2","icedemon","ImomusiDark" };
         private string[] _enemy_One = {"troll", "goblin","Hobgoblin"};
         // Use this for initialization

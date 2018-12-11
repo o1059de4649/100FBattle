@@ -9,6 +9,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         public float _speed;
         public float _magicPower;
         public bool _isTeam = false;
+        float _attackDelay;
         // Use this for initialization
         void Start()
         {
@@ -31,20 +32,20 @@ namespace UnityStandardAssets.CrossPlatformInput
         // Update is called once per frame
         void Update()
         {
-
+            _attackDelay += Time.deltaTime;
         }
 
         public void OnTriggerEnter(Collider col)
         {
-            if (col.gameObject.tag == "Enemy" && _isTeam == true)
+            if (col.gameObject.tag == "Enemy" && _isTeam == true && _attackDelay > 3)
             {
                 col.GetComponent<SkeletonStatus>()._life -= _magicPower;
-
+                _attackDelay = 0;
             }
 
-            if(col.gameObject.tag == "Player" && _isTeam == false){
+            if(col.gameObject.tag == "Player" && _isTeam == false && _attackDelay > 3){
                 col.GetComponent<UnityChanControlScriptWithRgidBody>().life -= _magicPower;
-               
+                _attackDelay = 0;
             }
         }
     }

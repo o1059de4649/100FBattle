@@ -1919,7 +1919,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _text: {fileID: 114715722832801976}
   user_skeletonStatus: {fileID: 114925695498903866}
-  _name: {fileID: 0}
+  _name: {fileID: 114612944301529328}
 --- !u!114 &114600995918834986
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2103,14 +2103,15 @@ MonoBehaviour:
   _itemDropForce: 0
   boxCollider: {fileID: 65465134689651078}
   _isMagic: 0
-  enemyCount: {fileID: 0}
   _isString: 0
+  enemyCount: {fileID: 0}
   _instatinateParticle: {fileID: 1502997631485746, guid: c2a3bf05ee52e43f6a6293313f3da7a2,
     type: 2}
   _runSpeed: 1
   _animDelay: 1
   _enemyWeak: 1
   _bloodEssence: 0
+  _probability: 8
   teamNameSystem: {fileID: 0}
 --- !u!114 &114960632997220398
 MonoBehaviour:

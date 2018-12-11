@@ -10,7 +10,7 @@ namespace UnityStandardAssets.CrossPlatformInput
             "SkeletonMedium1","SkeletonMedium2","demon","SkeletonStrong","demonBoss",
             "SkeletonWizard","wizard","troll","goblin","Hobgoblin"};
 
-        private string[] _enemyname_weak = { "ImomusiDark", "Imomusi", "ImomusiBoss", "Imomusi2" };
+        private string[] _enemyname_weak = { "ImomusiDark", "Imomusi", "ImomusiBoss", "Imomusi2" ,"Spider"};
         // Use this for initialization
         void Start()
         {

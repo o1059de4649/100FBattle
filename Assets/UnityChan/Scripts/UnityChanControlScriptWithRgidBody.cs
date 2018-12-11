@@ -172,12 +172,15 @@ namespace UnityStandardAssets.CrossPlatformInput
         public float _magicPowerPlus = 0;
         public float _attackPower = 0;
 
-        public bool _isCrystal = false;
-        public bool _isStringed = false;
+        public bool _isCrystal = false, _isStringed = false,isLockOn = false;
 
-        public GameObject _crystalParticle;
+
+        public GameObject _crystalParticle,enemyObject;
+        public GameObject[] enemyObjects;
 
         public List<int> itemList = new List<int>();
+
+
         void Start()
         {
             duo_Panel = GameObject.Find("DualTouchControls");
@@ -272,7 +275,32 @@ namespace UnityStandardAssets.CrossPlatformInput
         {
 
 
+            if(isLockOn){
 
+                for (int i = 0; enemyObjects.Length > i; i++)
+                {
+                    if (enemyObjects[i] != null && enemyObjects[i].GetComponent<SkeletonStatus>()._life > 0)
+                    {
+                        
+
+                            enemyObject = enemyObjects[i];
+
+                    }
+                }
+
+                if (!enemyObject)
+                {
+                    isLockOn = false;
+                    return;
+                }
+
+                Vector3 targetDir = enemyObject.transform.position - transform.position;
+                float step = 2 * Time.deltaTime;
+                Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0f);
+                transform.rotation = Quaternion.LookRotation(newDir);
+                //this.transform.LookAt(enemyObject.transform);
+               
+            }
             /*if (!u_photonView.isMine)
             {
                 return;
@@ -627,6 +655,18 @@ namespace UnityStandardAssets.CrossPlatformInput
             anim.SetBool("AssualtADS", false);
         }
 
+        public void EnemyLockOn()
+        {
+           
+           
+            if(isLockOn){
+                isLockOn = false;
+                return;
+            }else{
+                isLockOn = true;
+                enemyObjects = GameObject.FindGameObjectsWithTag("Enemy");
+            }
+        }
         /*
         [PunRPC]
         public void OnPlayerDestroy()

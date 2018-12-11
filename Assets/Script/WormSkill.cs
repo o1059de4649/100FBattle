@@ -16,7 +16,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         // Update is called once per frame
         void Update()
         {
-            if(enemy == null){
+            if(enemy == null && this.gameObject.GetComponentInParent<PlayerTeamAI>() != null){
                 _parrticle.SetActive(false);
             }
         }
@@ -43,10 +43,12 @@ namespace UnityStandardAssets.CrossPlatformInput
 
 
             if(col.gameObject.tag == "Player"){
+                
                 if (this.gameObject.GetComponentInParent<PlayerTeamAI>() != null)//仲間の時
                 {
                     return;
                 }
+
                 _parrticle.SetActive(true);
             }
         }

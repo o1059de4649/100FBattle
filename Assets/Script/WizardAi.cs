@@ -28,7 +28,9 @@ namespace UnityStandardAssets.CrossPlatformInput
                 return;
             }
 
-            if(col.gameObject.tag == "Enemy" && _attackDelay >= 3.0f && this.transform.gameObject.GetComponent<PlayerTeamAI>() != null){
+            if(col.gameObject.tag == "Enemy" 
+               && _attackDelay >= 3.0f 
+               && this.transform.gameObject.GetComponent<PlayerTeamAI>() != null){
                 Invoke("WizardMagicTeam", _magicDeelay);
                 return;
             }

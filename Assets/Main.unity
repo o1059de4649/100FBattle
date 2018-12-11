@@ -20,11 +20,11 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 4
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
@@ -193,6 +193,16 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224491204856175296, guid: edc4dcfc433164a91a5d2e73f6e03e82,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -36.799805
+      objectReference: {fileID: 0}
+    - target: {fileID: 224491204856175296, guid: edc4dcfc433164a91a5d2e73f6e03e82,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 283.6001
+      objectReference: {fileID: 0}
     - target: {fileID: 114951161703572720, guid: edc4dcfc433164a91a5d2e73f6e03e82,
         type: 2}
       propertyPath: viewIdField
@@ -307,6 +317,36 @@ Prefab:
         type: 2}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224171240577917072, guid: edc4dcfc433164a91a5d2e73f6e03e82,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -34.799805
+      objectReference: {fileID: 0}
+    - target: {fileID: 224123835646226136, guid: edc4dcfc433164a91a5d2e73f6e03e82,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -104.799805
+      objectReference: {fileID: 0}
+    - target: {fileID: 224123835646226136, guid: edc4dcfc433164a91a5d2e73f6e03e82,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 124.799805
+      objectReference: {fileID: 0}
+    - target: {fileID: 224928246144397000, guid: edc4dcfc433164a91a5d2e73f6e03e82,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -44.799805
+      objectReference: {fileID: 0}
+    - target: {fileID: 224928246144397000, guid: edc4dcfc433164a91a5d2e73f6e03e82,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 61.100098
+      objectReference: {fileID: 0}
+    - target: {fileID: 224189322592882572, guid: edc4dcfc433164a91a5d2e73f6e03e82,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -129.7002
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: edc4dcfc433164a91a5d2e73f6e03e82, type: 2}

@@ -11,35 +11,19 @@ namespace UnityStandardAssets.CrossPlatformInput
         public FloorClearFrag floorClearFrag;
         public GameObject _preStopWall;
         public int[] _howEnemyCount;
-        public float _spawnerRange = 15;
+        public float _spawnerRange = 15,_probablity;
         EnemyCount enemyCount;
         // Use this for initialization
         void Start()
         {
+            _probablity = Random.Range(0, 100);
             enemyCount = GameObject.Find("FloorControl").GetComponent<EnemyCount>();
-            _howEnemyCount[0] = _howEnemy[0];
-            _howEnemyCount[1] = _howEnemy[1];
-            _howEnemyCount[2] = _howEnemy[2];
-            _howEnemyCount[3] = _howEnemy[3];
-            _howEnemyCount[4] = _howEnemy[4];
-            _howEnemyCount[5] = _howEnemy[5];
-            _howEnemyCount[6] = _howEnemy[6];
-            _howEnemyCount[7] = _howEnemy[7];
-            _howEnemyCount[8] = _howEnemy[8];
-            _howEnemyCount[9] = _howEnemy[9];
-            _howEnemyCount[10] = _howEnemy[10];
-            _howEnemyCount[11] = _howEnemy[11];
-            _howEnemyCount[12] = _howEnemy[12];
-            _howEnemyCount[13] = _howEnemy[13];
-            _howEnemyCount[14] = _howEnemy[14];
-            _howEnemyCount[15] = _howEnemy[15];
-            _howEnemyCount[16] = _howEnemy[16];
-            _howEnemyCount[17] = _howEnemy[17];
-            _howEnemyCount[18] = _howEnemy[18];
-            _howEnemyCount[19] = _howEnemy[19];
-            _howEnemyCount[20] = _howEnemy[20];
-            _howEnemyCount[21] = _howEnemy[21];
-            _howEnemyCount[22] = _howEnemy[22];
+
+            for (int i = 0;_howEnemyCount.Length > i;i++){
+                _howEnemyCount[i] = _howEnemy[i];
+            }
+
+           
         }
 
         // Update is called once per frame
@@ -51,12 +35,27 @@ namespace UnityStandardAssets.CrossPlatformInput
         private void OnTriggerStay(Collider col)
         {
             if(col.gameObject.tag == "Player"){
+                if(_howEnemyCount[23] >= 1 && 100 > enemyCount._floorLevel &&_probablity < 5){
+                    Instantiate(monster[23], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
+                    _howEnemyCount[23]--;
+                    _probablity = Random.Range(0, 100);
+
+                }
+
+                if (_howEnemyCount[24] >= 1 && 100 > enemyCount._floorLevel && _probablity < 10 && 5 < _probablity)
+                {
+                    Instantiate(monster[24], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
+                    _howEnemyCount[24]--;
+                    _probablity = Random.Range(0, 100);
+
+                }
+
                 //SkeletonWeak1
                 if (_howEnemyCount[0] >= 1 && 5 > enemyCount._floorLevel)
                 {
                     Instantiate(monster[0], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
                     _howEnemyCount[0]--;
-
+                    _probablity = Random.Range(0, 100);
                     _preStopWall.SetActive(true);
                    
                 }
@@ -66,7 +65,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 {
                     Instantiate(monster[1], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
                     _howEnemyCount[1]--;
-
+                    _probablity = Random.Range(0, 100);
                     _preStopWall.SetActive(true);
 
                 }
@@ -76,7 +75,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 {
                     Instantiate(monster[2], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
                     _howEnemyCount[2]--;
-
+                    _probablity = Random.Range(0, 100);
                     _preStopWall.SetActive(true);
 
                 }
@@ -86,7 +85,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 {
                     Instantiate(monster[3], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
                     _howEnemyCount[3]--;
-
+                    _probablity = Random.Range(0, 100);
                     _preStopWall.SetActive(true);
 
                 }
@@ -96,7 +95,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 {
                     Instantiate(monster[4], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
                     _howEnemyCount[4]--;
-
+                    _probablity = Random.Range(0, 100);
                     _preStopWall.SetActive(true);
 
                 }
@@ -106,7 +105,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 {
                     Instantiate(monster[5], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
                     _howEnemyCount[5]--;
-
+                    _probablity = Random.Range(0, 100);
                     _preStopWall.SetActive(true);
 
                 }
@@ -116,7 +115,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 {
                     Instantiate(monster[6], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
                     _howEnemyCount[6]--;
-
+                    _probablity = Random.Range(0, 100);
                     _preStopWall.SetActive(true);
 
                 }
@@ -126,7 +125,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 {
                     Instantiate(monster[7], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
                     _howEnemyCount[7]--;
-
+                    _probablity = Random.Range(0, 100);
                     _preStopWall.SetActive(true);
 
                 }
@@ -136,7 +135,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 {
                     Instantiate(monster[8], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
                     _howEnemyCount[8]--;
-
+                    _probablity = Random.Range(0, 100);
                     _preStopWall.SetActive(true);
 
                 }
@@ -147,7 +146,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 {
                     Instantiate(monster[9], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
                     _howEnemyCount[9]--;
-
+                    _probablity = Random.Range(0, 100);
                     _preStopWall.SetActive(true);
 
                 }
@@ -157,7 +156,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 {
                     Instantiate(monster[10], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
                     _howEnemyCount[10]--;
-
+                    _probablity = Random.Range(0, 100);
                     _preStopWall.SetActive(true);
 
                 }
@@ -167,7 +166,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 {
                     Instantiate(monster[11], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
                     _howEnemyCount[11]--;
-
+                    _probablity = Random.Range(0, 100);
                     _preStopWall.SetActive(true);
 
                 }
@@ -177,7 +176,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 {
                     Instantiate(monster[13], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
                     _howEnemyCount[13]--;
-
+                    _probablity = Random.Range(0, 100);
                     _preStopWall.SetActive(true);
 
                 }
@@ -187,7 +186,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 {
                     Instantiate(monster[12], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
                     _howEnemyCount[12]--;
-
+                    _probablity = Random.Range(0, 100);
                     _preStopWall.SetActive(true);
 
                 }
@@ -197,7 +196,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 {
                     Instantiate(monster[14], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
                     _howEnemyCount[14]--;
-
+                    _probablity = Random.Range(0, 100);
                     _preStopWall.SetActive(true);
 
                 }
@@ -207,7 +206,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 {
                     Instantiate(monster[15], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
                     _howEnemyCount[15]--;
-
+                    _probablity = Random.Range(0, 100);
                     _preStopWall.SetActive(true);
 
                 }
@@ -217,7 +216,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 {
                     Instantiate(monster[16], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
                     _howEnemyCount[16]--;
-
+                    _probablity = Random.Range(0, 100);
                     _preStopWall.SetActive(true);
 
                 }
@@ -227,7 +226,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 {
                     Instantiate(monster[17], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
                     _howEnemyCount[17]--;
-
+                    _probablity = Random.Range(0, 100);
                     _preStopWall.SetActive(true);
 
                 }
@@ -247,7 +246,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 {
                     Instantiate(monster[19], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
                     _howEnemyCount[19]--;
-
+                    _probablity = Random.Range(0, 100);
                     _preStopWall.SetActive(true);
 
                 }
@@ -257,7 +256,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 {
                     Instantiate(monster[20], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
                     _howEnemyCount[20]--;
-
+                    _probablity = Random.Range(0, 100);
                     _preStopWall.SetActive(true);
 
                 }
@@ -277,7 +276,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 {
                     Instantiate(monster[21], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
                     _howEnemyCount[21]--;
-
+                    _probablity = Random.Range(0, 100);
                     _preStopWall.SetActive(true);
 
                 }
@@ -287,7 +286,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 {
                     Instantiate(monster[10], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
                     _howEnemyCount[10]--;
-
+                    _probablity = Random.Range(0, 100);
                     _preStopWall.SetActive(true);
 
                 }
@@ -297,7 +296,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 {
                     Instantiate(monster[11], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
                     _howEnemyCount[11]--;
-
+                    _probablity = Random.Range(0, 100);
                     _preStopWall.SetActive(true);
 
                 }
@@ -307,7 +306,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 {
                     Instantiate(monster[20], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
                     _howEnemyCount[20]--;
-
+                    _probablity = Random.Range(0, 100);
                     _preStopWall.SetActive(true);
 
                 }
@@ -317,11 +316,30 @@ namespace UnityStandardAssets.CrossPlatformInput
                 {
                     Instantiate(monster[22], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
                     _howEnemyCount[22]--;
-
+                    _probablity = Random.Range(0, 100);
                     _preStopWall.SetActive(true);
 
                 }
 
+                //Spider
+                if (_howEnemyCount[25] >= 1 && 60 > enemyCount._floorLevel && enemyCount._floorLevel >= 51)
+                {
+                    Instantiate(monster[25], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
+                    _howEnemyCount[25]--;
+                    _probablity = Random.Range(0, 100);
+                    _preStopWall.SetActive(true);
+
+                }
+
+                //SpiderBoss
+                if (_howEnemyCount[26] >= 1 && enemyCount._floorLevel == 60)
+                {
+                    Instantiate(monster[26], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
+                    _howEnemyCount[26]--;
+                    _probablity = Random.Range(0, 100);
+                    _preStopWall.SetActive(true);
+
+                }
 
 
             }

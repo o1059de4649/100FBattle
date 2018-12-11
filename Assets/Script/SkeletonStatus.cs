@@ -47,7 +47,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         GameObject camera;
         public GameObject teamNameSystem;
         GameObject team;
-       
+        public float _AttackTime = 1.5f;
 
         // Use this for initialization
         void Start()
@@ -171,7 +171,7 @@ namespace UnityStandardAssets.CrossPlatformInput
             }
 
 
-            if(_delay_attack >= 1.5f){
+            if(_delay_attack >= _AttackTime){
                 v = 0;
                 boxCollider.enabled = true;
                 anim.SetTrigger("Attack1h1");
