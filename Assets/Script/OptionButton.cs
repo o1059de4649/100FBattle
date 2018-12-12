@@ -12,6 +12,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         GameObject Duo_Panel;
         InRoomChat inRoomChat;
         bool isSetUp = false;
+        public GameObject[] on_to_off;
         // Use this for initialization
         void Start()
         {
@@ -53,6 +54,12 @@ namespace UnityStandardAssets.CrossPlatformInput
                 }
                 Duo_Panel.GetComponent<Canvas>().enabled = true;
 
+                for (int i = 0; on_to_off.Length > i; i++)
+                {
+                    on_to_off[i].SetActive(true);
+                }
+               
+
             }
             else
             {
@@ -63,6 +70,11 @@ namespace UnityStandardAssets.CrossPlatformInput
                     content[i].SetActive(true);
                 }
                 Duo_Panel.GetComponent<Canvas>().enabled = false;
+
+                for (int i = 0; on_to_off.Length > i; i++)
+                {
+                    on_to_off[i].SetActive(false);
+                }
 
             }
         }

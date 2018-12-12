@@ -8,9 +8,9 @@ namespace UnityStandardAssets.CrossPlatformInput
         public GameObject player;
         private string[] _enemyname_normal = {"SkeletonDarkKnight","icedemon","Skeleton","SkeletonWeak1","SkeletonWeak2",
             "SkeletonMedium1","SkeletonMedium2","demon","SkeletonStrong","demonBoss",
-            "SkeletonWizard","wizard","troll","goblin","Hobgoblin"};
+            "SkeletonWizard","wizard","troll","goblin","Hobgoblin","WarriorMachine","FlyMachine"};
 
-        private string[] _enemyname_weak = { "ImomusiDark", "Imomusi", "ImomusiBoss", "Imomusi2" ,"Spider"};
+        private string[] _enemyname_weak = { "ImomusiDark", "Imomusi", "ImomusiBoss", "Imomusi2" ,"Spider","SpiderBoss"};
         // Use this for initialization
         void Start()
         {
@@ -42,7 +42,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
                 for (int i = 0; _enemyname_weak.Length > i; i++)
                 {
-                    if (enemyObj.name == _enemyname_weak[i].Replace("Clone",""))
+                    if (enemyObj.name == _enemyname_weak[i])
                     {
 
                         enemyObj.GetComponent<SkeletonStatus>()._life -= player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPower * 3;

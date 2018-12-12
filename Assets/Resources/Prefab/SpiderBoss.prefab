@@ -2470,7 +2470,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 95547322555112158}
   skeletonStatus: {fileID: 114881030865459578}
-  _prefab: {fileID: 1895624832727522, guid: 387f6161b2b0e423d9c7982a3694acae, type: 2}
+  _prefab: {fileID: 1536788140453944, guid: 2660d03103aa644728159733a9ba4956, type: 2}
 --- !u!114 &114772883867271004
 MonoBehaviour:
   m_ObjectHideFlags: 1

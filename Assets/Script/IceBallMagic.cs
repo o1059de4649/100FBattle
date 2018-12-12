@@ -9,7 +9,9 @@ namespace UnityStandardAssets.CrossPlatformInput
         private string[] _enemy_OneHalf = {"golem","Shell_Crab"};
         private string[] _enemy_Three = {
             "SkeletonWizard","SkeletonDarkKnight","SkeletonWeak1","SkeletonWeak1","SkeletonWeak2",
-            "SkeletonMedium1","SkeletonMedium2","SkeletonStrong","demon","demonBoss","Spider"};
+            "SkeletonMedium1","SkeletonMedium2","SkeletonStrong","demon","demonBoss",
+            "Spider","SpiderBoss","StringSpider","WarriorMachine","FlyMachine",
+            "Ghost"};
         private string[] _enemy_Half = {"wizard", "Imomusi","ImomusiBoss","Imomusi2","icedemon","ImomusiDark" };
         private string[] _enemy_One = {"troll", "goblin","Hobgoblin"};
         // Use this for initialization
@@ -47,12 +49,14 @@ namespace UnityStandardAssets.CrossPlatformInput
                     {
                         enemyObj.GetComponent<SkeletonStatus>()._life -= player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPower * 3 * 4;
                         enemyObj.GetComponent<SkeletonStatus>()._isMagic = true;
-
+                        if(i == 14){
+                            enemyObj.GetComponent<MachineAI>().Broken();
+                        }
                     }
 
                 }
 
-                for (int i = 0; _enemy_Three.Length > i; i++)
+                for (int i = 0; _enemy_Half.Length > i; i++)
                 {
                     if (enemyObj.name == _enemy_Half[i]){
                         enemyObj.GetComponent<SkeletonStatus>()._life -= player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPower * 0.5f* 4;
@@ -60,7 +64,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                     }
                 }
 
-                for (int i = 0; _enemy_Three.Length > i; i++)
+                for (int i = 0; _enemy_One.Length > i; i++)
                 {
                     if (enemyObj.name == _enemy_One[i])
                     {

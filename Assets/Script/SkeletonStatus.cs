@@ -22,7 +22,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         public GameObject _damegeText;
 
-        float _randomPos;
+        float _randomPos,player_dist;
 
         [SerializeField]
         private float h;
@@ -48,7 +48,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         public GameObject teamNameSystem;
         GameObject team;
         public float _AttackTime = 1.5f;
-
+        string[] runAwayChara = { "WarriorMachine" };
         // Use this for initialization
         void Start()
         {
@@ -81,6 +81,8 @@ namespace UnityStandardAssets.CrossPlatformInput
         // Update is called once per frame
         void Update()
         {
+            player_dist = Vector3.Distance(player.transform.position, transform.position);
+
             if(_maxLife <= _life){
                 _life = _maxLife;
             }
@@ -105,16 +107,9 @@ namespace UnityStandardAssets.CrossPlatformInput
             if(_isDeath == false){
                 transform.LookAt(player.transform);
             }
-          
-            velocity = new Vector3(h, 0, v * _runSpeed);
-            velocity = transform.TransformDirection(velocity);
-
-            transform.localPosition += velocity * Time.fixedDeltaTime;
 
 
-            v += Time.deltaTime;
-            _timeHitDamage += Time.deltaTime;
-            anim.SetFloat("speedh", v);
+
             if (v >= 2)
             {
                 v = 2;
@@ -142,9 +137,46 @@ namespace UnityStandardAssets.CrossPlatformInput
             }
             _preLife = _life;
 
+            if(this.gameObject.GetComponent<MachineAI>() != null && player_dist > 10){
+                RunAway();
+                return;
+            }
+
+            PlayerChase();
+            /*for (int i = 0;runAwayChara.Length > i ;i++)
+            {
+                if (this.gameObject.name != runAwayChara[i])
+                {
+                    
+                }
+            }
+*/
         }
 
+        public void PlayerChase(){
+            velocity = new Vector3(h, 0, v * _runSpeed);
+            velocity = transform.TransformDirection(velocity);
 
+            transform.localPosition += velocity * Time.fixedDeltaTime;
+
+
+            v += Time.deltaTime;
+            _timeHitDamage += Time.deltaTime;
+            anim.SetFloat("speedh", v);
+        }
+
+        public void RunAway()
+        {
+            velocity = new Vector3(h, 0, -v * _runSpeed);
+            velocity = transform.TransformDirection(velocity);
+
+            transform.localPosition += velocity * Time.fixedDeltaTime;
+
+
+            v += Time.deltaTime;
+            _timeHitDamage += Time.deltaTime;
+            anim.SetFloat("speedh", v);
+        }
 
         public void OnTriggerStay(Collider col)
         {
@@ -153,7 +185,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 return;
             }
 
-            if(col.gameObject.tag == "Team"){
+            if(col.gameObject.tag == "Team" && player_dist > 15){
                 
                 if(team == null){
                     team = GameObject.FindWithTag("Team");

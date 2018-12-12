@@ -11,6 +11,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         public GameObject _kukuri_effect;
         public UnityChanControlScriptWithRgidBody _uniyuchanControl;
         GameObject player;
+        string ghost = "Ghost";
         // Use this for initialization
         void Start()
         {
@@ -33,6 +34,10 @@ namespace UnityStandardAssets.CrossPlatformInput
 
             if (col.gameObject.tag == "Enemy")
             {
+                if(col.gameObject.name == "Ghost"){
+                    return;
+                }
+
                 if(_waitTime >= 0.5f){
                     col.gameObject.GetComponent<SkeletonStatus>()._life -= _swordPower;
                     col.gameObject.GetComponent<SkeletonStatus>()._life -= player.GetComponent<UnityChanControlScriptWithRgidBody>()._SwordPower;

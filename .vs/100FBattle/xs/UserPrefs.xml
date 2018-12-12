@@ -1,28 +1,21 @@
 ﻿<Properties StartupConfiguration="{3E78C741-62A7-DB31-C2C9-7D30606E98C1}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/SkeletonSword.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/IceBallMagic.cs">
     <Files>
-      <File FileName="Assets/Script/MyRoomSaveSystem.cs" Line="34" Column="12" />
-      <File FileName="Assets/Script/MyRoomPlayerSpownPos.cs" Line="21" Column="88" />
-      <File FileName="Assets/Script/MyRoomObjectMovement.cs" Line="54" Column="30" />
-      <File FileName="Assets/Script/PutNewObjectMyRoom.cs" Line="7" Column="2" />
-      <File FileName="Assets/Script/HpTextEnemy.cs" Line="25" Column="1" />
       <File FileName="Assets/Script/ShowLevelAuto.cs" Line="28" Column="14" />
-      <File FileName="Assets/Script/EnemyCount.cs" Line="26" Column="3" />
-      <File FileName="Assets/Script/OptionButton.cs" Line="37" Column="14" />
-      <File FileName="Assets/Script/SkeletonStatus.cs" Line="175" Column="23" />
+      <File FileName="Assets/Script/OptionButton.cs" Line="76" Column="51" />
       <File FileName="Assets/Script/TeamNameSystemControl.cs" Line="32" Column="19" />
       <File FileName="Assets/Script/PlayerTeamAI.cs" Line="196" Column="1" />
       <File FileName="Assets/Script/DropdownCallback.cs" Line="102" Column="79" />
-      <File FileName="Assets/Script/SkeletonSword.cs" Line="37" Column="1" />
+      <File FileName="Assets/Script/SkeletonSword.cs" Line="6" Column="47" />
       <File FileName="Assets/UnityChan/Scripts/UnityChanControlScriptWithRgidBody.cs" Line="290" Column="1" />
-      <File FileName="Assets/Script/FireEnemyBullet.cs" Line="48" Column="34" />
       <File FileName="Assets/Script/SaveData.cs" Line="49" Column="13" />
-      <File FileName="Assets/Script/FloorSpawn.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/FloorSelecter.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/MonsterSpawn.cs" Line="343" Column="17" />
-      <File FileName="Assets/Script/DarkAngelAI.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/ElementMonsterAI.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/MonsterSpawn.cs" Line="372" Column="18" />
+      <File FileName="Assets/Script/SkeletonStatus.cs" Line="143" Column="14" />
+      <File FileName="Assets/Script/MachineAI.cs" Line="20" Column="9" />
+      <File FileName="Assets/Script/IceBallMagic.cs" Line="14" Column="71" />
+      <File FileName="Assets/Script/FireMagic.cs" Line="10" Column="208" />
+      <File FileName="Assets/Script/BoneMagic.cs" Line="13" Column="137" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
