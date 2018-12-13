@@ -352,7 +352,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 }
 
                 //WarriorMachine
-                if (_howEnemyCount[27] >= 1 && 70 > enemyCount._floorLevel && enemyCount._floorLevel >= 61)
+                if (_howEnemyCount[27] >= 1 && 71 > enemyCount._floorLevel && enemyCount._floorLevel >= 61)
                 {
                     Instantiate(monster[27], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
                     _howEnemyCount[27]--;
@@ -362,7 +362,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 }
 
                 //FlyMachine
-                if (_howEnemyCount[28] >= 1 && 70 > enemyCount._floorLevel && enemyCount._floorLevel >= 61)
+                if (_howEnemyCount[28] >= 1 && 71 > enemyCount._floorLevel && enemyCount._floorLevel >= 61)
                 {
                     Instantiate(monster[28], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
                     _howEnemyCount[28]--;
@@ -372,7 +372,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 }
 
                 //Ghost
-                if (_howEnemyCount[30] >= 1 && 80 > enemyCount._floorLevel && enemyCount._floorLevel >= 73)
+                if (_howEnemyCount[30] >= 1 && 80 > enemyCount._floorLevel && enemyCount._floorLevel >= 74)
                 {
                     Instantiate(monster[30], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
                     _howEnemyCount[30]--;
@@ -381,6 +381,44 @@ namespace UnityStandardAssets.CrossPlatformInput
 
                 }
 
+                //Rhino
+                if (_howEnemyCount[31] >= 1 && 74 > enemyCount._floorLevel && enemyCount._floorLevel >= 65)
+                {
+                    Instantiate(monster[31], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
+                    _howEnemyCount[31]--;
+                    _probablity = Random.Range(0, 100);
+                    _preStopWall.SetActive(true);
+
+                }
+
+                //CubeMachine
+                if (_howEnemyCount[32] >= 1 && enemyCount._floorLevel == 70)
+                {
+                    Instantiate(monster[32], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
+                    _howEnemyCount[32]--;
+                    _probablity = Random.Range(0, 100);
+                    _preStopWall.SetActive(true);
+
+                }
+
+                //CubeMachine
+                if (_howEnemyCount[32] >= 1&& 90 > enemyCount._floorLevel && enemyCount._floorLevel >= 80)
+                {
+                    Instantiate(monster[32], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
+                    _howEnemyCount[32]--;
+                    _probablity = Random.Range(0, 100);
+                    _preStopWall.SetActive(true);
+
+                }
+
+                //SpiderBoss
+                if (_howEnemyCount[26] >= 1 && 85 > enemyCount._floorLevel && enemyCount._floorLevel >= 80)
+                {
+                    Instantiate(monster[26], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
+                    _howEnemyCount[26]--;
+                    _probablity = Random.Range(0, 100);
+                    _preStopWall.SetActive(true);
+                }
 
             }
 

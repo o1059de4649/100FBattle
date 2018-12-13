@@ -11,9 +11,9 @@ namespace UnityStandardAssets.CrossPlatformInput
             "SkeletonWizard","SkeletonDarkKnight","SkeletonWeak1","SkeletonWeak1","SkeletonWeak2",
             "SkeletonMedium1","SkeletonMedium2","SkeletonStrong","demon","demonBoss",
             "Spider","SpiderBoss","StringSpider","WarriorMachine","FlyMachine",
-            "Ghost"};
+            "Ghost","CubeMachine"};
         private string[] _enemy_Half = {"wizard", "Imomusi","ImomusiBoss","Imomusi2","icedemon","ImomusiDark" };
-        private string[] _enemy_One = {"troll", "goblin","Hobgoblin"};
+        private string[] _enemy_One = {"troll", "goblin","Hobgoblin","RhinoObject"};
         // Use this for initialization
         void Start()
         {
@@ -49,7 +49,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                     {
                         enemyObj.GetComponent<SkeletonStatus>()._life -= player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPower * 3 * 4;
                         enemyObj.GetComponent<SkeletonStatus>()._isMagic = true;
-                        if(i == 14){
+                        if(i == 14 || i == 16){
                             enemyObj.GetComponent<MachineAI>().Broken();
                         }
                     }
