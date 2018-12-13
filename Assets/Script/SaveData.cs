@@ -7,9 +7,6 @@ namespace UnityStandardAssets.CrossPlatformInput
     public class SaveData : MonoBehaviour
     {
         public int p_Level;
-        public int p_RedCube;
-        public int p_BlueCube;
-        public int p_GreenCube;
         public float p_exp;
         public float p_lifePlus;
         public float p_Protect;
@@ -53,9 +50,7 @@ namespace UnityStandardAssets.CrossPlatformInput
             p_exp = player.GetComponent<UnityChanControlScriptWithRgidBody>().exp_point;
 
             p_Level = player.GetComponent<UnityChanControlScriptWithRgidBody>().player_Level;
-            p_RedCube = player.GetComponent<UnityChanControlScriptWithRgidBody>().red_Cube;
-            p_BlueCube = player.GetComponent<UnityChanControlScriptWithRgidBody>().blue_Cube;
-            p_GreenCube = player.GetComponent<UnityChanControlScriptWithRgidBody>().green_Cube;
+
             p_Protect = player.GetComponent<UnityChanControlScriptWithRgidBody>().protectPlus;
 
 
@@ -82,9 +77,7 @@ namespace UnityStandardAssets.CrossPlatformInput
             PlayerPrefs.SetFloat("Exp", p_exp);
             PlayerPrefs.SetInt("Level", p_Level);
             PlayerPrefs.SetString("playername", player_name);
-            PlayerPrefs.SetInt("RedCube", p_RedCube);
-            PlayerPrefs.SetInt("BlueCube", p_BlueCube);
-            PlayerPrefs.SetInt("GreenCube", p_GreenCube);
+
             PlayerPrefs.SetFloat("LifePlus",p_lifePlus);
             PlayerPrefs.SetFloat("ProtectPlus", p_Protect);
             PlayerPrefs.SetFloat("PowerPlus", p_Power);

@@ -34,6 +34,8 @@ namespace UnityStandardAssets.CrossPlatformInput
 
                 _maxCost = player.GetComponent<UnityChanControlScriptWithRgidBody>()._attackPower * 10;
 
+                float player_power = player.GetComponent<UnityChanControlScriptWithRgidBody>()._attackPower; 
+                PlayerPrefs.SetFloat("PowerPlus", player_power);
             }
         }
 

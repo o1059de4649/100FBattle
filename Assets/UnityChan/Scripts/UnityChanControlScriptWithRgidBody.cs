@@ -16,11 +16,11 @@ namespace UnityStandardAssets.CrossPlatformInput
     [RequireComponent(typeof(CapsuleCollider))]
     [RequireComponent(typeof(Rigidbody))]
 
-    public class UnityChanControlScriptWithRgidBody : Photon.MonoBehaviour
+    public class UnityChanControlScriptWithRgidBody : MonoBehaviour
     {
         public GameObject drop_item;
         GameObject drop_item_obj;
-        DethDropItem dethDropItem;
+
 
         public GameObject player_camera;
         public GameObject p_camera_Stork;
@@ -30,24 +30,12 @@ namespace UnityStandardAssets.CrossPlatformInput
         public float lifePlus = 0;
         public float maxLife = 100;
         public float life = 100;
-        public float bullet_Power = 0;
-        public int smallbullet = 0;
-        public int shotGunBullet = 0;
-        public int middleBullet = 0;
-        public int bigBullet = 0;
+       
         public float exp_point = 0;
         public float Max_exp_point = 100;
         public int player_Level;
         public string player_Name = "DefaultName";
         public Text player_text;
-
-        public int have_handgun = 0;
-        public int have_Uzi = 0;
-        public int have_ShotGun = 0;
-        public int have_M4 = 0;
-        public int have_M107 = 0;
-
-        public int[] gun_magazine_bullet;
 
         public float protectPlus = 0;
         public int protect = 0;
@@ -95,29 +83,12 @@ namespace UnityStandardAssets.CrossPlatformInput
         public bool left = false;
         public bool right = false;
         GameObject mapCamera;
-        GameObject photonControll;
+       
 
-        public GameObject shirld1;
-
-        public GameObject handGun_Obj;
-        public GameObject shotGun_Obj;
-        public GameObject uzi_Obj;
-        public GameObject m4_Obj;
-        public GameObject m107_Obj;
-
-        public GameObject handGun_Obj_Panel;
-        public GameObject shotGun_Obj_Panel;
-        public GameObject uzi_Obj_Panel;
-        public GameObject m4_Obj_Panel;
-        public GameObject m107_Obj_Panel;
 
 
         public PhotonPlayer photonPlayer;
-        public GameObject handGun_Panel;
-        public GameObject Uzi_Panel;
-        public GameObject ShotGun_Panel;
-        public GameObject m4_Panel;
-        public GameObject m107_Panel;
+
 
         public GameObject[] reload_Panel;
 
@@ -134,9 +105,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         public AudioClip handgun_clip,shotgun_clip,uzi_clip,m4_clip,m107_clip,cube_get;
         public AudioListener u_audioListener;
 
-        public int blue_Cube = 0;
-        public int green_Cube = 0;
-        public int red_Cube = 0;
+       
 
         public bool reload_on = false;
 
@@ -151,26 +120,12 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         private PhotonTransformView photonTransformView;
 
-        public float _boneEssence = 0;
-        public float _stringEssence = 0;
-        public float _fireEssence = 0;
-        public float _CrystalEssence = 0;
-        public float _iceEssence = 0;
+        public float _boneEssence = 0,_stringEssence = 0,_fireEssence = 0,_CrystalEssence,_iceEssence = 0;
+      
+        public float _bloodEssence,_wallSpace,_maxEssencePlus,_maxEssence = 0;
 
-        public float _maxEssence = 0;
-        public float _maxEssencePlus;
 
-        public float _bloodEssence;
-        public float _wallSpace;
-
-        public float _magicPower = 1;
-       
-        public float _SwordPower = 1;
-        public float _money;
-        public float _MoveSpeedRL = 2;
-
-        public float _magicPowerPlus = 0;
-        public float _attackPower = 0;
+        public float _magicPower = 1,_SwordPower = 1,_MoveSpeedRL = 2,_money,_magicPowerPlus = 0, _attackPower = 0,_crystalTime,_crystalBoolMax;
 
         public bool _isCrystal = false, _isStringed = false,isLockOn = false;
 
@@ -180,7 +135,8 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         public List<int> itemList = new List<int>();
 
-
+        public GameObject crystalsliderObject;
+        Slider crystalSlider;
         void Start()
         {
             duo_Panel = GameObject.Find("DualTouchControls");
@@ -191,47 +147,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
 
             u_photonView = GetComponent<PhotonView>();
-           /* if (u_photonView.isMine)
-            {
-                photonControll = GameObject.Find("PhotonController");
-
-               
-                u_photonView.RPC("StartSetUp",PhotonTargets.All);
-
-
-               
-                exp_point = PlayerPrefs.GetFloat("Exp",0);
-                player_Name = PlayerPrefs.GetString("playername");
-                player_Level = PlayerPrefs.GetInt("Level", 0);
-                lifePlus = PlayerPrefs.GetFloat("LifePuls",0);
-                protectPlus = PlayerPrefs.GetFloat("ProtectPuls", 0);
-                bullet_Power = PlayerPrefs.GetFloat("BulletPower", 0);
-                red_Cube = PlayerPrefs.GetInt("RedCube",0);
-                blue_Cube = PlayerPrefs.GetInt("BlueCube", 0);
-                green_Cube = PlayerPrefs.GetInt("GreenCube", 0);
-
-
-                u_audioListener.enabled = true;
-                GetComponent<AudioSource>().enabled = true;
-                GetComponentInChildren<Camera>().enabled = true;
-                GetComponentInChildren<CameraControll>().enabled = true;
-                GetComponentInChildren<TPSControll_y>().enabled = true;
-                canvas.enabled = true;
-                duo_Panel = GameObject.Find("DualTouchControls");
-                duo_Panel.GetComponent<Canvas>().enabled = true;
-
-                maxLife = life + lifePlus;
-                life = maxLife;
-
-
-
-                player_text.enabled = false;
-                level_text.enabled = false;
-                this.gameObject.tag = "MyPlayer";
-                head.gameObject.tag = "MyHead";
-               
-               
-            }*/
+         
 
 
             // Animatorコンポーネントを取得する
@@ -244,23 +160,28 @@ namespace UnityStandardAssets.CrossPlatformInput
             // CapsuleColliderコンポーネントのHeight、Centerの初期値を保存する
             orgColHight = col.height;
             orgVectColCenter = col.center;
+
+            crystalSlider = crystalsliderObject.GetComponent<Slider>();
         }
 
         public void SetUp(){
             exp_point = PlayerPrefs.GetFloat("Exp", 0);
             player_Level = PlayerPrefs.GetInt("Level", 0);
-            _SwordPower = PlayerPrefs.GetFloat("PowerPlus", 0) + player_Level * 0.5f;
+            _attackPower = PlayerPrefs.GetFloat("PowerPlus", 0);
+            _SwordPower = _attackPower + player_Level * 0.5f;
             lifePlus = PlayerPrefs.GetFloat("LifePlus", 0);
             _money = PlayerPrefs.GetFloat("Money", 0);
-            _magicPower = PlayerPrefs.GetFloat("MagicPowerPlus", 0) + player_Level * 0.2f;
+            _magicPowerPlus = PlayerPrefs.GetFloat("MagicPowerPlus", 0);
+            _magicPower = _magicPowerPlus + player_Level * 0.2f;
 
             _boneEssence = PlayerPrefs.GetFloat("BoneEssence", 0);
             _stringEssence = PlayerPrefs.GetFloat("StringEssence", 0);
             _fireEssence = PlayerPrefs.GetFloat("FireEssence", 0);
             _CrystalEssence = PlayerPrefs.GetFloat("CrystalEssence", 0);
             _iceEssence = PlayerPrefs.GetFloat("IceEssence", 0);
-
-            _maxEssence = PlayerPrefs.GetFloat("EssencePlus", 0) + 30;
+            _maxEssencePlus = PlayerPrefs.GetFloat("EssencePlus", 0);
+            _maxEssence = _maxEssencePlus + 30;
+           
             _bloodEssence = PlayerPrefs.GetFloat("Blood", 0);
 
             _wallSpace = PlayerPrefs.GetFloat("WallSpace", 0);
@@ -269,12 +190,40 @@ namespace UnityStandardAssets.CrossPlatformInput
             life = maxLife;
             Max_exp_point = player_Level * 50 + 100;
 
+            _crystalBoolMax = 30 + _magicPower;
+
         }
         // 以下、メイン処理.リジッドボディと絡めるので、FixedUpdate内で処理を行う.
         void FixedUpdate()
         {
+            //クリスタル処理
+            if(_crystalTime > 0){
+                crystalsliderObject.SetActive(true);
+                _isCrystal = true;
+                _crystalTime -= Time.deltaTime;
+                crystalSlider.maxValue = _crystalBoolMax;
+                crystalSlider.value = _crystalTime;
 
+            }else{
+                _isCrystal = false;
+                crystalsliderObject.SetActive(false);
 
+            }
+
+            if(_crystalTime > _crystalBoolMax){
+                _crystalTime = _crystalBoolMax;
+            }
+
+            if (this.transform.rotation.eulerAngles.x > 3 || this.transform.rotation.eulerAngles.x < -3)
+            {
+                Quaternion player_qua = Quaternion.Euler(0, this.transform.rotation.eulerAngles.y, 0);
+                this.transform.rotation = player_qua;
+
+            }
+
+           
+
+            //ロックオン処理
             if(isLockOn){
 
                 for (int i = 0; enemyObjects.Length > i; i++)
@@ -294,10 +243,32 @@ namespace UnityStandardAssets.CrossPlatformInput
                     return;
                 }
 
+                /*
+                if(enemyObject.name == "FlyMachine"){
+                    isLockOn = false;
+                    return;
+                }
+*/
+
+
+
+
+
+
+
+                /*
+                Vector3 target = enemyObject.transform.position;
+                target.y = this.transform.position.y;
+                this.transform.LookAt(target);
+*/
+
                 Vector3 targetDir = enemyObject.transform.position - transform.position;
                 float step = 2 * Time.deltaTime;
                 Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0f);
-                transform.rotation = Quaternion.LookRotation(newDir);
+                this.transform.localRotation = Quaternion.LookRotation(newDir,Vector3.up);
+
+
+               
                 //this.transform.LookAt(enemyObject.transform);
                
             }
@@ -308,10 +279,10 @@ namespace UnityStandardAssets.CrossPlatformInput
 
 
 
-            protect_calc = protect * 0.3f + 1 + protectPlus;
+
           
            
-
+            //移動スティック処理
             r = CrossPlatformInputManager.GetAxisRaw("Horizontal");
             v = CrossPlatformInputManager.GetAxisRaw("Vertical");
 
@@ -356,7 +327,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
             if (life <= 0)
             {
-                SceneManager.LoadScene("MyRoom");
+                SceneManager.LoadScene("Main");
             }
 
 
@@ -532,30 +503,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 }
             }
 
-            if(have_handgun == 1){
-                handGun_Panel.SetActive(true);
-            }
-
-            if (have_Uzi == 1)
-            {
-                Uzi_Panel.SetActive(true);
-            }
-
-            if (have_ShotGun == 1)
-            {
-                ShotGun_Panel.SetActive(true);
-            }
-
-            if (have_M4 == 1)
-            {
-               m4_Panel.SetActive(true);
-            }
-
-            if (have_M107 == 1)
-            {
-                m107_Panel.SetActive(true);
-            }
-
+           
 
 
 
@@ -563,9 +511,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         }//Update
 
     
-        public void PlayerSave(){
-            photonControll.GetComponent<SaveData>().Save();
-        }
+     
 
 
         // キャラクターのコライダーサイズのリセット関数
@@ -667,377 +613,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 enemyObjects = GameObject.FindGameObjectsWithTag("Enemy");
             }
         }
-        /*
-        [PunRPC]
-        public void OnPlayerDestroy()
-        {
-            
-            DropItem();
-            Destroy(this.gameObject);
-        }
-
-        [PunRPC]
-        public void DropItem(){
-            if (photonView.isMine)
-            {
-
-
-                drop_item_obj = PhotonNetwork.Instantiate(drop_item.name, this.transform.position, Quaternion.identity, 0);
-                dethDropItem = drop_item_obj.GetComponent<DethDropItem>();
-                dethDropItem.guns[0] = have_handgun;
-                dethDropItem.guns[1] = have_Uzi;
-                dethDropItem.guns[2] = have_ShotGun;
-                dethDropItem.guns[3] = have_M4;
-                dethDropItem.guns[4] = have_M107;
-
-                dethDropItem.items[0] = smallbullet;
-                dethDropItem.items[1] = middleBullet;
-                dethDropItem.items[2] = bigBullet;
-                dethDropItem.items[3] = shotGunBullet;
-                dethDropItem.items[4] = have_aid;
-            }
-           
-        }
-
-
        
-        [PunRPC]
-        public void GameStarter()
-        {
-            game_startControl = GameObject.Find("RestPlane/GameStartPanel").gameObject.GetComponent<GameStart>();
-            game_startControl.game_start = true;
-        }
-
-        [PunRPC]
-        public void GameFinish()
-        {
-            game_startControl = GameObject.Find("RestPlane/GameStartPanel").gameObject.GetComponent<GameStart>();
-            game_startControl.play_time = 600;
-            this.transform.position = GameObject.Find("RestPlane/RestReturn").transform.position;
-        }
-
-      
-
-        [PunRPC]
-        public void SetName(string p_name){
-            player_text.text = p_name;
-        }
-
-        [PunRPC]
-        public void SetLevel(int playerlevel)
-        {
-            player_Level = playerlevel;
-            level_text.text = (playerlevel.ToString());
-        }
-
-
-       
-
-        [PunRPC]
-        public void ItemSpawnReturn(){
-            
-        }
-
-        [PunRPC]
-        public void HandGunOn(){
-            if (!u_photonView)
-            {
-                return;
-            }
-            handGun_Obj.SetActive(true);
-        }
-
-        [PunRPC]
-        public void ShotGunOn()
-        {
-            if (!u_photonView)
-            {
-                return;
-            }
-            shotGun_Obj.SetActive(true);
-        }
-
-        [PunRPC]
-        public void UziOn()
-        {
-            if (!u_photonView)
-            {
-                return;
-            }
-            uzi_Obj.SetActive(true);
-        }
-
-        [PunRPC]
-        public void M4On()
-        {
-            if (!u_photonView)
-            {
-                return;
-            }
-            m4_Obj.SetActive(true);
-        }
-
-        [PunRPC]
-        public void M107On()
-        {
-            if (!u_photonView)
-            {
-                return;
-            }
-            m107_Obj.SetActive(true);
-        }
-
-
-        [PunRPC]
-        public void AllGunOff()
-        {
-            if (!u_photonView)
-            {
-                return;
-            }
-            uzi_Obj.SetActive(false);
-            shotGun_Obj.SetActive(false);
-            handGun_Obj.SetActive(false);
-            m4_Obj.SetActive(false);
-            m107_Obj.SetActive(false);
-
-            uzi_Obj_Panel.SetActive(false);
-            shotGun_Obj_Panel.SetActive(false);
-            handGun_Obj_Panel.SetActive(false);
-            m4_Obj_Panel.SetActive(false);
-            m107_Obj_Panel.SetActive(false);
-
-            reload_Panel[0].SetActive(false);
-            reload_Panel[1].SetActive(false);
-            reload_Panel[2].SetActive(false);
-            reload_Panel[3].SetActive(false);
-           
-
-        }
-
-
-        [PunRPC]
-        public void Aid(){
-            wait_anim = true;
-            anim.SetBool("medhic",true);
-            Invoke("Aid_anim", 5.0f);
-               
-
-        }
-
-        public void Aid_anim(){
-
-            wait_anim = false;
-                life += 10;
-                have_aid--;
-                anim.SetBool("medhic", false);
-
-        }
-
-        [PunRPC]
-        public void GetAid(){
-            have_aid++;
-            exp_point += 10;
-        }
-
-        [PunRPC]
-        public void LifeLightBall()
-        {
-            if(life < maxLife){
-                maxLife++;
-                life++;
-                exp_point += 1;
-            }
-
-        }
-
-
-        [PunRPC]
-        public void StartSetUp(){
-            shirld1.SetActive(false);
-        }
-
-        [PunRPC]
-        public void Shirld()
-        {
-            protect = 1;
-            shirld1.SetActive(true);
-        }
-
-       
-        [PunRPC]
-        public void HandGunDamage()
-        {
-            BloodOn();
-            life -= 20 / protect_calc;
-            Invoke("BloodOff", 0.5f);
-
-        }
-
-        [PunRPC]
-        public void UziDamage()
-        {
-            BloodOn();
-            float uzi_damege = 16 + Random.Range(1,4);
-            life -= uzi_damege / protect_calc;
-            Invoke("BloodOff", 0.5f);
-        }
-
-        [PunRPC]
-        public void M4Damage()
-        {
-            BloodOn();
-            float m4_damege = 23 + Random.Range(2, 4);
-            life -= m4_damege / protect_calc;
-            Invoke("BloodOff", 0.5f);
-        }
-
-        [PunRPC]
-        public void M107Damage()
-        {
-            BloodOn();
-            float m107_damege = 75 + Random.Range(10, 15);
-            life -= m107_damege / protect_calc;
-            Invoke("BloodOff", 0.5f);
-        }
-
-        [PunRPC]
-        public void ShotGunDamage()
-        {
-            BloodOn();
-            float shotgun_damege = 13 + Random.Range(2, 4);
-            life -= shotgun_damege / protect_calc;
-            Invoke("BloodOff", 0.5f);
-        }
-
-        [PunRPC]
-        public void Head_HandGunDamage()
-        {
-            BloodOn();
-            life -= 20*head_rate / protect_calc;
-            Invoke("BloodOff", 0.5f);
-
-        }
-
-        [PunRPC]
-        public void Head_UziDamage()
-        {
-            BloodOn();
-            float uzi_damege = 16*head_rate + Random.Range(1, 4);
-            life -= uzi_damege / protect_calc;
-            Invoke("BloodOff", 0.5f);
-        }
-
-        [PunRPC]
-        public void Head_M4Damage()
-        {
-            BloodOn();
-            float m4_damege = 23*head_rate + Random.Range(2, 4);
-            life -= m4_damege / protect_calc;
-            Invoke("BloodOff", 0.5f);
-        }
-
-        [PunRPC]
-        public void Head_M107Damage()
-        {
-            BloodOn();
-            float m107_damege = 100*head_rate + Random.Range(10, 15);
-            life -= m107_damege / protect_calc;
-            Invoke("BloodOff", 0.5f);
-        }
-
-
-        [PunRPC]
-        public void SmallBulletGet()
-        {
-            if(!u_photonView){
-                return;
-            }
-            smallbullet += 15;
-        }
-
-        [PunRPC]
-        public void MiddleBulletGet()
-        {
-            if (!u_photonView)
-            {
-                return;
-            }
-           middleBullet += 10;
-        }
-
-        [PunRPC]
-        public void ShotGunBulletGet()
-        {
-            if (!u_photonView)
-            {
-                return;
-            }
-            shotGunBullet += 5;
-        }
-
-        [PunRPC]
-        public void BigBulletGet()
-        {
-            if (!u_photonView)
-            {
-                return;
-            }
-            bigBullet += 5;
-        }
-
-        [PunRPC]
-        public void KillCount(){
-            GameObject.Find("PhotonController").GetComponent<PhotonControll>().kill++;
-            exp_point += 100;
-            }
-
-        [PunRPC]
-        public void BloodOn(){
-            blood.SetActive(true);
-        }
-
-        [PunRPC]
-        public void BloodOff()
-        {
-            blood.SetActive(false);
-        }
-
-        [PunRPC]
-        public void Handgun_Audio(){
-            gun_audio.PlayOneShot(handgun_clip);
-        }
-
-        [PunRPC]
-        public void Uzi_Audio()
-        {
-            gun_audio.PlayOneShot(uzi_clip);
-        }
-
-        [PunRPC]
-        public void ShotGun_Audio()
-        {
-            gun_audio.PlayOneShot(shotgun_clip);
-        }
-
-        [PunRPC]
-        public void M4_Audio()
-        {
-            gun_audio.PlayOneShot(m4_clip);
-        }
-
-        [PunRPC]
-        public void M107_Audio()
-        {
-            gun_audio.PlayOneShot(m107_clip);
-        }
-
-        [PunRPC]
-        public void Cube_Get()
-        {
-            gun_audio.PlayOneShot(cube_get);
-        }
-        */
 
         public void OnWormString(){
             forwardSpeed *= 0.5f;
@@ -1056,9 +632,10 @@ namespace UnityStandardAssets.CrossPlatformInput
         }
 
         public void OnCrystal(){
-            _isCrystal = true;
 
-            Invoke("OffCrystal", 60.0f);
+
+            _crystalTime += Time.deltaTime * _magicPowerPlus * 0.5f;
+            life += Time.deltaTime * _magicPowerPlus * 0.1f;
         }
 
         public void OffCrystal(){

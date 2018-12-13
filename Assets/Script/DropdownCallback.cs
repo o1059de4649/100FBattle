@@ -117,6 +117,8 @@ namespace UnityStandardAssets.CrossPlatformInput
                     GameObject obj = Instantiate(prefab, user.transform.position, Quaternion.identity);
                     obj.name = real_name[i];
 
+                    obj.GetComponent<SkeletonStatus>()._isEnemy = false;
+
                     obj.AddComponent<PlayerTeamAI>();
                     obj.GetComponent<PlayerTeamAI>()._maxLife = _monster_Life[i];
                     obj.GetComponent<PlayerTeamAI>()._monsterLevel = _monster_Level[i];
@@ -152,6 +154,8 @@ namespace UnityStandardAssets.CrossPlatformInput
                     GameObject prefab = (GameObject)Resources.Load("Prefab/" + monster_name[i]);
                     GameObject obj = Instantiate(prefab, user.transform.position, Quaternion.identity);
                     obj.name = real_name[i];
+
+                    obj.GetComponent<SkeletonStatus>()._isEnemy = false;
 
                     obj.AddComponent<PlayerTeamAI>();
                     obj.GetComponent<PlayerTeamAI>()._maxLife = _monster_Life[i];

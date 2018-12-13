@@ -8,6 +8,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         BoxCollider boxCollider;
         public float _swordPower;
         float _attackDelay;
+        bool isSetUp;
         // Use this for initialization
         void Start()
         {
@@ -20,6 +21,10 @@ namespace UnityStandardAssets.CrossPlatformInput
         {
             _attackDelay += Time.deltaTime;
 
+            if(!isSetUp && this.gameObject.GetComponentInParent<PlayerTeamAI>() != null){
+                _swordPower += this.gameObject.GetComponentInParent<PlayerTeamAI>()._monsterLevel / 4;
+                isSetUp = true;
+            }
         }
 
         public void OnTriggerEnter(Collider col)

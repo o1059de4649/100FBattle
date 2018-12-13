@@ -29,7 +29,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 transform.LookAt(col.gameObject.transform);
                 velocity = new Vector3(h, 0, v);
                 velocity = transform.TransformDirection(velocity);
-                transform.localPosition += velocity * Time.fixedDeltaTime;
+                transform.localPosition += velocity * Time.fixedDeltaTime * 10;
                 v += Time.deltaTime;
             }
         }

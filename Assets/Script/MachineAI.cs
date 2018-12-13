@@ -31,7 +31,13 @@ namespace UnityStandardAssets.CrossPlatformInput
             ray = new Ray(spawnerPos.transform.position, spawnerPos.transform.forward);
             if(Physics.Raycast(ray, out hit)){
 
-                if(hit.collider.tag == "Player"){
+                if (hit.collider.tag == "Enemy" && this.gameObject.GetComponent<PlayerTeamAI>() != null)
+                {
+                    hit.collider.GetComponent<SkeletonStatus>()._life -= _power;
+                    return;
+                }
+
+                if(hit.collider.tag == "Player" && this.gameObject.GetComponent<PlayerTeamAI>() == null){
                     hit.collider.GetComponent<UnityChanControlScriptWithRgidBody>().life -= _power;
                 }
 

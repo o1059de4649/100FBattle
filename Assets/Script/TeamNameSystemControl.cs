@@ -38,6 +38,7 @@ namespace UnityStandardAssets.CrossPlatformInput
             PlayerPrefs.SetString("SaveCode" + some_team.ToString(), save_Code);
             Debug.Log("SaveCode" + some_team.ToString());
 
+            this.gameObject.transform.parent.gameObject.GetComponent<SkeletonStatus>()._isEnemy = false;
 
             this.gameObject.transform.parent.name = inputField.text;
             this.gameObject.transform.parent.gameObject.AddComponent<PlayerTeamAI>();

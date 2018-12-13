@@ -225,7 +225,29 @@ public class ShowLevelAuto : MonoBehaviour
                 _isUpdate = true;
             }
 
+            if (user_skeletonStatus.gameObject.name == "WarriorMachine" && user_skeletonStatus._monster_level >= 90 && _isUpdate == false)
+            {
+                _name.text = ("マザーCPU");
+                user_skeletonStatus.gameObject.transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
+                user_skeletonStatus._maxLife += 400;
+                user_skeletonStatus._life += 400;
+                user_skeletonStatus._exp += 320;
+                user_skeletonStatus._enemyMoney += 320;
+                user_skeletonStatus._bloodEssence += 1;
+                _isUpdate = true;
+            }
 
+            if (user_skeletonStatus.gameObject.name == "FlyMachine" && user_skeletonStatus._monster_level >= 90 && _isUpdate == false)
+            {
+                _name.text = ("FlyingCPU");
+                user_skeletonStatus.gameObject.transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
+                user_skeletonStatus._maxLife += 400;
+                user_skeletonStatus._life += 400;
+                user_skeletonStatus._exp += 320;
+                user_skeletonStatus._enemyMoney += 320;
+                user_skeletonStatus._bloodEssence += 1;
+                _isUpdate = true;
+            }
 
         }
 

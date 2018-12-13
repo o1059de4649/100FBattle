@@ -28,6 +28,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1102555516305608
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4936980316581940}
+  - component: {fileID: 65037232543483538}
+  - component: {fileID: 114085995878728660}
+  m_Layer: 0
+  m_Name: Sword
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1156019989272966
 GameObject:
   m_ObjectHideFlags: 1
@@ -68,8 +85,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4943581712731714}
-  - component: {fileID: 114365321206409236}
-  - component: {fileID: 65116227530345052}
   m_Layer: 0
   m_Name: SpawnPos
   m_TagString: Untagged
@@ -294,6 +309,7 @@ Transform:
   - {fileID: 4396241848922972}
   - {fileID: 4943581712731714}
   - {fileID: 224341701049887796}
+  - {fileID: 4936980316581940}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -352,6 +368,19 @@ Transform:
   - {fileID: 4880768063583066}
   m_Father: {fileID: 4396241848922972}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4936980316581940
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1102555516305608}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.303}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4250331298067252}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4943581712731714
 Transform:
@@ -591,12 +620,12 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!65 &65116227530345052
+--- !u!65 &65037232543483538
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1248010455637472}
+  m_GameObject: {fileID: 1102555516305608}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 0
@@ -621,6 +650,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114085995878728660
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1102555516305608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aee8733a5c5b2435fb29993f2905c762, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _swordPower: 10
 --- !u!114 &114230665798014674
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -658,18 +699,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
---- !u!114 &114365321206409236
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1248010455637472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aee8733a5c5b2435fb29993f2905c762, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _swordPower: 10
 --- !u!114 &114407111731347738
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -848,26 +877,31 @@ MonoBehaviour:
   _enemyMoney: 300
   _monster_level: 65
   lifeball: {fileID: 1693653089469054, guid: aa193a0f23d034314aa62fbf57cda66a, type: 2}
-  boneball: {fileID: 1215169747558000, guid: 943f46b0303ad406abee38e4129cb457, type: 2}
+  boneball: {fileID: 1538896532872384, guid: 5b6ba73bc2f814897acc9df6ebdcd61f, type: 2}
   _spawnPosObj: {fileID: 1248010455637472}
   _damegeText: {fileID: 1147092225557134, guid: 4843089e9b2cf4f94bffdd30c24740d2,
     type: 2}
+  _randomPos: 0
+  player_dist: 0
   h: 0
   v: 0
   _itemDropForce: 0
-  boxCollider: {fileID: 65116227530345052}
+  boxCollider: {fileID: 65037232543483538}
   _isMagic: 0
   _isString: 0
+  _isEnemy: 1
+  _isSetUp: 0
   enemyCount: {fileID: 0}
   _instatinateParticle: {fileID: 1502997631485746, guid: c2a3bf05ee52e43f6a6293313f3da7a2,
     type: 2}
   _runSpeed: -8
   _animDelay: 1
-  _enemyWeak: 3
+  _enemyWeak: 1
   _bloodEssence: 0
   _probability: 8
   teamNameSystem: {fileID: 0}
   _AttackTime: 1.5
+  preradius: 0
 --- !u!114 &114857169695655942
 MonoBehaviour:
   m_ObjectHideFlags: 1

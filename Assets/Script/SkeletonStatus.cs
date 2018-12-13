@@ -22,7 +22,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         public GameObject _damegeText;
 
-        float _randomPos,player_dist;
+        public float _randomPos,player_dist;
 
         [SerializeField]
         private float h;
@@ -37,7 +37,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         float _delay_attack;
         public BoxCollider boxCollider;
 
-        public bool _isMagic = false,_isString = false;
+        public bool _isMagic = false,_isString = false,_isEnemy = true,_isSetUp = false;
         public EnemyCount enemyCount;
         public GameObject _instatinateParticle;
 
@@ -47,8 +47,10 @@ namespace UnityStandardAssets.CrossPlatformInput
         GameObject camera;
         public GameObject teamNameSystem;
         GameObject team;
-        public float _AttackTime = 1.5f;
+        public float _AttackTime = 1.5f,preradius;
         string[] runAwayChara = { "WarriorMachine" };
+
+
         // Use this for initialization
         void Start()
         {
@@ -74,13 +76,23 @@ namespace UnityStandardAssets.CrossPlatformInput
             _exp += _monster_level;
             _enemyMoney += _monster_level;
 
+          //当たり判定不具合調整
+            _spawnPosObj.AddComponent<SkeletonTrigger>();
+            _spawnPosObj.GetComponent<SkeletonTrigger>().user_parent = this.gameObject;
+            preradius = this.gameObject.GetComponent<SphereCollider>().radius;
+            Destroy(this.gameObject.GetComponent<SphereCollider>());
+            _isSetUp = true;
 
-          
         }
 
         // Update is called once per frame
         void Update()
         {
+            if (_isEnemy && _isSetUp == false)
+            {
+                
+            }
+
             player_dist = Vector3.Distance(player.transform.position, transform.position);
 
             if(_maxLife <= _life){
@@ -177,7 +189,7 @@ namespace UnityStandardAssets.CrossPlatformInput
             _timeHitDamage += Time.deltaTime;
             anim.SetFloat("speedh", v);
         }
-
+        /*
         public void OnTriggerStay(Collider col)
         {
             if(col.gameObject.tag == "Player"){
@@ -195,9 +207,9 @@ namespace UnityStandardAssets.CrossPlatformInput
                 OnAttack();
                 return;
             }
-        }
+        }*/
 
-        void OnAttack(){
+        public void OnAttack(){
             if(this.gameObject.tag == "Death"){
                 return;
             }

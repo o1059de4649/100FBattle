@@ -33,7 +33,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         float _enemyLife;
 
         public float _exp;
-
+        bool isSet = false;
         // Use this for initialization
         private void Awake()
         {
@@ -45,7 +45,7 @@ namespace UnityStandardAssets.CrossPlatformInput
            
 
             this.gameObject.GetComponent<Rigidbody>().mass = 0.01f;
-            this.gameObject.GetComponent<SphereCollider>().radius += 25;
+
             _animDelay = this.gameObject.GetComponent<SkeletonStatus>()._animDelay;
             boxCollider = this.gameObject.GetComponent<SkeletonStatus>().boxCollider;
             anim = GetComponent<Animator>();
@@ -57,7 +57,7 @@ namespace UnityStandardAssets.CrossPlatformInput
             _maxLife = this.gameObject.GetComponent<SkeletonStatus>()._maxLife + _monsterLevel;
             _life = _maxLife;
 
-            Destroy(this.gameObject.GetComponent<SkeletonStatus>());
+
             this.gameObject.tag = "Team";
 
            
@@ -71,7 +71,12 @@ namespace UnityStandardAssets.CrossPlatformInput
         // Update is called once per frame
         void Update()
         {
-           
+            if(!isSet){
+                this.gameObject.GetComponent<SkeletonStatus>()._spawnPosObj.GetComponent<SphereCollider>().radius += 25;
+                Destroy(this.gameObject.GetComponent<SkeletonStatus>());
+                isSet = true;
+            }
+
             if(_exp >= _monsterLevel*25){
                 _exp = 0;
                 _monsterLevel++;
@@ -126,6 +131,8 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         public void MoveToPlayer()
         {
+            
+
             this.transform.LookAt(player.transform);
 
             Vector3 playerPos = player.transform.position;
@@ -191,7 +198,7 @@ namespace UnityStandardAssets.CrossPlatformInput
             GetComponentInChildren<ShowLevelAuto>().name = team_name;
         }
 
-        void OnAttack()
+        public void OnAttack()
         {
 
 

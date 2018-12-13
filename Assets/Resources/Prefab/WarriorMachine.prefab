@@ -56,6 +56,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1099991939041956
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4373624656776282}
+  - component: {fileID: 114054164077064830}
+  - component: {fileID: 65931633269789768}
+  m_Layer: 0
+  m_Name: Sword
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1188334996212884
 GameObject:
   m_ObjectHideFlags: 1
@@ -274,8 +291,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4470609191561908}
-  - component: {fileID: 114217420012678732}
-  - component: {fileID: 65404653951960106}
   m_Layer: 0
   m_Name: SpawnPos
   m_TagString: Untagged
@@ -819,6 +834,19 @@ Transform:
   m_Father: {fileID: 4462352433106816}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4373624656776282
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1099991939041956}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.266, z: 0.347}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4567133213652606}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4399273467927020
 Transform:
   m_ObjectHideFlags: 1
@@ -902,6 +930,7 @@ Transform:
   - {fileID: 4112593528822686}
   - {fileID: 4582486299835780}
   - {fileID: 4470609191561908}
+  - {fileID: 4373624656776282}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1126,12 +1155,12 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!65 &65404653951960106
+--- !u!65 &65931633269789768
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1642810753195384}
+  m_GameObject: {fileID: 1099991939041956}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 0
@@ -1173,26 +1202,31 @@ MonoBehaviour:
   _enemyMoney: 350
   _monster_level: 70
   lifeball: {fileID: 1693653089469054, guid: aa193a0f23d034314aa62fbf57cda66a, type: 2}
-  boneball: {fileID: 1215169747558000, guid: 943f46b0303ad406abee38e4129cb457, type: 2}
+  boneball: {fileID: 1538896532872384, guid: 5b6ba73bc2f814897acc9df6ebdcd61f, type: 2}
   _spawnPosObj: {fileID: 1642810753195384}
   _damegeText: {fileID: 1147092225557134, guid: 4843089e9b2cf4f94bffdd30c24740d2,
     type: 2}
+  _randomPos: 0
+  player_dist: 0
   h: 0
   v: 0
   _itemDropForce: 0
-  boxCollider: {fileID: 65404653951960106}
+  boxCollider: {fileID: 65931633269789768}
   _isMagic: 0
   _isString: 0
+  _isEnemy: 1
+  _isSetUp: 0
   enemyCount: {fileID: 0}
   _instatinateParticle: {fileID: 1502997631485746, guid: c2a3bf05ee52e43f6a6293313f3da7a2,
     type: 2}
   _runSpeed: -6
   _animDelay: 1
-  _enemyWeak: 3
+  _enemyWeak: 1
   _bloodEssence: 0
   _probability: 8
   teamNameSystem: {fileID: 0}
   _AttackTime: 1.5
+  preradius: 0
 --- !u!114 &114051572571200422
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1209,6 +1243,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114054164077064830
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1099991939041956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aee8733a5c5b2435fb29993f2905c762, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _swordPower: 10
 --- !u!114 &114150512358965426
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1256,18 +1302,6 @@ MonoBehaviour:
   _text: {fileID: 114240692239635494}
   user_skeletonStatus: {fileID: 114027167389517074}
   _name: {fileID: 114150512358965426}
---- !u!114 &114217420012678732
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1642810753195384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aee8733a5c5b2435fb29993f2905c762, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _swordPower: 10
 --- !u!114 &114240692239635494
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -35,6 +35,8 @@ namespace UnityStandardAssets.CrossPlatformInput
                 player.GetComponent<UnityChanControlScriptWithRgidBody>()._maxEssencePlus++;
 
                 _maxCost = player.GetComponent<UnityChanControlScriptWithRgidBody>()._maxEssencePlus * 10;
+
+                PlayerPrefs.SetFloat("EssencePlus", player.GetComponent<UnityChanControlScriptWithRgidBody>()._maxEssencePlus);
             }
         }
 

@@ -22,7 +22,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         // Update is called once per frame
         void Update()
         {
-            _maxCost = player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPowerPlus * 250;
+            _maxCost = PlayerPrefs.GetFloat("MagicPowerPlus", 0) * 250;
             _showCost = _maxCost + 100;
             costText.text = ("コスト" + _showCost);
         }
@@ -34,7 +34,13 @@ namespace UnityStandardAssets.CrossPlatformInput
                 player.GetComponent<UnityChanControlScriptWithRgidBody>()._money -= 100 + _maxCost;
                 player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPowerPlus++;
 
+
                 _maxCost = player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPowerPlus * 500;
+
+
+                PlayerPrefs.SetFloat("MagicPowerPlus", player.GetComponent<UnityChanControlScriptWithRgidBody>()._magicPowerPlus);
+
+
             }
         }
 
