@@ -120,6 +120,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                     obj.GetComponent<SkeletonStatus>()._isEnemy = false;
 
                     obj.AddComponent<PlayerTeamAI>();
+                    obj.GetComponent<PlayerTeamAI>().spawnPos = obj.GetComponent<SkeletonStatus>()._spawnPosObj;
                     obj.GetComponent<PlayerTeamAI>()._maxLife = _monster_Life[i];
                     obj.GetComponent<PlayerTeamAI>()._monsterLevel = _monster_Level[i];
                     obj.GetComponent<PlayerTeamAI>().count = i;
@@ -161,6 +162,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                     obj.GetComponent<PlayerTeamAI>()._maxLife = _monster_Life[i];
                     obj.GetComponent<PlayerTeamAI>()._monsterLevel = _monster_Level[i];
                     obj.GetComponent<PlayerTeamAI>().count = i;
+                    obj.GetComponent<PlayerTeamAI>().spawnPos = obj.GetComponent<SkeletonStatus>()._spawnPosObj;
                     dropdown.ClearOptions();
 
                     GameObject.Find("FloorControl").GetComponent<EnemyCount>()._enemyCount--;

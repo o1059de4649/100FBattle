@@ -420,6 +420,36 @@ namespace UnityStandardAssets.CrossPlatformInput
                     _preStopWall.SetActive(true);
                 }
 
+                //GolemBoss
+                if (_howEnemyCount[21] >= 1 && 90 > enemyCount._floorLevel && enemyCount._floorLevel >= 85)
+                {
+                    Instantiate(monster[21], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
+                    _howEnemyCount[21]--;
+                    _probablity = Random.Range(0, 100);
+                    _preStopWall.SetActive(true);
+
+                }
+
+                //Rhino
+                if (_howEnemyCount[31] >= 1 && 85 > enemyCount._floorLevel && enemyCount._floorLevel >= 80)
+                {
+                    Instantiate(monster[31], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
+                    _howEnemyCount[31]--;
+                    _probablity = Random.Range(0, 100);
+                    _preStopWall.SetActive(true);
+
+                }
+
+                //DarkAngel
+                if (_howEnemyCount[22] >= 1 && 91 > enemyCount._floorLevel && enemyCount._floorLevel >= 88)
+                {
+                    Instantiate(monster[22], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
+                    _howEnemyCount[22]--;
+                    _probablity = Random.Range(0, 100);
+                    _preStopWall.SetActive(true);
+
+                }
+
             }
 
            

@@ -43,6 +43,7 @@ namespace UnityStandardAssets.CrossPlatformInput
             this.gameObject.transform.parent.name = inputField.text;
             this.gameObject.transform.parent.gameObject.AddComponent<PlayerTeamAI>();
             this.gameObject.transform.parent.gameObject.GetComponent<PlayerTeamAI>().count = some_team;
+            this.gameObject.transform.parent.gameObject.GetComponent<PlayerTeamAI>().spawnPos = this.gameObject.transform.parent.gameObject.GetComponent<SkeletonStatus>()._spawnPosObj;
             this.gameObject.transform.parent.gameObject.GetComponent<PlayerTeamAI>()._monsterLevel = skeletonStatus._monster_level;
             this.gameObject.transform.parent.gameObject.GetComponent<PlayerTeamAI>()._maxLife = skeletonStatus._maxLife;
             this.transform.GetComponentInChildren<Canvas>().enabled = false;

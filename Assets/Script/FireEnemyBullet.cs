@@ -26,7 +26,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
             rb = GetComponent<Rigidbody>();
             rb.AddForce(this.gameObject.transform.forward * _speed);
-            Destroy(this.gameObject,3.0f);
+            Destroy(this.gameObject,1.0f);
         }
 
         // Update is called once per frame

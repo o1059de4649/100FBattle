@@ -34,6 +34,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         public float _exp;
         bool isSet = false;
+        public GameObject spawnPos;
         // Use this for initialization
         private void Awake()
         {
@@ -72,7 +73,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         void Update()
         {
             if(!isSet){
-                this.gameObject.GetComponent<SkeletonStatus>()._spawnPosObj.GetComponent<SphereCollider>().radius += 25;
+                spawnPos.GetComponent<SphereCollider>().radius += 25;
                 Destroy(this.gameObject.GetComponent<SkeletonStatus>());
                 isSet = true;
             }
@@ -223,7 +224,7 @@ namespace UnityStandardAssets.CrossPlatformInput
             if (col.gameObject.tag == "Enemy")
             {
                 if(enemy == null){
-                    GameObject.FindWithTag("Enemy");
+                    enemy = GameObject.FindWithTag("Enemy");
 
                 }
                 MoveToEnemy();

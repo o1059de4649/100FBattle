@@ -18,6 +18,10 @@ namespace UnityStandardAssets.CrossPlatformInput
         // Update is called once per frame
         void Update()
         {
+            if(this.gameObject.GetComponentInParent<PlayerTeamAI>() != null){
+                Destroy(this);
+            }
+
             if(skeletonStatus._life < skeletonStatus._maxLife / 2 && isSpawn == false){
                 skeletonStatus.v = 0;
                 anim.SetTrigger("Up");

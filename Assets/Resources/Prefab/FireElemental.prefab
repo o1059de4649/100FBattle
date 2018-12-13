@@ -402,6 +402,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1733834697114440
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4527372848035776}
+  m_Layer: 0
+  m_Name: SpawnPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1739551593576928
 GameObject:
   m_ObjectHideFlags: 1
@@ -781,6 +796,19 @@ Transform:
   m_Father: {fileID: 4530811261077154}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4527372848035776
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1733834697114440}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4530811261077154}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4530811261077154
 Transform:
   m_ObjectHideFlags: 1
@@ -795,6 +823,7 @@ Transform:
   - {fileID: 4502885141186688}
   - {fileID: 4807830184083012}
   - {fileID: 4978096131474812}
+  - {fileID: 4527372848035776}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1666,15 +1695,19 @@ MonoBehaviour:
   _monster_level: 20
   lifeball: {fileID: 1693653089469054, guid: aa193a0f23d034314aa62fbf57cda66a, type: 2}
   boneball: {fileID: 1525284869302294, guid: 512bda372651a4e4090086d113423bb2, type: 2}
-  _spawnPosObj: {fileID: 1751631986534372}
+  _spawnPosObj: {fileID: 1733834697114440}
   _damegeText: {fileID: 1147092225557134, guid: 4843089e9b2cf4f94bffdd30c24740d2,
     type: 2}
+  _randomPos: 0
+  player_dist: 0
   h: 0
   v: 0
   _itemDropForce: 0
   boxCollider: {fileID: 65759636733413228}
   _isMagic: 0
   _isString: 0
+  _isEnemy: 1
+  _isSetUp: 0
   enemyCount: {fileID: 0}
   _instatinateParticle: {fileID: 1502997631485746, guid: c2a3bf05ee52e43f6a6293313f3da7a2,
     type: 2}
@@ -1685,6 +1718,7 @@ MonoBehaviour:
   _probability: 8
   teamNameSystem: {fileID: 0}
   _AttackTime: 2
+  preradius: 0
 --- !u!114 &114464118640881794
 MonoBehaviour:
   m_ObjectHideFlags: 1

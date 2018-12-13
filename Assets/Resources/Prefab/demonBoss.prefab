@@ -1204,7 +1204,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1422039277456080}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.8, y: 0, z: -16.43}
+  m_LocalPosition: {x: 1.8, y: 0, z: -3.61}
   m_LocalScale: {x: 12, y: 12, z: 12}
   m_Children:
   - {fileID: 4646321991281352}
@@ -2097,7 +2097,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _text: {fileID: 114661565964101748}
   user_skeletonStatus: {fileID: 114453635831674054}
-  _name: {fileID: 0}
+  _name: {fileID: 114187074605555702}
 --- !u!114 &114184395477096442
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2206,20 +2206,27 @@ MonoBehaviour:
   _spawnPosObj: {fileID: 1555798948194004}
   _damegeText: {fileID: 1147092225557134, guid: 4843089e9b2cf4f94bffdd30c24740d2,
     type: 2}
+  _randomPos: 0
+  player_dist: 0
   h: 0
   v: 0
   _itemDropForce: 0
   boxCollider: {fileID: 65899948856749388}
   _isMagic: 0
-  enemyCount: {fileID: 0}
   _isString: 0
+  _isEnemy: 1
+  _isSetUp: 0
+  enemyCount: {fileID: 0}
   _instatinateParticle: {fileID: 1502997631485746, guid: c2a3bf05ee52e43f6a6293313f3da7a2,
     type: 2}
   _runSpeed: 1
   _animDelay: 1
   _enemyWeak: 1
   _bloodEssence: 0
+  _probability: 8
   teamNameSystem: {fileID: 0}
+  _AttackTime: 1.5
+  preradius: 0
 --- !u!114 &114598207994845626
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -150,7 +150,7 @@ namespace UnityStandardAssets.CrossPlatformInput
             _preLife = _life;
 
             if(this.gameObject.GetComponent<MachineAI>() != null && player_dist > 10){
-                RunAway();
+                Invoke("RunAway", 1.0f); 
                 return;
             }
 

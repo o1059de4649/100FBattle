@@ -10,7 +10,9 @@ namespace UnityStandardAssets.CrossPlatformInput
         float player_dist;
 
         GameObject enemy;
-        PlayerTeamAI aI;
+
+        [SerializeField]
+        private PlayerTeamAI aI;
         // Use this for initialization
         void Start()
         {
@@ -64,6 +66,9 @@ namespace UnityStandardAssets.CrossPlatformInput
 
             //user仲間の時
             if(user_parent.tag == "Team"){
+                if(!aI){
+                    aI = user_parent.GetComponent<PlayerTeamAI>();
+                }
                 if (col.gameObject.tag == "Enemy")
                 {
                     if (enemy == null)
