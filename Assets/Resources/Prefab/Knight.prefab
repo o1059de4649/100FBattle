@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 114994429489566314}
   m_Layer: 0
   m_Name: Knight
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3008,7 +3008,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u30C0\u30FC\u30AF\u30A2\u30B5\u30B7\u30F3"
+  m_Text: "\u51E6\u5211\u4EBA"
 --- !u!114 &114794506232210432
 MonoBehaviour:
   m_ObjectHideFlags: 1
