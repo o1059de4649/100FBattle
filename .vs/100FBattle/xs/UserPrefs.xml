@@ -1,25 +1,8 @@
 ﻿<Properties StartupConfiguration="{3E78C741-62A7-DB31-C2C9-7D30606E98C1}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/ElementMonsterAI.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/MonsterSpawn.cs">
     <Files>
-      <File FileName="Assets/Script/ShowLevelAuto.cs" Line="248" Column="56" />
-      <File FileName="Assets/Script/OptionButton.cs" Line="76" Column="51" />
-      <File FileName="Assets/Script/DropdownCallback.cs" Line="120" Column="73" />
-      <File FileName="Assets/UnityChan/Scripts/UnityChanControlScriptWithRgidBody.cs" Line="638" Column="61" />
-      <File FileName="Assets/Script/SaveData.cs" Line="80" Column="1" />
-      <File FileName="Assets/Script/MachineAI.cs" Line="50" Column="27" />
-      <File FileName="Assets/Script/SwordUpdate.cs" Line="41" Column="9" />
-      <File FileName="Assets/Script/KukuriPower.cs" Line="31" Column="10" />
-      <File FileName="Assets/Script/MagicPowerUpdate.cs" Line="40" Column="17" />
-      <File FileName="Assets/Script/EssenceUpdate.cs" Line="6" Column="1" />
-      <File FileName="Assets/Script/TeamNameSystemControl.cs" Line="44" Column="86" />
-      <File FileName="Assets/Script/PlayerTeamAI.cs" Line="79" Column="13" />
-      <File FileName="Assets/Script/SkeletonTrigger.cs" Line="73" Column="22" />
-      <File FileName="Assets/Script/SkeletonSword.cs" Line="25" Column="103" />
-      <File FileName="Assets/Script/SkeletonStatus.cs" Line="153" Column="42" />
-      <File FileName="Assets/Script/CrystalMagic.cs" Line="24" Column="77" />
       <File FileName="Assets/Script/MonsterSpawn.cs" Line="451" Column="18" />
-      <File FileName="Assets/Script/ElementMonsterAI.cs" Line="6" Column="9" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

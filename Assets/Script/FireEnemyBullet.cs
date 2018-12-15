@@ -26,7 +26,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
             rb = GetComponent<Rigidbody>();
             rb.AddForce(this.gameObject.transform.forward * _speed);
-            Destroy(this.gameObject,1.0f);
+            Destroy(this.gameObject,1.5f);
         }
 
         // Update is called once per frame
@@ -37,16 +37,28 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         public void OnTriggerEnter(Collider col)
         {
-            if (col.gameObject.tag == "Enemy" && _isTeam == true && _attackDelay > 3)
+            if (col.gameObject.tag == "Enemy" && _isTeam == true && _attackDelay > 0.1f)
             {
                 col.GetComponent<SkeletonStatus>()._life -= _magicPower;
                 _attackDelay = 0;
             }
 
-            if(col.gameObject.tag == "Player" && _isTeam == false && _attackDelay > 3){
-                col.GetComponent<UnityChanControlScriptWithRgidBody>().life -= _magicPower;
+
+
+                if (col.gameObject.tag == "Player" && _isTeam == false && _attackDelay > 0.1f)
+                {
+                    col.GetComponent<UnityChanControlScriptWithRgidBody>().life -= _magicPower;
+                    _attackDelay = 0;
+                }
+
+            if (col.gameObject.tag == "Team" && _isTeam == false && _attackDelay > 0.1f)
+            {
+                col.GetComponent<PlayerTeamAI>()._life -= _magicPower;
                 _attackDelay = 0;
             }
+
+
+           
         }
     }
 }

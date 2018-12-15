@@ -450,6 +450,17 @@ namespace UnityStandardAssets.CrossPlatformInput
 
                 }
 
+                //CubeMachine
+                if (_howEnemyCount[33] >= 1 && enemyCount._floorLevel == 90)
+                {
+                    Instantiate(monster[33], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
+                    _howEnemyCount[33]--;
+                    _probablity = Random.Range(0, 100);
+                    _preStopWall.SetActive(true);
+
+                }
+
+
             }
 
            

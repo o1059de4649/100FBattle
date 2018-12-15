@@ -49,7 +49,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                     return;
                 }
 
-                if (col.gameObject.tag == "Team" && player_dist > 15)
+                if (col.gameObject.tag == "Team" && player_dist > 5)
                 {
 
                     if (team == null)
@@ -57,8 +57,9 @@ namespace UnityStandardAssets.CrossPlatformInput
                         team = GameObject.FindWithTag("Team");
                     }
 
-                    user_parent.transform.LookAt(team.transform);
-                    user_parent.GetComponentInParent<SkeletonStatus>().OnAttack();
+
+                    user_parent.GetComponentInParent<SkeletonStatus>().team = team;
+                   
                     return;
                 }
 

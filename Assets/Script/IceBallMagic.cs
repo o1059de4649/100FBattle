@@ -6,7 +6,7 @@ namespace UnityStandardAssets.CrossPlatformInput
     public class IceBallMagic : MonoBehaviour
     {
         GameObject player;
-        private string[] _enemy_OneHalf = {"golem","Shell_Crab"};
+        private string[] _enemy_OneHalf = {"golem","Shell_Crab","DarkDragon"};
         private string[] _enemy_Three = {
             "SkeletonWizard","SkeletonDarkKnight","SkeletonWeak1","SkeletonWeak1","SkeletonWeak2",
             "SkeletonMedium1","SkeletonMedium2","SkeletonStrong","demon","demonBoss",
@@ -72,6 +72,21 @@ namespace UnityStandardAssets.CrossPlatformInput
                         enemyObj.GetComponent<SkeletonStatus>()._isMagic = true;
                     }
                     Destroy(this.gameObject, 10.0f);
+                }
+            }
+
+            if(enemyObj.tag == "Death"){
+                for (int i = 0; _enemy_Three.Length > i; i++)
+                {
+                    if (enemyObj.name == _enemy_Three[i])
+                    {
+                      
+                        if (i == 14 || i == 16)
+                        {
+                            enemyObj.GetComponent<MachineAI>().Broken();
+                        }
+                    }
+
                 }
             }
         }

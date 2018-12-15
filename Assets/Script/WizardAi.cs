@@ -45,9 +45,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         public void WizardMagic(){
             Instantiate(_fireBallet,_bulletSpawner.transform.position, Quaternion.identity);
-           
             _attackDelay = 0;
-
         }
 
         public void WizardMagicTeam(){

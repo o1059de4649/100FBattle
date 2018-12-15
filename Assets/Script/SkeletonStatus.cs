@@ -46,7 +46,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         float _timeHitDamage;
         GameObject camera;
         public GameObject teamNameSystem;
-        GameObject team;
+        public GameObject team;
         public float _AttackTime = 1.5f,preradius;
         string[] runAwayChara = { "WarriorMachine" };
 
@@ -116,9 +116,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
             _delay_attack += Time.deltaTime;
 
-            if(_isDeath == false){
-                transform.LookAt(player.transform);
-            }
+           
 
 
 
@@ -154,7 +152,16 @@ namespace UnityStandardAssets.CrossPlatformInput
                 return;
             }
 
-            PlayerChase();
+            if(team){
+                TeamChase();
+                OnAttack();
+                return;
+            }
+
+            if(!team){
+                PlayerChase();
+            }
+
             /*for (int i = 0;runAwayChara.Length > i ;i++)
             {
                 if (this.gameObject.name != runAwayChara[i])
@@ -166,6 +173,27 @@ namespace UnityStandardAssets.CrossPlatformInput
         }
 
         public void PlayerChase(){
+            if (_isDeath == false)
+            {
+                transform.LookAt(player.transform);
+            }
+            velocity = new Vector3(h, 0, v * _runSpeed);
+            velocity = transform.TransformDirection(velocity);
+
+            transform.localPosition += velocity * Time.fixedDeltaTime;
+
+
+            v += Time.deltaTime;
+            _timeHitDamage += Time.deltaTime;
+            anim.SetFloat("speedh", v);
+        }
+
+        public void TeamChase()
+        {
+            if (_isDeath == false)
+            {
+                transform.LookAt(team.transform);
+            }
             velocity = new Vector3(h, 0, v * _runSpeed);
             velocity = transform.TransformDirection(velocity);
 
