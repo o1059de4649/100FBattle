@@ -643,6 +643,9 @@ namespace UnityStandardAssets.CrossPlatformInput
            
         }
 
+        public void GoMyRoom(){
+            SceneManager.LoadScene("MyRoom");
+        }
 
     }
 }

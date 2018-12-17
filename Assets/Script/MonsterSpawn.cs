@@ -450,7 +450,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
                 }
 
-                //CubeMachine
+                //DarkDragon
                 if (_howEnemyCount[33] >= 1 && enemyCount._floorLevel == 90)
                 {
                     Instantiate(monster[33], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
@@ -459,6 +459,48 @@ namespace UnityStandardAssets.CrossPlatformInput
                     _preStopWall.SetActive(true);
 
                 }
+
+                //Whale
+                if (_howEnemyCount[34] >= 1 && 100 > enemyCount._floorLevel && enemyCount._floorLevel >= 95)
+                {
+                    Instantiate(monster[34], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
+                    _howEnemyCount[34]--;
+                    _probablity = Random.Range(0, 100);
+                    _preStopWall.SetActive(true);
+
+                }
+
+                //Knight
+                if (_howEnemyCount[35] >= 1 && 100 > enemyCount._floorLevel && enemyCount._floorLevel >= 90)
+                {
+                    Instantiate(monster[35], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
+                    _howEnemyCount[35]--;
+                    _probablity = Random.Range(0, 100);
+                    _preStopWall.SetActive(true);
+
+                }
+
+                //DemonWood
+                if (_howEnemyCount[36] >= 1 && 97 > enemyCount._floorLevel && enemyCount._floorLevel >= 90)
+                {
+                    Instantiate(monster[36], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
+                    _howEnemyCount[36]--;
+                    _probablity = Random.Range(0, 100);
+                    _preStopWall.SetActive(true);
+
+                }
+
+                //DarkDragon
+                if (_howEnemyCount[33] >= 1 && 100 > enemyCount._floorLevel && enemyCount._floorLevel >= 98)
+                {
+                    Instantiate(monster[33], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
+                    _howEnemyCount[33]--;
+                    _probablity = Random.Range(0, 100);
+                    _preStopWall.SetActive(true);
+
+                }
+
+
 
 
             }

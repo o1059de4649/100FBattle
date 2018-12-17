@@ -94,6 +94,10 @@ namespace UnityStandardAssets.CrossPlatformInput
             }
 
             player_dist = Vector3.Distance(player.transform.position, transform.position);
+            if(player.transform.position.y - 5.0f > this.transform.position.y){
+                this.transform.position =  new Vector3(this.transform.position.x,player.transform.position.y + 3 ,this.transform.position.z);
+            }
+
 
             if(_maxLife <= _life){
                 _life = _maxLife;
@@ -136,12 +140,16 @@ namespace UnityStandardAssets.CrossPlatformInput
                     damegeText.transform.LookAt(camera.transform);
                     Destroy(damegeText, 3.0f);
                     _timeHitDamage = 0;
+
+                    if (_isMagic == false)
+                    {
+                        GameObject _boneball = Instantiate(boneball, _spawnPosObj.transform.position + new Vector3(_randomPos, _randomPos, _randomPos), Quaternion.identity);
+                        Destroy(_boneball, 8.0f);
+                    }
                 }
               
 
-                if(_isMagic == false){
-                    GameObject _boneball = Instantiate(boneball, _spawnPosObj.transform.position + new Vector3(_randomPos, _randomPos, _randomPos), Quaternion.identity);
-                }
+               
                
                
             }

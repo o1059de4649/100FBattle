@@ -249,6 +249,42 @@ public class ShowLevelAuto : MonoBehaviour
                 _isUpdate = true;
             }
 
+            if (user_skeletonStatus.gameObject.name == "whale" && user_skeletonStatus._monster_level >= 125 && _isUpdate == false)
+            {
+                _name.text = ("黒鯨フォースエンド");
+                user_skeletonStatus.gameObject.transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
+                user_skeletonStatus._maxLife += 1400;
+                user_skeletonStatus._life += 1400;
+                user_skeletonStatus._exp += 1320;
+                user_skeletonStatus._enemyMoney += 1320;
+                user_skeletonStatus._bloodEssence += 1;
+                _isUpdate = true;
+            }
+
+            if (user_skeletonStatus.gameObject.name == "demonTree" && user_skeletonStatus._monster_level >= 125 && _isUpdate == false)
+            {
+                _name.text = ("リソース・オブ・ライフ");
+                user_skeletonStatus.gameObject.transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
+                user_skeletonStatus._maxLife += 1400;
+                user_skeletonStatus._life += 1400;
+                user_skeletonStatus._exp += 1320;
+                user_skeletonStatus._enemyMoney += 1320;
+                user_skeletonStatus._bloodEssence += 1;
+                _isUpdate = true;
+            }
+
+            if (user_skeletonStatus.gameObject.name == "Knight" && user_skeletonStatus._monster_level >= 125 && _isUpdate == false)
+            {
+                _name.text = ("冥界王の亡骸");
+                user_skeletonStatus.gameObject.transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
+                user_skeletonStatus._maxLife += 1400;
+                user_skeletonStatus._life += 1400;
+                user_skeletonStatus._exp += 1320;
+                user_skeletonStatus._enemyMoney += 1320;
+                user_skeletonStatus._bloodEssence += 1;
+                _isUpdate = true;
+            }
+
         }
 
 }

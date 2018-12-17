@@ -25,7 +25,8 @@ namespace UnityStandardAssets.CrossPlatformInput
         }
 
         public void NameDeside(){
-            if(inputField.text == null){
+            if(inputField.text == ""){
+                Debug.Log("NoName");
                 return;
             }
 

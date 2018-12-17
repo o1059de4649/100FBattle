@@ -2595,6 +2595,7 @@ MonoBehaviour:
   _bloodEssence: 0
   _probability: 8
   teamNameSystem: {fileID: 0}
+  team: {fileID: 0}
   _AttackTime: 1.5
   preradius: 0
 --- !u!114 &114923638949451776
@@ -3571,7 +3572,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 30
+      scalar: 2
       minScalar: 10
       maxCurve:
         serializedVersion: 2

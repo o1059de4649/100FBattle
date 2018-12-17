@@ -35,6 +35,10 @@ namespace UnityStandardAssets.CrossPlatformInput
         public float _exp;
         bool isSet = false;
         public GameObject spawnPos;
+
+        Vector3 playerPos;
+        Vector3 thisPos;
+        float _distancce;
         // Use this for initialization
         private void Awake()
         {
@@ -67,11 +71,22 @@ namespace UnityStandardAssets.CrossPlatformInput
             this.transform.localScale += new Vector3(_monsterLevel * 0.0025f, _monsterLevel * 0.0025f, _monsterLevel * 0.0025f);
 
 
+
         }
 
         // Update is called once per frame
         void Update()
         {
+            playerPos = player.transform.position;
+            thisPos = this.transform.position;
+            _distancce = Vector3.Distance(playerPos, thisPos);
+
+            if (_distancce >= 40)
+            {
+                this.transform.position = player.transform.position + new Vector3(Random.Range(-3, 3), Random.Range(3, 5), Random.Range(-3, 3));
+                return;
+            }
+
             if(!isSet){
                 spawnPos.GetComponent<SphereCollider>().radius += 25;
                 Destroy(this.gameObject.GetComponent<SkeletonStatus>());
@@ -136,16 +151,10 @@ namespace UnityStandardAssets.CrossPlatformInput
 
             this.transform.LookAt(player.transform);
 
-            Vector3 playerPos = player.transform.position;
-            Vector3 thisPos = this.transform.position;
-            float _distancce = Vector3.Distance(playerPos, thisPos);
+
            
 
-            if (_distancce >= 40)
-            {
-                this.transform.position = player.transform.position + new Vector3(0,2,0);
-                return;
-            }
+
 
             if(_distancce <= 4){
                 v = 0;

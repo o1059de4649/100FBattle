@@ -1225,6 +1225,7 @@ MonoBehaviour:
   _bloodEssence: 0
   _probability: 8
   teamNameSystem: {fileID: 0}
+  team: {fileID: 0}
   _AttackTime: 1.5
   preradius: 0
 --- !u!114 &114051572571200422
@@ -1254,7 +1255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aee8733a5c5b2435fb29993f2905c762, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _swordPower: 10
+  _swordPower: 30
 --- !u!114 &114150512358965426
 MonoBehaviour:
   m_ObjectHideFlags: 1

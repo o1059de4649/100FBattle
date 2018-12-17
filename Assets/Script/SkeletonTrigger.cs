@@ -43,25 +43,28 @@ namespace UnityStandardAssets.CrossPlatformInput
             //user敵の時
             if (user_parent.tag == "Enemy")
             {
+                if (col.gameObject.tag == "Team")
+                {
+
+                    if (team == null)
+                    {
+                        team = GameObject.FindWithTag("Team");
+                        user_parent.GetComponentInParent<SkeletonStatus>().team = team;
+
+                        return;
+                    }
+
+
+                   
+                }
+
                 if (col.gameObject.tag == "Player")
                 {
                     user_parent.GetComponentInParent<SkeletonStatus>().OnAttack();
                     return;
                 }
 
-                if (col.gameObject.tag == "Team" && player_dist > 5)
-                {
-
-                    if (team == null)
-                    {
-                        team = GameObject.FindWithTag("Team");
-                    }
-
-
-                    user_parent.GetComponentInParent<SkeletonStatus>().team = team;
-                   
-                    return;
-                }
+               
 
             }
 

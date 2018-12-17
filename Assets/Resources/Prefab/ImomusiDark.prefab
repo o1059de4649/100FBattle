@@ -907,20 +907,28 @@ MonoBehaviour:
   _spawnPosObj: {fileID: 1237324569250716}
   _damegeText: {fileID: 1147092225557134, guid: 4843089e9b2cf4f94bffdd30c24740d2,
     type: 2}
+  _randomPos: 0
+  player_dist: 0
   h: 0
   v: 0
   _itemDropForce: 0
   boxCollider: {fileID: 65915312301178792}
   _isMagic: 0
-  enemyCount: {fileID: 0}
   _isString: 0
+  _isEnemy: 1
+  _isSetUp: 0
+  enemyCount: {fileID: 0}
   _instatinateParticle: {fileID: 1502997631485746, guid: c2a3bf05ee52e43f6a6293313f3da7a2,
     type: 2}
   _runSpeed: 1
   _animDelay: 1
   _enemyWeak: 1
   _bloodEssence: 0
+  _probability: 8
   teamNameSystem: {fileID: 0}
+  team: {fileID: 0}
+  _AttackTime: 1.5
+  preradius: 0
 --- !u!114 &114868806063949128
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1877,7 +1885,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 30
+      scalar: 3
       minScalar: 10
       maxCurve:
         serializedVersion: 2

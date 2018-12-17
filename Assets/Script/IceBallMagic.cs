@@ -13,7 +13,7 @@ namespace UnityStandardAssets.CrossPlatformInput
             "Spider","SpiderBoss","StringSpider","WarriorMachine","FlyMachine",
             "Ghost","CubeMachine"};
         private string[] _enemy_Half = {"wizard", "Imomusi","ImomusiBoss","Imomusi2","icedemon","ImomusiDark" };
-        private string[] _enemy_One = {"troll", "goblin","Hobgoblin","RhinoObject"};
+        private string[] _enemy_One = {"troll", "goblin","Hobgoblin","RhinoObject","whale", "demonTree","Knight"};
         // Use this for initialization
         void Start()
         {

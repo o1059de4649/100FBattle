@@ -56,7 +56,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
                 if (col.gameObject.tag == "Team" && this.gameObject.GetComponentInParent<PlayerTeamAI>() == null)
                 {
-                    col.gameObject.GetComponent<PlayerTeamAI>()._life -= _swordPower / 2;
+                    col.gameObject.GetComponent<PlayerTeamAI>()._life -= _swordPower;
                     _attackDelay = 0;
                 }
             }

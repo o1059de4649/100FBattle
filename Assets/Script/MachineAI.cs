@@ -17,7 +17,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         {
             user_rigidbody = GetComponent<Rigidbody>();
             player = GameObject.Find("Player");
-            _power = this.gameObject.GetComponent<SkeletonStatus>()._monster_level / 25;
+            _power = this.gameObject.GetComponent<SkeletonStatus>()._monster_level / 10;
         }
 
         // Update is called once per frame

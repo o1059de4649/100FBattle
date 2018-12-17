@@ -12,7 +12,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                     ,"SkeletonMedium1","SkeletonMedium2"
                     ,"golem" ,"icedemon"
                     ,"ImomusiDark", "SkeletonWizard"
-            ,"wizard","troll", "goblin", "Hobgoblin","RhinoObject","CubeMachine","FlyMachine","WarriorMachine"};
+            ,"wizard","troll", "goblin", "Hobgoblin","RhinoObject","CubeMachine","FlyMachine","WarriorMachine","whale","demonTree"};
         // Use this for initialization
         void Start()
         {
