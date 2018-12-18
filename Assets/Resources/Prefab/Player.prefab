@@ -8475,11 +8475,11 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1265629013653732}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.618
   m_Pitch: 0.86
   Loop: 0
@@ -11389,6 +11389,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textbox: {fileID: 1707705545199538}
+  have_Aid_some: 0
+  aid_text: {fileID: 0}
   p_ucrb: {fileID: 114565652181798560}
 --- !u!114 &114469595799963328
 MonoBehaviour:
@@ -12113,8 +12115,6 @@ MonoBehaviour:
   protectPlus: 0
   protect: 0
   protect_calc: 1
-  have_aid: 0
-  aidbutton: {fileID: 1633876081642224}
   animSpeed: 1.5
   lookSmoother: 3
   useCurves: 1
@@ -12131,26 +12131,11 @@ MonoBehaviour:
   backstart: 0
   left: 0
   right: 0
-  reload_Panel:
-  - {fileID: 1269468405938522}
-  - {fileID: 1691586136760696}
-  - {fileID: 1986957920584552}
-  - {fileID: 1239885357674630}
   jump_component: {fileID: 114567871966739500}
-  game_startControl: {fileID: 0}
   blood: {fileID: 1235803457211176}
   wait_anim: 0
   head: {fileID: 1318948964220618}
-  head_rate: 2
-  gun_audio: {fileID: 82430262490815058}
-  handgun_clip: {fileID: 8300000, guid: 1b145bcffd767854fb0c71c37678ebaa, type: 3}
-  shotgun_clip: {fileID: 8300000, guid: 1df1429981f76644097c7fd47fc5f239, type: 3}
-  uzi_clip: {fileID: 8300000, guid: 1b145bcffd767854fb0c71c37678ebaa, type: 3}
-  m4_clip: {fileID: 8300000, guid: f19e3fdb9c8082647a2c32beca28ba84, type: 3}
-  m107_clip: {fileID: 8300000, guid: fecc3e7a0166a104cb810435f6fdf37b, type: 3}
-  cube_get: {fileID: 8300000, guid: 7ea3b0a7a2a574a0e8c6d59c301e0d6f, type: 3}
   u_audioListener: {fileID: 81128526040729794}
-  reload_on: 0
   level_text: {fileID: 0}
   cameraRotate: {fileID: 0}
   _boneEssence: 0
@@ -12178,6 +12163,13 @@ MonoBehaviour:
   enemyObjects: []
   itemList: 
   crystalsliderObject: {fileID: 1364782325066940}
+  boxCollider: {fileID: 65452249461896088}
+  audio_clip:
+  - {fileID: 8300000, guid: 32b9a930ffb1c4fd692d9a74108abde5, type: 3}
+  - {fileID: 8300000, guid: b2095ac9baac9440194951c61af7a769, type: 3}
+  - {fileID: 8300000, guid: 05f3cbdfa33034f37befb28ae3721fd5, type: 3}
+  - {fileID: 8300000, guid: 76a2653f55c504be6857e14b4b8d5613, type: 3}
+  - {fileID: 8300000, guid: afacf6bec147045c4a161372c4d31aa2, type: 3}
 --- !u!114 &114567390073467546
 MonoBehaviour:
   m_ObjectHideFlags: 1

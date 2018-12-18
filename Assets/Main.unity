@@ -33352,6 +33352,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textbox: {fileID: 2090384448}
+  have_Aid_some: 0
+  aid_text: {fileID: 0}
   p_ucrb: {fileID: 1635026175}
 --- !u!114 &539722624
 MonoBehaviour:
@@ -79938,11 +79940,11 @@ AudioSource:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1635026168}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.618
   m_Pitch: 0.86
   Loop: 0
@@ -80094,8 +80096,6 @@ MonoBehaviour:
   protectPlus: 0
   protect: 0
   protect_calc: 1
-  have_aid: 0
-  aidbutton: {fileID: 539722621}
   animSpeed: 1.5
   lookSmoother: 3
   useCurves: 1
@@ -80112,26 +80112,11 @@ MonoBehaviour:
   backstart: 0
   left: 0
   right: 0
-  reload_Panel:
-  - {fileID: 1787359565}
-  - {fileID: 1960198285}
-  - {fileID: 1598934759}
-  - {fileID: 521842295}
   jump_component: {fileID: 1393576276}
-  game_startControl: {fileID: 0}
   blood: {fileID: 1895684005}
   wait_anim: 0
   head: {fileID: 1738118438}
-  head_rate: 2
-  gun_audio: {fileID: 1635026172}
-  handgun_clip: {fileID: 8300000, guid: 1b145bcffd767854fb0c71c37678ebaa, type: 3}
-  shotgun_clip: {fileID: 8300000, guid: 1df1429981f76644097c7fd47fc5f239, type: 3}
-  uzi_clip: {fileID: 8300000, guid: 1b145bcffd767854fb0c71c37678ebaa, type: 3}
-  m4_clip: {fileID: 8300000, guid: f19e3fdb9c8082647a2c32beca28ba84, type: 3}
-  m107_clip: {fileID: 8300000, guid: fecc3e7a0166a104cb810435f6fdf37b, type: 3}
-  cube_get: {fileID: 8300000, guid: 7ea3b0a7a2a574a0e8c6d59c301e0d6f, type: 3}
   u_audioListener: {fileID: 705260718}
-  reload_on: 0
   level_text: {fileID: 0}
   cameraRotate: {fileID: 0}
   _boneEssence: 0
@@ -80159,6 +80144,15 @@ MonoBehaviour:
   enemyObjects: []
   itemList: 
   crystalsliderObject: {fileID: 878935232}
+  boxCollider: {fileID: 1076360518}
+  audio_clip:
+  - {fileID: 8300000, guid: 32b9a930ffb1c4fd692d9a74108abde5, type: 3}
+  - {fileID: 8300000, guid: b2095ac9baac9440194951c61af7a769, type: 3}
+  - {fileID: 8300000, guid: 05f3cbdfa33034f37befb28ae3721fd5, type: 3}
+  - {fileID: 8300000, guid: 58e0d2bc5f9724e0cab08c1bbba977d4, type: 3}
+  - {fileID: 8300000, guid: 82817dab4e4ea44348968323fed38649, type: 3}
+  - {fileID: 8300000, guid: ec497c1ff483c47a18dca29e3e6cb043, type: 3}
+  - {fileID: 8300000, guid: 123da5084ee0644dfbb1b758272f9700, type: 3}
 --- !u!54 &1635026176
 Rigidbody:
   m_ObjectHideFlags: 0

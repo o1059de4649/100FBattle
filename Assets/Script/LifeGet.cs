@@ -39,6 +39,7 @@ namespace UnityStandardAssets.CrossPlatformInput
             if(collision.gameObject.tag == "Player"){
                 collision.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>().life += collision.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>().maxLife * 0.1f;
                 collision.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>().lifePlus++;
+                collision.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>().GetEssence();
                 Destroy(this.gameObject);
             }
         }

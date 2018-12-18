@@ -40,6 +40,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         {
             if (collision.gameObject.tag == "Player")
             {
+                collision.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>().GetEssence();
                 collision.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>()._iceEssence += 1;
                 Destroy(this.gameObject);
             }

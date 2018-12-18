@@ -32,19 +32,19 @@ namespace UnityStandardAssets.CrossPlatformInput
            
             if (0 < _enterTime && _enterTime <= 1.0f * _rpm)
             {
-                _boxCollider_left.enabled = true;
+                
                 anim.SetTrigger("Kukuri2");
             }
 
             if (1.0f * _rpm < _enterTime && _enterTime <= 2.0f * _rpm)
             {
-                _boxCollider_right.enabled = true;
+                
                 anim.SetTrigger("Kukuri3");
             }
 
             if (2.0f * _rpm < _enterTime && _enterTime <= 3.0f * _rpm)
             {
-                _boxCollider_left.enabled = true;
+                
                 anim.SetTrigger("Kukuri4");
                 _enterTime = 0;
             }
@@ -52,9 +52,10 @@ namespace UnityStandardAssets.CrossPlatformInput
         }
 
         public void OnPointerDown(PointerEventData eventData){
+            
             if (_enterTime <= 0)
             {
-                _boxCollider_right.enabled = true;
+                
                 anim.SetTrigger("Kukuri1");
             }
             isEnter = true;
@@ -76,8 +77,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         }
 
         void AttackOff(){
-            _boxCollider_left.enabled = false;
-            _boxCollider_right.enabled = false;
+          
             anim.SetTrigger("Kukurioff");
             _enterTime = 0;
         }

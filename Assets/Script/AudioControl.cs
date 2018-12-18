@@ -29,16 +29,35 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         public void OnTriggerEnter(Collider col)
         {
-            if(col.gameObject.tag == "Player" && 0 <= enemyCount._floorLevel && enemyCount._floorLevel <= 10){
+            for (int i = 0;i < 9;i++){
+
+                if (col.gameObject.tag == "Player" && i * 10 <= enemyCount._floorLevel && enemyCount._floorLevel <= i * 10 + 10)
+                {
+                    bgm[i].SetActive(true);
+                    plane.GetComponent<Renderer>().material = _material[i];
+                    door[0].GetComponent<Renderer>().material = _material[i];
+                    door[1].GetComponent<Renderer>().material = _material[i];
+                    door[2].GetComponent<Renderer>().material = _material[i];
+                    foreach (Transform wall in wall_transform.transform)
+                    {
+                        wall.GetComponent<Renderer>().material = _material[i];
+
+                    }
+                }
+            }
+            /*
+            if (col.gameObject.tag == "Player" && 0 <= enemyCount._floorLevel && enemyCount._floorLevel <= 10)
+            {
                 bgm[0].SetActive(true);
                 plane.GetComponent<Renderer>().material = _material[0];
                 door[0].GetComponent<Renderer>().material = _material[0];
                 door[1].GetComponent<Renderer>().material = _material[0];
                 door[2].GetComponent<Renderer>().material = _material[0];
-                foreach( Transform wall in wall_transform.transform){
+                foreach (Transform wall in wall_transform.transform)
+                {
                     wall.GetComponent<Renderer>().material = _material[0];
-                }
 
+                }
             }
 
             if (col.gameObject.tag == "Player" && 11 <= enemyCount._floorLevel && enemyCount._floorLevel <= 20)
@@ -92,11 +111,12 @@ namespace UnityStandardAssets.CrossPlatformInput
                     wall.GetComponent<Renderer>().material = _material[4];
                 }
             }
+            */
         }
 
         public void OnTriggerExit(Collider col)
-        {
-            if (col.gameObject.tag == "Player" && 0 <= enemyCount._floorLevel && enemyCount._floorLevel <= 9)
+        { /*
+            if (col.gameObject.tag == "Player" && 0 <= enemyCount._floorLevel && enemyCount._floorLevel <= 10)
             {
                 bgm[0].SetActive(false);
             }
@@ -116,10 +136,43 @@ namespace UnityStandardAssets.CrossPlatformInput
                 bgm[3].SetActive(false);
             }
 
-            if (col.gameObject.tag == "Player" && 41 <= enemyCount._floorLevel && enemyCount._floorLevel <= 49)
+            if (col.gameObject.tag == "Player" && 41 <= enemyCount._floorLevel && enemyCount._floorLevel <= 50)
             {
                 bgm[4].SetActive(false);
             }
-        }
+
+            if (col.gameObject.tag == "Player" && 51 <= enemyCount._floorLevel && enemyCount._floorLevel <= 60)
+            {
+                bgm[0].SetActive(false);
+            }
+
+            if (col.gameObject.tag == "Player" && 61 <= enemyCount._floorLevel && enemyCount._floorLevel <= 70)
+            {
+                bgm[1].SetActive(false);
+            }
+
+            if (col.gameObject.tag == "Player" && 71 <= enemyCount._floorLevel && enemyCount._floorLevel <= 80)
+            {
+                bgm[2].SetActive(false);
+            }
+
+            if (col.gameObject.tag == "Player" && 81 <= enemyCount._floorLevel && enemyCount._floorLevel <= 90)
+            {
+                bgm[3].SetActive(false);
+            }
+
+            if (col.gameObject.tag == "Player" && 91 <= enemyCount._floorLevel && enemyCount._floorLevel <= 100)
+            {
+                bgm[4].SetActive(false);
+            }
+            */
+            if(col.gameObject.tag == "Player"){
+                for (int i = 0; i < bgm.Length; i++)
+                {
+                    bgm[i].SetActive(false);
+                }
+            }
+         }
+           
     }
 }

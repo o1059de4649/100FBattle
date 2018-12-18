@@ -41,9 +41,8 @@ namespace UnityStandardAssets.CrossPlatformInput
         public int protect = 0;
         public float protect_calc = 1;
 
-        public int have_aid = 0;
+
         int t;
-        public GameObject aidbutton;
 
         public float animSpeed = 1.5f;              // アニメーション再生速度設定
         public float lookSmoother = 3.0f;           // a smoothing setting for camera motion
@@ -87,27 +86,21 @@ namespace UnityStandardAssets.CrossPlatformInput
 
 
 
-        public PhotonPlayer photonPlayer;
+       
 
-
-        public GameObject[] reload_Panel;
+       
 
         public JumpButton jump_component;
-        public GameStart game_startControl;
+       
 
         public GameObject blood;
         public bool wait_anim = false;
         public GameObject head;
-        public float head_rate = 2;
-
        
-        public AudioSource gun_audio;
-        public AudioClip handgun_clip,shotgun_clip,uzi_clip,m4_clip,m107_clip,cube_get;
+       
+      
         public AudioListener u_audioListener;
 
-       
-
-        public bool reload_on = false;
 
         public Text level_text;
         public CameraRotate cameraRotate;
@@ -118,7 +111,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         static int jumpState = Animator.StringToHash("Base Layer.Jump");
         static int restState = Animator.StringToHash("Base Layer.Rest");
 
-        private PhotonTransformView photonTransformView;
+
 
         public float _boneEssence = 0,_stringEssence = 0,_fireEssence = 0,_CrystalEssence,_iceEssence = 0;
       
@@ -137,12 +130,18 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         public GameObject crystalsliderObject;
         Slider crystalSlider;
+
+        public BoxCollider boxCollider;
+
+        AudioSource audioSource;
+        public AudioClip[] audio_clip;
         void Start()
         {
+            audioSource = GetComponent<AudioSource>();
             duo_Panel = GameObject.Find("DualTouchControls");
             duo_Panel.GetComponent<Canvas>().enabled = true;
             SetUp();
-            photonTransformView = GetComponent<PhotonTransformView>();
+
           
 
 
@@ -567,39 +566,7 @@ namespace UnityStandardAssets.CrossPlatformInput
             left = false;
         }
 
-        public void ADSOnAnim(){
-            anim.SetBool("AssualtADS",true);
-        }
 
-        public void ADSOffAnim()
-        {
-            anim.SetBool("AssualtADS",false);
-        }
-
-
-        public void PistolFire()
-        {
-            anim.SetBool("pistolADS", true);
-            Invoke("PistolFireOff", 3.0f);
-
-        }
-
-        public void ShotGunFire()
-        {
-            anim.SetBool("AssualtADS", true);
-            Invoke("AssualtFireOff", 3.0f);
-
-        }
-
-        void PistolFireOff()
-        {
-            anim.SetBool("pistolADS", false);
-        }
-
-        void AssualtFireOff()
-        {
-            anim.SetBool("AssualtADS", false);
-        }
 
         public void EnemyLockOn()
         {
@@ -645,6 +612,41 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         public void GoMyRoom(){
             SceneManager.LoadScene("MyRoom");
+        }
+
+        public void AttackAudio(){
+
+            audioSource.PlayOneShot(audio_clip[0]);
+        }
+
+        public void GetEssence(){
+            audioSource.PlayOneShot(audio_clip[1]);
+        }
+
+        public void WalkingAudio()
+        {
+            int i = Random.Range(3, 6);
+            audioSource.PlayOneShot(audio_clip[i]);
+        }
+
+        public void RunningAudio()
+        {
+            int i = Random.Range(3, 6);
+            audioSource.PlayOneShot(audio_clip[i]);
+        }
+
+        public void AudioOff(){
+            audioSource.Stop();
+        }
+
+
+        public void AttackSwordOn(){
+            boxCollider.enabled = true;
+        }
+
+        public void AttackSwordOff()
+        {
+            boxCollider.enabled = false;
         }
 
     }
