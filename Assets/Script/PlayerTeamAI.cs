@@ -156,7 +156,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
 
 
-            if(_distancce <= 4){
+            if(_distancce <= 6){
                 v = 0;
                 anim.SetFloat("speedh", v);
                 return;

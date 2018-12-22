@@ -45,11 +45,11 @@ namespace UnityStandardAssets.CrossPlatformInput
                 {
                     if (col.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>()._isCrystal == true)
                     {
-                        col.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>().life -= _swordPower / 3;
+                        col.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>().life -= (_swordPower  - col.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>()._shirdPower / 10)/2;
                         _attackDelay = 0;
                         return;
                     }
-                    col.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>().life -= _swordPower;
+                    col.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>().life -= _swordPower - (col.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>()._shirdPower/10);
                 }
 
 

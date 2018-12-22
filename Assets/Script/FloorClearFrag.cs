@@ -33,7 +33,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         void ChestSpawnOn(){
             
-            if(t < 50){
+            if(t <= 100){
                 chest.SetActive(true);
             }
         }

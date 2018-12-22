@@ -13,6 +13,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         public int[] _howEnemyCount;
         public float _spawnerRange = 15,_probablity;
         EnemyCount enemyCount;
+        public bool isSpawn = false;
         // Use this for initialization
         void Start()
         {
@@ -34,8 +35,28 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         private void OnTriggerStay(Collider col)
         {
-            if(col.gameObject.tag == "Player"){
-                if(_howEnemyCount[23] >= 1 && 100 > enemyCount._floorLevel &&_probablity < 5){
+            if(isSpawn){
+                return;
+            }
+
+            if (col.gameObject.tag == "Player")
+            {
+                SetUpMonster();
+                Invoke("SpawnFlag", 3);
+            }
+
+
+           
+        }
+
+        void SpawnFlag(){
+            isSpawn = true;
+        }
+
+        public void SetUpMonster(){
+            
+                if (_howEnemyCount[23] >= 1 && 100 > enemyCount._floorLevel && _probablity < 5)
+                {
                     Instantiate(monster[23], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
                     _howEnemyCount[23]--;
                     _probablity = Random.Range(0, 100);
@@ -57,7 +78,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                     _howEnemyCount[0]--;
                     _probablity = Random.Range(0, 100);
                     _preStopWall.SetActive(true);
-                   
+
                 }
 
                 //SkeletonWeak2
@@ -81,7 +102,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 }
 
                 //Skeleton
-                if (_howEnemyCount[3] >= 1 && 15 > enemyCount._floorLevel && enemyCount._floorLevel>= 10)
+                if (_howEnemyCount[3] >= 1 && 15 > enemyCount._floorLevel && enemyCount._floorLevel >= 10)
                 {
                     Instantiate(monster[3], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
                     _howEnemyCount[3]--;
@@ -140,7 +161,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
                 }
 
-               
+
                 //imomusi2
                 if (_howEnemyCount[9] >= 1 && 30 > enemyCount._floorLevel && enemyCount._floorLevel >= 24)
                 {
@@ -252,7 +273,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 }
 
                 //Troll
-                if (_howEnemyCount[20] >= 1 && 50 > enemyCount._floorLevel && enemyCount._floorLevel >= 46 )
+                if (_howEnemyCount[20] >= 1 && 50 > enemyCount._floorLevel && enemyCount._floorLevel >= 46)
                 {
                     Instantiate(monster[20], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
                     _howEnemyCount[20]--;
@@ -402,7 +423,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 }
 
                 //CubeMachine
-                if (_howEnemyCount[32] >= 1&& 90 > enemyCount._floorLevel && enemyCount._floorLevel >= 80)
+                if (_howEnemyCount[32] >= 1 && 90 > enemyCount._floorLevel && enemyCount._floorLevel >= 80)
                 {
                     Instantiate(monster[32], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
                     _howEnemyCount[32]--;
@@ -500,12 +521,8 @@ namespace UnityStandardAssets.CrossPlatformInput
 
                 }
 
+              
 
-
-
-            }
-
-           
         }
     }
 }

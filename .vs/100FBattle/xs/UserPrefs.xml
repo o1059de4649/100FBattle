@@ -1,23 +1,17 @@
 ﻿<Properties StartupConfiguration="{3E78C741-62A7-DB31-C2C9-7D30606E98C1}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/FloorClearFrag.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/MonsterSpawn.cs">
     <Files>
-      <File FileName="Assets/Script/MonsterSpawn.cs" Line="502" Column="17" />
-      <File FileName="Assets/Script/BoneMagic.cs" Line="5" Column="2" />
-      <File FileName="Assets/Script/FireMagic.cs" Line="13" Column="106" />
-      <File FileName="Assets/Script/IceBallMagic.cs" Line="16" Column="115" />
-      <File FileName="Assets/Script/StringMagic.cs" Line="15" Column="131" />
-      <File FileName="Assets/Script/TeamNameSystemControl.cs" Line="29" Column="37" />
-      <File FileName="Assets/Script/SkeletonTrigger.cs" Line="58" Column="20" />
-      <File FileName="Assets/Script/SkeletonStatus.cs" Line="180" Column="3" />
-      <File FileName="Assets/Script/PlayerTeamAI.cs" Line="88" Column="14" />
-      <File FileName="Assets/Script/UnityChanControlScriptWithRgidBody.cs" Line="629" Column="52" />
-      <File FileName="Assets/Script/SkeletonSword.cs" Line="59" Column="86" />
-      <File FileName="Assets/Script/ShowLevelAuto.cs" Line="278" Column="41" />
-      <File FileName="Assets/Script/AudioControl.cs" Line="170" Column="36" />
-      <File FileName="Assets/Script/KukuriAttackButton.cs" Line="6" Column="2" />
-      <File FileName="Assets/Script/ChestItemDrop.cs" Line="28" Column="34" />
-      <File FileName="Assets/Script/FloorClearFrag.cs" Line="26" Column="17" />
+      <File FileName="Assets/Script/ChestItemDrop.cs" Line="59" Column="14" />
+      <File FileName="Assets/Script/KukuriPower.cs" Line="96" Column="14" />
+      <File FileName="Assets/Script/SwordCanvasRotate.cs" Line="9" Column="6" />
+      <File FileName="Assets/Script/UnityChanControlScriptWithRgidBody.cs" Line="265" Column="71" />
+      <File FileName="Assets/Script/SwordItem.cs" Line="36" Column="14" />
+      <File FileName="Assets/Script/ShirldItem.cs" Line="36" Column="14" />
+      <File FileName="Assets/Script/ShirdCanvasRotate.cs" Line="27" Column="118" />
+      <File FileName="Assets/Script/SkeletonSword.cs" Line="48" Column="201" />
+      <File FileName="Assets/Script/DropdownCallback.cs" Line="102" Column="87" />
+      <File FileName="Assets/Script/MonsterSpawn.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

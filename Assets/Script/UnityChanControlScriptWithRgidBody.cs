@@ -115,7 +115,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         public float _boneEssence = 0,_stringEssence = 0,_fireEssence = 0,_CrystalEssence,_iceEssence = 0;
       
-        public float _bloodEssence,_wallSpace,_maxEssencePlus,_maxEssence = 0;
+        public float _bloodEssence,_wallSpace,_maxEssencePlus,_maxEssence = 0,_equip_sword_power;
 
 
         public float _magicPower = 1,_SwordPower = 1,_MoveSpeedRL = 2,_money,_magicPowerPlus = 0, _attackPower = 0,_crystalTime,_crystalBoolMax;
@@ -131,10 +131,16 @@ namespace UnityStandardAssets.CrossPlatformInput
         public GameObject crystalsliderObject;
         Slider crystalSlider;
 
-        public BoxCollider boxCollider;
+        public BoxCollider[] boxCollider;
 
         AudioSource audioSource;
         public AudioClip[] audio_clip;
+
+        bool isStrong = false;
+        public Text playerDataText;
+        public int _swordType,_shirldType,shirldRare;
+        public float _shirdPower;
+        public GameObject[] shirldObject;
         void Start()
         {
             audioSource = GetComponent<AudioSource>();
@@ -161,6 +167,9 @@ namespace UnityStandardAssets.CrossPlatformInput
             orgVectColCenter = col.center;
 
             crystalSlider = crystalsliderObject.GetComponent<Slider>();
+
+           
+
         }
 
         public void SetUp(){
@@ -185,16 +194,82 @@ namespace UnityStandardAssets.CrossPlatformInput
 
             _wallSpace = PlayerPrefs.GetFloat("WallSpace", 0);
 
+           
+
             maxLife = 100 + lifePlus + player_Level;
             life = maxLife;
             Max_exp_point = player_Level * 50 + 100;
 
             _crystalBoolMax = 30 + _magicPower;
 
+            isStrong = PlayerPrefs.HasKey("Sword");//剣の情報取得
+            _swordType = PlayerPrefs.GetInt("SwordType",0);
+
+            _shirdPower = PlayerPrefs.GetFloat("Shirld",0);
+            _shirldType = PlayerPrefs.GetInt("ShirldType", 0);
+            shirldRare = PlayerPrefs.GetInt("ShirldRare", 0);
+
+
+            for (int t = 0; t < boxCollider.Length; t++)
+            {//剣を全て非表示
+                boxCollider[t].gameObject.SetActive(false);
+            }
+
+            for (int i = 0;i < boxCollider.Length ;i++){
+                if(_swordType == i){
+                    boxCollider[i].gameObject.SetActive(true);//Typeのソード有効
+                    boxCollider[i].gameObject.GetComponent<KukuriPower>()._swordPower = PlayerPrefs.GetFloat("Sword", 0);
+                    boxCollider[i].gameObject.GetComponent<KukuriPower>().SetUpColor();
+                    _equip_sword_power = boxCollider[i].gameObject.GetComponent<KukuriPower>()._swordPower;
+                }
+            }
+
+            if(_swordType == 0){
+                boxCollider[0].gameObject.GetComponent<KukuriPower>()._swordPower = 12;
+            }
+        
+
+            for (int p = 0; p < shirldObject.Length; p++)
+            {//盾を全て非表示
+                shirldObject[p].gameObject.SetActive(false);
+            }
+
+            for (int s = 0; s < shirldObject.Length; s++)
+            {
+                if (_shirldType == s)
+                {
+                    shirldObject[s].gameObject.SetActive(true);//Typeの盾有効
+
+                    if(_shirldType >= 1){//Type0の時の初期化エラー回避
+                        ShirldSetUp(shirldObject[s]);
+                    }
+
+                }
+            }
+
+            //シールドがない
+            if(_shirldType == 0){
+                for (int p = 0; p < shirldObject.Length; p++)
+                {//盾を全て非表示
+                    shirldObject[p].gameObject.SetActive(false);
+                }
+            }
+
+
+
         }
         // 以下、メイン処理.リジッドボディと絡めるので、FixedUpdate内で処理を行う.
         void FixedUpdate()
         {
+
+            playerDataText.text = ("最大HP" + maxLife.ToString() + "\n" 
+                                   + "肉体物理攻撃力" + _SwordPower.ToString() + "\n" 
+                                   + "装備攻撃力" + _equip_sword_power.ToString()+ "\n" 
+                                   + "防御力" + _shirdPower.ToString() + "\n" 
+                                   + "魔法攻撃力" + _magicPower.ToString() + "\n" 
+                                   + "最大EP" + _maxEssence.ToString() + "\n" 
+                                   + "お金" + _money.ToString());
+
             //クリスタル処理
             if(_crystalTime > 0){
                 crystalsliderObject.SetActive(true);
@@ -641,12 +716,62 @@ namespace UnityStandardAssets.CrossPlatformInput
 
 
         public void AttackSwordOn(){
-            boxCollider.enabled = true;
+
+
+            boxCollider[_swordType].enabled = true;
+
         }
 
         public void AttackSwordOff()
         {
-            boxCollider.enabled = false;
+            boxCollider[_swordType].enabled = false;
+
+        }
+
+        public void DeleteSaveData(){
+            PlayerPrefs.DeleteKey("SwordType");
+            PlayerPrefs.DeleteKey("Sword");
+            PlayerPrefs.DeleteKey("SwordRare");
+
+            PlayerPrefs.DeleteKey("ShirldType");
+            PlayerPrefs.DeleteKey("Shirld");
+            PlayerPrefs.DeleteKey("ShirldRare");
+        }
+
+        public void ShirldSetUp(GameObject shirld){
+
+            if (shirldRare == 1)
+            {
+                shirld.GetComponentInChildren<ParticleSystem>().startColor = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+
+            }
+
+            if (shirldRare == 2)
+            {
+                shirld.GetComponentInChildren<ParticleSystem>().startColor = new Color(0.0f, 0.0f, 1.0f, 1.0f);
+            }
+
+            if (shirldRare == 3)
+            {
+                shirld.GetComponentInChildren<ParticleSystem>().startColor = new Color(0.0f, 1.0f, 0.0f, 1.0f);
+
+
+            }
+
+            if (shirldRare == 4)
+            {
+                shirld.GetComponentInChildren<ParticleSystem>().startColor = new Color(1.0f, 1.0f, 0.0f, 1.0f);
+            }
+
+            if (shirldRare == 5)
+            {
+                shirld.GetComponentInChildren<ParticleSystem>().startColor = new Color(1.0f, 0.0f, 0.0f, 1.0f);
+            }
+            if (shirldRare == 6)
+            {
+                shirld.GetComponentInChildren<ParticleSystem>().startColor = new Color(1.0f, 0.0f, 1.0f, 1.0f);
+            } 
+           
         }
 
     }

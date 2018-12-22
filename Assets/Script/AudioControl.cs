@@ -29,9 +29,9 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         public void OnTriggerEnter(Collider col)
         {
-            for (int i = 0;i < 9;i++){
+            for (int i = 0;i < bgm.Length;i++){
 
-                if (col.gameObject.tag == "Player" && i * 10 <= enemyCount._floorLevel && enemyCount._floorLevel <= i * 10 + 10)
+                if (col.gameObject.tag == "Player" && i * 10 <= enemyCount._floorLevel && enemyCount._floorLevel <= i * 10 + 9)
                 {
                     bgm[i].SetActive(true);
                     plane.GetComponent<Renderer>().material = _material[i];

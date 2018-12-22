@@ -97,9 +97,9 @@ namespace UnityStandardAssets.CrossPlatformInput
             {
                 if (label.text == real_name[i])
                 {
-                    status_text.text = ("種族:" + monster_name[i] 
-                                        + "名前:" + real_name[i]
-                                        + "レベル" + _monster_Level[i].ToString()
+                    status_text.text = ("種族:" + monster_name[i] + "\n" 
+                                        + "名前:" + real_name[i] + "\n" 
+                                        + "レベル" + _monster_Level[i].ToString() + "\n" 
                                         + "体力" + _monster_Life[i].ToString() );
                 }
             }

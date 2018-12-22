@@ -8,16 +8,24 @@ namespace UnityStandardAssets.CrossPlatformInput
         BoxCollider boxCollider;
         public float _swordPower;
         float _waitTime;
-        public GameObject _kukuri_effect;
+        public GameObject _kukuri_effect,particle;
         public UnityChanControlScriptWithRgidBody _uniyuchanControl;
         GameObject player;
         string ghost = "Ghost";
+
+        int _rare;
         // Use this for initialization
         void Start()
         {
+            
             boxCollider = GetComponent<BoxCollider>();
-
+            _rare = PlayerPrefs.GetInt("SwordRare", 0);
             player = GameObject.Find("Player");
+
+            if(this.gameObject.name != "left_kukuri"){
+                SetUpColor();
+            }
+           
         }
 
         // Update is called once per frame
@@ -51,6 +59,46 @@ namespace UnityStandardAssets.CrossPlatformInput
         void OffEffect()
         {
             _kukuri_effect.SetActive(false);  
+        }
+
+        public void SetUpColor(){
+            _rare = PlayerPrefs.GetInt("SwordRare", 0);
+            if (_rare == 1)
+            {
+                _kukuri_effect.GetComponent<ParticleSystem>().startColor = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+                particle.GetComponent<ParticleSystem>().startColor = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+            }
+
+            if (_rare == 2)
+            {
+                _kukuri_effect.GetComponent<ParticleSystem>().startColor =new Color(0.0f, 0.0f, 1.0f, 1.0f);
+                particle.GetComponent<ParticleSystem>().startColor = new Color(0.0f, 0.0f, 1.0f, 1.0f);
+            }
+
+            if (_rare == 3)
+            {
+                _kukuri_effect.GetComponent<ParticleSystem>().startColor = new Color(0.0f, 1.0f, 0.0f, 1.0f);
+                particle.GetComponent<ParticleSystem>().startColor = new Color(0.0f, 1.0f, 0.0f, 1.0f);
+
+
+            }
+
+            if (_rare == 4)
+            {
+                _kukuri_effect.GetComponent<ParticleSystem>().startColor = new Color(1.0f, 1.0f, 0.0f, 1.0f);
+                particle.GetComponent<ParticleSystem>().startColor = new Color(1.0f, 1.0f, 0.0f, 1.0f);
+            }
+
+            if (_rare == 5)
+            {
+                _kukuri_effect.GetComponent<ParticleSystem>().startColor = new Color(1.0f, 0.0f, 0.0f, 1.0f);
+                particle.GetComponent<ParticleSystem>().startColor = new Color(1.0f, 0.0f, 0.0f, 1.0f);
+            }
+            if (_rare == 6)
+            {
+                _kukuri_effect.GetComponent<ParticleSystem>().startColor = new Color(1.0f, 0.0f, 1.0f, 1.0f);
+                particle.GetComponent<ParticleSystem>().startColor = new Color(1.0f, 0.0f, 1.0f, 1.0f);
+            } 
         }
     }
 }

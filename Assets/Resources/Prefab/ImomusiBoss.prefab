@@ -1946,7 +1946,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skeleton: {fileID: 1420045871425986}
-  skeleton_Status: {fileID: 0}
+  skeleton_Status: {fileID: 114977912826746768}
 --- !u!114 &114219686760039944
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2152,7 +2152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _text: {fileID: 114266755356182300}
   user_skeletonStatus: {fileID: 114977912826746768}
-  _name: {fileID: 0}
+  _name: {fileID: 114384302630719144}
 --- !u!114 &114780893104302136
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2223,20 +2223,28 @@ MonoBehaviour:
   _spawnPosObj: {fileID: 1095173210086844}
   _damegeText: {fileID: 1147092225557134, guid: 4843089e9b2cf4f94bffdd30c24740d2,
     type: 2}
+  _randomPos: 0
+  player_dist: 0
   h: 0
   v: 0
   _itemDropForce: 0
   boxCollider: {fileID: 65078174184783456}
   _isMagic: 0
-  enemyCount: {fileID: 0}
   _isString: 0
+  _isEnemy: 1
+  _isSetUp: 0
+  enemyCount: {fileID: 0}
   _instatinateParticle: {fileID: 1502997631485746, guid: c2a3bf05ee52e43f6a6293313f3da7a2,
     type: 2}
   _runSpeed: 1
   _animDelay: 1
   _enemyWeak: 1
   _bloodEssence: 0
+  _probability: 8
   teamNameSystem: {fileID: 0}
+  team: {fileID: 0}
+  _AttackTime: 1.5
+  preradius: 0
 --- !u!135 &135096400291678872
 SphereCollider:
   m_ObjectHideFlags: 1

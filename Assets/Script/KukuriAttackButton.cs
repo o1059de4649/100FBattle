@@ -11,6 +11,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         float _enterTime;
         public BoxCollider _boxCollider_right;
         public BoxCollider _boxCollider_left;
+        public BoxCollider _boxCollider_ElevenSword;
         bool isEnter = false;
         public float _rpm = 1;
 

@@ -1282,7 +1282,7 @@ MonoBehaviour:
   _animDelay: 1
   _enemyWeak: 1
   _bloodEssence: 0
-  _probability: 99
+  _probability: 8
   teamNameSystem: {fileID: 0}
   team: {fileID: 0}
   _AttackTime: 1.5
