@@ -173,6 +173,8 @@ namespace UnityStandardAssets.CrossPlatformInput
         }
 
         public void SetUp(){
+            
+
             exp_point = PlayerPrefs.GetFloat("Exp", 0);
             player_Level = PlayerPrefs.GetInt("Level", 0);
             _attackPower = PlayerPrefs.GetFloat("PowerPlus", 0);
@@ -257,6 +259,38 @@ namespace UnityStandardAssets.CrossPlatformInput
 
 
 
+        }
+
+        public void Save(){
+            PlayerPrefs.SetFloat("Exp", exp_point);
+            PlayerPrefs.SetInt("Level", player_Level);
+            PlayerPrefs.SetString("playername", player_Name);
+
+            PlayerPrefs.SetFloat("LifePlus", lifePlus);
+            PlayerPrefs.SetFloat("ProtectPlus", protect);
+            PlayerPrefs.SetFloat("PowerPlus", _attackPower);
+
+            PlayerPrefs.SetFloat("MagicPowerPlus", _magicPowerPlus);
+            PlayerPrefs.SetFloat("Money", _money);
+
+            int _maxFloorLevel = GameObject.Find("FloorControl").GetComponent<EnemyCount>()._MaxFloorLevel;
+            PlayerPrefs.SetInt("FloorLevel", _maxFloorLevel);
+
+            PlayerPrefs.SetFloat("BoneEssence", _boneEssence);
+            PlayerPrefs.SetFloat("StringEssence", _stringEssence);
+            PlayerPrefs.SetFloat("FireEssence", _fireEssence);
+            PlayerPrefs.SetFloat("IceEssence", _iceEssence);
+            PlayerPrefs.SetFloat("CrystalEssence", _CrystalEssence);
+
+            PlayerPrefs.SetFloat("EssencePlus", _maxEssencePlus);
+            PlayerPrefs.SetFloat("Blood", _bloodEssence);
+
+            PlayerPrefs.SetFloat("WallSpace", _wallSpace);
+
+
+
+
+            PlayerPrefs.Save();
         }
         // 以下、メイン処理.リジッドボディと絡めるので、FixedUpdate内で処理を行う.
         void FixedUpdate()
@@ -729,13 +763,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         }
 
         public void DeleteSaveData(){
-            PlayerPrefs.DeleteKey("SwordType");
-            PlayerPrefs.DeleteKey("Sword");
-            PlayerPrefs.DeleteKey("SwordRare");
-
-            PlayerPrefs.DeleteKey("ShirldType");
-            PlayerPrefs.DeleteKey("Shirld");
-            PlayerPrefs.DeleteKey("ShirldRare");
+            PlayerPrefs.DeleteAll();
         }
 
         public void ShirldSetUp(GameObject shirld){

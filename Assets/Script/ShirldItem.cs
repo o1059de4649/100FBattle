@@ -50,6 +50,7 @@ public class ShirldItem : MonoBehaviour {
                     PlayerPrefs.SetInt("ShirldRare", _rare);
                     PlayerPrefs.SetFloat("Shirld", _shirld_have_power);
                     player.GetComponent<UnityChanControlScriptWithRgidBody>().GetEssence();//効果音再生
+                    player.GetComponent<UnityChanControlScriptWithRgidBody>().Save();
                     player.GetComponent<UnityChanControlScriptWithRgidBody>().SetUp();
                     Destroy(this.gameObject);
                 }

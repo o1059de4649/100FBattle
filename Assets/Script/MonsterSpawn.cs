@@ -521,7 +521,16 @@ namespace UnityStandardAssets.CrossPlatformInput
 
                 }
 
-              
+
+            //DarkDragonBoss
+            if (_howEnemyCount[37] >= 1  && enemyCount._floorLevel == 100)
+            {
+                Instantiate(monster[37], transform.position + new Vector3(Random.Range(-_spawnerRange, _spawnerRange), 0, Random.Range(-_spawnerRange, _spawnerRange)), Quaternion.identity);
+                _howEnemyCount[37]--;
+                _probablity = Random.Range(0, 100);
+                _preStopWall.SetActive(true);
+
+            }
 
         }
     }

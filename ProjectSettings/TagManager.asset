@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - Team
   - Death
+  - SavePoint
   layers:
   - Default
   - TransparentFX

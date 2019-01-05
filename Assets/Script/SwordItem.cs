@@ -48,6 +48,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                     PlayerPrefs.SetInt("SwordRare", _rare);
                     PlayerPrefs.SetFloat("Sword", _sword_have_power);
                     player.GetComponent<UnityChanControlScriptWithRgidBody>().GetEssence();
+                    player.GetComponent<UnityChanControlScriptWithRgidBody>().Save();
                     player.GetComponent<UnityChanControlScriptWithRgidBody>().SetUp();
                     Destroy(this.gameObject);
                 }

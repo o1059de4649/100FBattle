@@ -42,7 +42,9 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         public void OnPointerClick(PointerEventData eventData)
         {
-
+            if(on_to_off.Length == 0){
+                return;
+            }
 
             if (option_On == true)
             {

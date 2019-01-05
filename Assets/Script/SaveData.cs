@@ -47,6 +47,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         }
 
         public void Save(){
+            Debug.Log("SaveOn");
             p_exp = player.GetComponent<UnityChanControlScriptWithRgidBody>().exp_point;
 
             p_Level = player.GetComponent<UnityChanControlScriptWithRgidBody>().player_Level;
@@ -109,7 +110,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 
 
                 collider.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>().life = collider.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>().maxLife;
-                Save();
+                collider.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>().Save();
 
                 player.GetComponent<UnityChanControlScriptWithRgidBody>().SetUp();
 
