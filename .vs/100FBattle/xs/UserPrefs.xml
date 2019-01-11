@@ -14,7 +14,7 @@
       <File FileName="Assets/Script/WizardAi.cs" Line="45" Column="1" />
       <File FileName="Assets/Script/SaveData.cs" Line="113" Column="95" />
       <File FileName="Assets/Script/UnityChanControlScriptWithRgidBody.cs" Line="176" Column="13" />
-      <File FileName="Assets/Script/ChangeChapterNumber.cs" Line="10" Column="6" />
+      <File FileName="Assets/Script/ChangeChapterNumber.cs" Line="17" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
