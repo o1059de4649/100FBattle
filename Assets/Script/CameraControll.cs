@@ -22,23 +22,22 @@ public class CameraControll : MonoBehaviour
            
 
 
-            if (PhotonControll.playerCreate > 0 && camera_player == null)
-        {
+        
 
 
 
 
-            camera_player = PhotonControll.player.transform.Find("CameraStork").gameObject;
+            camera_player = GameObject.FindWithTag("Player").transform.Find("CameraStork").gameObject;
             playerPos = camera_player.transform.position;
             this.transform.position = new Vector3(playerPos.x + 0.5f, playerPos.y, playerPos.z -2f);
             this.transform.parent = camera_player.transform;
 
             if (maincamera == null)
             {
-                maincamera = PhotonControll.player.transform.Find("CameraStork/MainCamera").gameObject;
+                maincamera = GameObject.FindWithTag("Player").transform.Find("CameraStork/MainCamera").gameObject;
                 maincamera.GetComponent<TPSControll_y>().enabled = true;
             }
-        }
+        
 
 
     }

@@ -73,7 +73,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         private AnimatorStateInfo currentBaseState;         // base layerで使われる、アニメーターの現在の状態の参照
 
         private GameObject cameraObject;    // メインカメラへの参照
-        public PhotonView u_photonView;
+       
         public float v;
         public float h;
         public float r;
@@ -151,7 +151,6 @@ namespace UnityStandardAssets.CrossPlatformInput
           
 
 
-            u_photonView = GetComponent<PhotonView>();
          
 
 
@@ -620,7 +619,9 @@ namespace UnityStandardAssets.CrossPlatformInput
 
     
      
-
+        public void DeathSceneLoad(){
+            SceneManager.LoadScene("Main");
+        } 
 
         // キャラクターのコライダーサイズのリセット関数
         void resetCollider()

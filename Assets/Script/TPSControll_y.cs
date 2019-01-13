@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 namespace UnityStandardAssets.CrossPlatformInput
 {
-    public class TPSControll_y : Photon.MonoBehaviour
+    public class TPSControll_y : MonoBehaviour
 
     {
         public float speed = 1;

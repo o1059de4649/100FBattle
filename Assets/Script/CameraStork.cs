@@ -4,7 +4,7 @@ using UnityEngine;
 namespace UnityStandardAssets.CrossPlatformInput
 {
 
-    public class CameraStork : Photon.MonoBehaviour
+    public class CameraStork : MonoBehaviour
     {
         public GameObject p_player;
 

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 namespace UnityStandardAssets.CrossPlatformInput
 {
-    public class TPSCameraControll : Photon.MonoBehaviour
+    public class TPSCameraControll : MonoBehaviour
 
     {
        

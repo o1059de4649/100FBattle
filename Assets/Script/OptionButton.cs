@@ -10,7 +10,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         public GameObject[] content;
         GameObject Duo_Panel;
-        InRoomChat inRoomChat;
+       
         bool isSetUp = false;
         public GameObject[] on_to_off;
         // Use this for initialization

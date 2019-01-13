@@ -1,6 +1,6 @@
 ﻿<Properties StartupConfiguration="{3E78C741-62A7-DB31-C2C9-7D30606E98C1}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/ChangeChapterNumber.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/LightBallText.cs">
     <Files>
       <File FileName="Assets/Script/ChestItemDrop.cs" Line="59" Column="14" />
       <File FileName="Assets/Script/KukuriPower.cs" Line="96" Column="14" />
@@ -13,8 +13,16 @@
       <File FileName="Assets/Script/MonsterSpawn.cs" Line="533" Column="14" />
       <File FileName="Assets/Script/WizardAi.cs" Line="45" Column="1" />
       <File FileName="Assets/Script/SaveData.cs" Line="113" Column="95" />
-      <File FileName="Assets/Script/UnityChanControlScriptWithRgidBody.cs" Line="176" Column="13" />
+      <File FileName="Assets/Script/UnityChanControlScriptWithRgidBody.cs" Line="152" Column="13" />
       <File FileName="Assets/Script/ChangeChapterNumber.cs" Line="17" Column="2" />
+      <File FileName="Assets/Script/TextRandom.cs" Line="22" Column="3" />
+      <File FileName="Assets/Script/OptionButton.cs" Line="15" Column="39" />
+      <File FileName="Assets/Script/CameraStork.cs" Line="8" Column="6" />
+      <File FileName="Assets/Script/TPSCameraControll.cs" Line="8" Column="5" />
+      <File FileName="Assets/Script/TPSControll_y.cs" Line="8" Column="5" />
+      <File FileName="Assets/Script/CameraControll.cs" Line="34" Column="13" />
+      <File FileName="Assets/Script/EventControll.cs" Line="14" Column="57" />
+      <File FileName="Assets/Script/LightBallText.cs" Line="30" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
