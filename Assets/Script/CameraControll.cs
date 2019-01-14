@@ -19,17 +19,17 @@ public class CameraControll : MonoBehaviour
     void Update()
     {
            
-           
+            this.transform.localPosition = new Vector3(0.5f, 0, -2f);
 
 
         
 
 
 
-
+            /*
             camera_player = GameObject.FindWithTag("Player").transform.Find("CameraStork").gameObject;
             playerPos = camera_player.transform.position;
-            this.transform.position = new Vector3(playerPos.x + 0.5f, playerPos.y, playerPos.z -2f);
+*/
             this.transform.parent = camera_player.transform;
 
             if (maincamera == null)
