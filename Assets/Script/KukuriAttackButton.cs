@@ -18,6 +18,9 @@ namespace UnityStandardAssets.CrossPlatformInput
         // Use this for initialization
         void Start()
         {
+            if(this.transform.GetComponentInParent<UnityChanControlScriptWithRgidBody>().isBattleMode){
+                player = GameObject.Find("PhotonController").GetComponent<PhotonController>().myplayer;
+            }
             anim = player.GetComponent<Animator>();
         }
 

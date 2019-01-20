@@ -11,6 +11,8 @@ TagManager:
   - Team
   - Death
   - SavePoint
+  - Plane
+  - Tree
   layers:
   - Default
   - TransparentFX

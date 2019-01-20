@@ -18,9 +18,26 @@ namespace UnityStandardAssets.CrossPlatformInput
             StartCoroutine(LoadScene());
         }
 
+        public void LoadNextBattleScene()
+        {
+            LoadingUi.SetActive(true);
+            StartCoroutine(LoadBattleScene());
+        }
+
         IEnumerator LoadScene()
         {
             async = SceneManager.LoadSceneAsync("Main");
+
+            while (!async.isDone)
+            {
+                Slider.value = async.progress;
+                yield return null;
+            }
+        }
+
+        IEnumerator LoadBattleScene()
+        {
+            async = SceneManager.LoadSceneAsync("BattleField");
 
             while (!async.isDone)
             {

@@ -37,7 +37,9 @@ namespace UnityStandardAssets.CrossPlatformInput
         void FixedUpdate()
         {
           
-
+            if(!player){
+                player = GameObject.Find("PhotonController").GetComponent<PhotonController>().player;
+            }
           
             if (!m_Dragging)
             {

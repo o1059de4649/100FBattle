@@ -1,27 +1,17 @@
 ﻿<Properties StartupConfiguration="{3E78C741-62A7-DB31-C2C9-7D30606E98C1}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/DownloadObbExample.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/GetItemObject.cs">
     <Files>
-      <File FileName="Assets/Script/ChestItemDrop.cs" Line="59" Column="14" />
-      <File FileName="Assets/Script/KukuriPower.cs" Line="96" Column="14" />
-      <File FileName="Assets/Script/SwordCanvasRotate.cs" Line="9" Column="6" />
-      <File FileName="Assets/Script/SwordItem.cs" Line="53" Column="46" />
-      <File FileName="Assets/Script/ShirldItem.cs" Line="54" Column="87" />
-      <File FileName="Assets/Script/ShirdCanvasRotate.cs" Line="27" Column="118" />
-      <File FileName="Assets/Script/SkeletonSword.cs" Line="48" Column="201" />
-      <File FileName="Assets/Script/DropdownCallback.cs" Line="43" Column="1" />
-      <File FileName="Assets/Script/MonsterSpawn.cs" Line="533" Column="14" />
-      <File FileName="Assets/Script/WizardAi.cs" Line="45" Column="1" />
-      <File FileName="Assets/Script/SaveData.cs" Line="113" Column="95" />
-      <File FileName="Assets/Script/UnityChanControlScriptWithRgidBody.cs" Line="152" Column="1" />
-      <File FileName="Assets/Script/ChangeChapterNumber.cs" Line="17" Column="2" />
-      <File FileName="Assets/Script/TextRandom.cs" Line="22" Column="3" />
-      <File FileName="Assets/Script/OptionButton.cs" Line="15" Column="39" />
-      <File FileName="Assets/Script/CameraStork.cs" Line="8" Column="6" />
-      <File FileName="Assets/Script/TPSCameraControll.cs" Line="8" Column="1" />
-      <File FileName="Assets/Script/TPSControll_y.cs" Line="8" Column="1" />
-      <File FileName="Assets/Script/CameraControll.cs" Line="34" Column="1" />
-      <File FileName="Assets/DownloadObbExample.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/PhotonController.cs" Line="28" Column="1" />
+      <File FileName="Assets/Script/ControlBattleField.cs" Line="16" Column="3" />
+      <File FileName="Assets/Script/SpawnPlane.cs" Line="51" Column="28" />
+      <File FileName="Assets/Script/LoadingScene.cs" Line="39" Column="10" />
+      <File FileName="Assets/Script/KukuriAttackButton.cs" Line="22" Column="104" />
+      <File FileName="Assets/Script/UnityChanControlScriptWithRgidBody.cs" Line="368" Column="54" />
+      <File FileName="Assets/Script/CameraRotate.cs" Line="88" Column="1" />
+      <File FileName="Assets/Script/KukuriPower.cs" Line="109" Column="80" />
+      <File FileName="Assets/Script/ObjectStatus.cs" Line="50" Column="5" />
+      <File FileName="Assets/Script/GetItemObject.cs" Line="21" Column="80" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

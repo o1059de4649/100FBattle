@@ -16,7 +16,7 @@ namespace UnityStandardAssets.CrossPlatformInput
     [RequireComponent(typeof(CapsuleCollider))]
     [RequireComponent(typeof(Rigidbody))]
 
-    public class UnityChanControlScriptWithRgidBody : MonoBehaviour
+    public class UnityChanControlScriptWithRgidBody : Photon.MonoBehaviour
     {
         public GameObject drop_item;
         GameObject drop_item_obj;
@@ -141,12 +141,40 @@ namespace UnityStandardAssets.CrossPlatformInput
         public int _swordType,_shirldType,shirldRare;
         public float _shirdPower;
         public GameObject[] shirldObject;
+        //BattleMode
+        public bool isBattleMode = false,isStoryMode = false;
+        public int wooditem = 0;
+
+        PhotonView photonView;
         void Start()
         {
-            audioSource = GetComponent<AudioSource>();
+            photonView = GetComponent<PhotonView>();
             duo_Panel = GameObject.Find("DualTouchControls");
-            duo_Panel.GetComponent<Canvas>().enabled = true;
-            SetUp();
+            if (photonView.isMine && isBattleMode)
+            {
+                duo_Panel.GetComponent<Canvas>().enabled = true;
+                GetComponentInChildren<Camera>().enabled = true;
+                GetComponentInChildren<Canvas>().enabled = true;
+                GetComponent<TPSCameraControll>().enabled = true;
+                GetComponentInChildren<TPSControll_y>().enabled = true;
+                GetComponentInChildren<AudioListener>().enabled = true;
+
+                GetComponent<PhotonVoiceSpeaker>().enabled = true;
+                GetComponent<PhotonVoiceRecorder>().enabled = true;
+                // photonView.RPC("SetUp", PhotonTargets.All);
+                SetUp();
+                this.gameObject.name = "MyPlayer";
+            }
+
+            if(isStoryMode){
+                duo_Panel.GetComponent<Canvas>().enabled = true;
+                SetUp();
+            }
+
+            audioSource = GetComponent<AudioSource>();
+           
+
+           
 
           
 
@@ -170,6 +198,7 @@ namespace UnityStandardAssets.CrossPlatformInput
            
 
         }
+
 
         public void SetUp(){
             
@@ -211,13 +240,22 @@ namespace UnityStandardAssets.CrossPlatformInput
             shirldRare = PlayerPrefs.GetInt("ShirldRare", 0);
 
 
+         
+            Invoke("EquipSetUp", 2.0f);
+
+
+        }
+
+        public void EquipSetUp(){
             for (int t = 0; t < boxCollider.Length; t++)
             {//剣を全て非表示
                 boxCollider[t].gameObject.SetActive(false);
             }
 
-            for (int i = 0;i < boxCollider.Length ;i++){
-                if(_swordType == i){
+            for (int i = 0; i < boxCollider.Length; i++)
+            {
+                if (_swordType == i)
+                {
                     boxCollider[i].gameObject.SetActive(true);//Typeのソード有効
                     boxCollider[i].gameObject.GetComponent<KukuriPower>()._swordPower = PlayerPrefs.GetFloat("Sword", 0);
                     boxCollider[i].gameObject.GetComponent<KukuriPower>().SetUpColor();
@@ -225,10 +263,11 @@ namespace UnityStandardAssets.CrossPlatformInput
                 }
             }
 
-            if(_swordType == 0){
+            if (_swordType == 0)
+            {
                 boxCollider[0].gameObject.GetComponent<KukuriPower>()._swordPower = 12;
             }
-        
+
 
             for (int p = 0; p < shirldObject.Length; p++)
             {//盾を全て非表示
@@ -241,7 +280,8 @@ namespace UnityStandardAssets.CrossPlatformInput
                 {
                     shirldObject[s].gameObject.SetActive(true);//Typeの盾有効
 
-                    if(_shirldType >= 1){//Type0の時の初期化エラー回避
+                    if (_shirldType >= 1)
+                    {//Type0の時の初期化エラー回避
                         ShirldSetUp(shirldObject[s]);
                     }
 
@@ -249,15 +289,13 @@ namespace UnityStandardAssets.CrossPlatformInput
             }
 
             //シールドがない
-            if(_shirldType == 0){
+            if (_shirldType == 0)
+            {
                 for (int p = 0; p < shirldObject.Length; p++)
                 {//盾を全て非表示
                     shirldObject[p].gameObject.SetActive(false);
                 }
             }
-
-
-
         }
 
         public void Save(){
@@ -291,9 +329,59 @@ namespace UnityStandardAssets.CrossPlatformInput
 
             PlayerPrefs.Save();
         }
+
+        void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+        {
+
+            if (stream.isWriting)
+            {
+
+                // 自クライアント所有のオブジェクトの状態変更を送信
+                string myName = this.gameObject.name;
+
+                stream.SendNext(myName);
+                stream.SendNext(player_Level);
+                stream.SendNext(life);
+                stream.SendNext(maxLife);
+                stream.SendNext(_attackPower);
+                stream.SendNext(_shirdPower);
+
+                stream.SendNext(_swordType);
+                stream.SendNext(_shirldType);
+                stream.SendNext(shirldRare);
+
+                stream.SendNext(wooditem);
+            }
+            else
+            {
+                string otherName = (string)stream.ReceiveNext();
+                player_Level = (int)stream.ReceiveNext();
+                life = (float)stream.ReceiveNext();
+                maxLife = (float)stream.ReceiveNext();
+                _attackPower = (float)stream.ReceiveNext();
+                _shirdPower = (float)stream.ReceiveNext();
+
+                _swordType = (int)stream.ReceiveNext();
+                _shirldType = (int)stream.ReceiveNext();
+                shirldRare = (int)stream.ReceiveNext();
+
+                wooditem = (int)stream.ReceiveNext();
+                // 他クライアント所有のオブジェクトの状態変更を受信
+
+
+               
+            }
+        }
+
         // 以下、メイン処理.リジッドボディと絡めるので、FixedUpdate内で処理を行う.
         void FixedUpdate()
         {
+            if(!photonView.isMine && isBattleMode){
+
+
+                return;
+            }
+
 
             playerDataText.text = ("最大HP" + maxLife.ToString() + "\n" 
                                    + "肉体物理攻撃力" + _SwordPower.ToString() + "\n" 

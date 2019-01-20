@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/MyRoom.unity
     guid: c193306bc1eac49cb9dc0cda2f60efed
+  - enabled: 1
+    path: Assets/BattleField.unity
+    guid: c5c7078722cb049a3863f03a3c70b351
   m_configObjects: {}

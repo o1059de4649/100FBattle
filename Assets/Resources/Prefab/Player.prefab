@@ -14988,7 +14988,6 @@ MonoBehaviour:
   backwardSpeed: 2
   rotateSpeed: 2
   jumpPower: 0
-  u_photonView: {fileID: 0}
   v: 0
   h: 0
   r: 0

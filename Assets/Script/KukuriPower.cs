@@ -54,6 +54,11 @@ namespace UnityStandardAssets.CrossPlatformInput
                 }
 
             }
+
+            if(col.gameObject.tag == "Tree"){
+                col.gameObject.GetComponent<ObjectStatus>()._objLife--;
+                col.gameObject.GetComponent<ObjectStatus>().SpawnItem();
+            }
         }
 
         void OffEffect()
@@ -99,6 +104,19 @@ namespace UnityStandardAssets.CrossPlatformInput
                 _kukuri_effect.GetComponent<ParticleSystem>().startColor = new Color(1.0f, 0.0f, 1.0f, 1.0f);
                 particle.GetComponent<ParticleSystem>().startColor = new Color(1.0f, 0.0f, 1.0f, 1.0f);
             } 
+        }
+
+        void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+        {
+
+            if (stream.isWriting)
+            {
+                stream.SendNext(_rare);
+            }
+            else
+            {
+                _rare = (int)stream.ReceiveNext();
+            }
         }
     }
 }
