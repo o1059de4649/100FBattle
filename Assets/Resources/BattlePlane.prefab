@@ -24,7 +24,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1064896996569114
 GameObject:
@@ -39,7 +39,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1095974752220912
 GameObject:
@@ -52,17 +52,17 @@ GameObject:
   - component: {fileID: 33548417659499398}
   - component: {fileID: 23604983983172418}
   - component: {fileID: 64661659334931030}
-  - component: {fileID: 114098648166242934}
-  - component: {fileID: 65038007491124856}
   - component: {fileID: 114041832170090014}
   - component: {fileID: 114892976514596008}
+  - component: {fileID: 114098648166242934}
+  - component: {fileID: 65038007491124856}
   - component: {fileID: 54140551920112672}
   m_Layer: 0
   m_Name: BattlePlane
   m_TagString: Plane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1101692380899152
 GameObject:
@@ -77,7 +77,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1208761668350424
 GameObject:
@@ -92,7 +92,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1445508494736718
 GameObject:
@@ -107,7 +107,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1776612027610978
 GameObject:
@@ -122,7 +122,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1809793238676768
 GameObject:
@@ -137,7 +137,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1817810311676754
 GameObject:
@@ -152,7 +152,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4003181068303308
 Transform:
@@ -412,11 +412,17 @@ MonoBehaviour:
   - {fileID: 1208761668350424}
   - {fileID: 1064896996569114}
   - {fileID: 1776612027610978}
+  spawneObject:
+  - {fileID: 1784073166129056, guid: 0ca1bbdc1c9f242908f3dca5c4b9b938, type: 2}
+  - {fileID: 1262028709639750, guid: 801a5b4ad932e43a980601b1151d3575, type: 2}
   player: {fileID: 0}
+  photon_spawnedObject: []
   isSpawned: 0
   isNewPlane: 1
   _tIme: 0
-  photonView: {fileID: 114041832170090014}
+  isSpawned_Object: 0
+  isPhoton_spawned_Object: 1
+  col_Plane: {fileID: 0}
 --- !u!114 &114892976514596008
 MonoBehaviour:
   m_ObjectHideFlags: 1

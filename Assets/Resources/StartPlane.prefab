@@ -24,7 +24,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1354306199019074
 GameObject:
@@ -39,7 +39,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1410104836969078
 GameObject:
@@ -54,7 +54,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1427168621416920
 GameObject:
@@ -64,19 +64,20 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4325026253333444}
+  - component: {fileID: 114497597285664508}
+  - component: {fileID: 114541301551287992}
+  - component: {fileID: 114558586244571228}
   - component: {fileID: 33834648700096780}
   - component: {fileID: 23174961840841596}
   - component: {fileID: 64836511676104480}
-  - component: {fileID: 114558586244571228}
-  - component: {fileID: 114497597285664508}
-  - component: {fileID: 114541301551287992}
   - component: {fileID: 65196454344062784}
+  - component: {fileID: 54673903577625358}
   m_Layer: 0
   m_Name: StartPlane
   m_TagString: Plane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1610039033217910
 GameObject:
@@ -91,7 +92,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1680540280088970
 GameObject:
@@ -106,7 +107,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1817098305838568
 GameObject:
@@ -121,7 +122,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1857973664672928
 GameObject:
@@ -136,7 +137,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1908170953493400
 GameObject:
@@ -151,7 +152,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4020030024657060
 Transform:
@@ -293,7 +294,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 4167230534a52bb4d9073a435cafff7a, type: 2}
+  - {fileID: 2100000, guid: fe4d090733e034207ad6bed8ea1376d7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -320,6 +321,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1427168621416920}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &54673903577625358
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1427168621416920}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!64 &64836511676104480
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -330,7 +346,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
@@ -345,7 +361,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 9.5, y: 1, z: 9.5}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &114497597285664508
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -366,6 +382,7 @@ MonoBehaviour:
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
   ObservedComponents:
+  - {fileID: 114558586244571228}
   - {fileID: 114541301551287992}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
@@ -472,7 +489,14 @@ MonoBehaviour:
   - {fileID: 1410104836969078}
   - {fileID: 1610039033217910}
   - {fileID: 1857973664672928}
+  spawneObject:
+  - {fileID: 1784073166129056, guid: 0ca1bbdc1c9f242908f3dca5c4b9b938, type: 2}
+  - {fileID: 1262028709639750, guid: 801a5b4ad932e43a980601b1151d3575, type: 2}
   player: {fileID: 0}
+  photon_spawnedObject: []
   isSpawned: 0
   isNewPlane: 1
   _tIme: 0
+  isSpawned_Object: 0
+  isPhoton_spawned_Object: 1
+  col_Plane: {fileID: 0}

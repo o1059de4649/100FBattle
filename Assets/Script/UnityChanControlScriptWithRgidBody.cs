@@ -143,7 +143,8 @@ namespace UnityStandardAssets.CrossPlatformInput
         public GameObject[] shirldObject;
         //BattleMode
         public bool isBattleMode = false,isStoryMode = false;
-        public int wooditem = 0;
+        public int wooditem = 0,stoneitem = 0;
+
 
         PhotonView photonView;
         void Start()
@@ -152,6 +153,7 @@ namespace UnityStandardAssets.CrossPlatformInput
             duo_Panel = GameObject.Find("DualTouchControls");
             if (photonView.isMine && isBattleMode)
             {
+               
                 duo_Panel.GetComponent<Canvas>().enabled = true;
                 GetComponentInChildren<Camera>().enabled = true;
                 GetComponentInChildren<Canvas>().enabled = true;
@@ -351,6 +353,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 stream.SendNext(shirldRare);
 
                 stream.SendNext(wooditem);
+                stream.SendNext(stoneitem);
             }
             else
             {
@@ -366,6 +369,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 shirldRare = (int)stream.ReceiveNext();
 
                 wooditem = (int)stream.ReceiveNext();
+                stoneitem = (int)stream.ReceiveNext();
                 // 他クライアント所有のオブジェクトの状態変更を受信
 
 

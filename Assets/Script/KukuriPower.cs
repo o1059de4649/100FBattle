@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace UnityStandardAssets.CrossPlatformInput
 {
-    public class KukuriPower : MonoBehaviour
+    public class KukuriPower : Photon.MonoBehaviour
     {
         BoxCollider boxCollider;
         public float _swordPower;
@@ -14,6 +14,8 @@ namespace UnityStandardAssets.CrossPlatformInput
         string ghost = "Ghost";
 
         int _rare;
+
+        GameObject myPlayer_battleMode;
         // Use this for initialization
         void Start()
         {
@@ -21,7 +23,7 @@ namespace UnityStandardAssets.CrossPlatformInput
             boxCollider = GetComponent<BoxCollider>();
             _rare = PlayerPrefs.GetInt("SwordRare", 0);
             player = GameObject.Find("Player");
-
+            myPlayer_battleMode = this.transform.gameObject.GetComponentInParent<UnityChanControlScriptWithRgidBody>().transform.gameObject;
             if(this.gameObject.name != "left_kukuri"){
                 SetUpColor();
             }
@@ -55,9 +57,9 @@ namespace UnityStandardAssets.CrossPlatformInput
 
             }
 
-            if(col.gameObject.tag == "Tree"){
-                col.gameObject.GetComponent<ObjectStatus>()._objLife--;
-                col.gameObject.GetComponent<ObjectStatus>().SpawnItem();
+            if(col.gameObject.tag == "Tree" && myPlayer_battleMode.name == "MyPlayer"){
+                col.gameObject.GetComponent<PhotonView>().RPC("Damage",PhotonTargets.All);
+               
             }
         }
 

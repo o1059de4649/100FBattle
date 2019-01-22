@@ -15,7 +15,7 @@ MonoBehaviour:
   VoiceAppID: 24d14de8-26f1-4cde-8ea1-86fec8373592
   ChatAppID: 
   HostType: 1
-  PreferredRegion: 0
+  PreferredRegion: 3
   EnabledRegions: -1
   Protocol: 0
   ServerAddress: 
@@ -39,4 +39,9 @@ MonoBehaviour:
   - IsSpawned
   - OnDestroy
   - SetUp
+  - SpawnObject
+  - SpawnPlanes
+  - SetUpPlane
+  - SpawnItemWithPhoton
+  - Damage
   DisableAutoOpenWizard: 1

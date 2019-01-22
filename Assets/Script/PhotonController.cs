@@ -10,6 +10,13 @@ public class PhotonController : MonoBehaviour {
         PhotonNetwork.ConnectUsingSettings("0.1");
     }
 
+    private void Update()
+    {
+        if(PhotonNetwork.offlineMode){
+            PhotonNetwork.JoinRandomRoom();
+        }
+    }
+
     void OnJoinedLobby(){
         PhotonNetwork.JoinRandomRoom();
     }
@@ -21,7 +28,7 @@ public class PhotonController : MonoBehaviour {
     void OnJoinedRoom(){
         myplayer = PhotonNetwork.Instantiate(
             player.name,
-            new Vector3(0f, 2f, 0f),
+            new Vector3(0f, 3f, 0f),
             Quaternion.identity, 
             0
          );

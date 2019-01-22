@@ -1,17 +1,19 @@
 ﻿<Properties StartupConfiguration="{3E78C741-62A7-DB31-C2C9-7D30606E98C1}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/GetItemObject.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/ObjectStatus.cs">
     <Files>
-      <File FileName="Assets/Script/PhotonController.cs" Line="28" Column="1" />
+      <File FileName="Assets/Script/PhotonController.cs" Line="29" Column="13" />
       <File FileName="Assets/Script/ControlBattleField.cs" Line="16" Column="3" />
-      <File FileName="Assets/Script/SpawnPlane.cs" Line="51" Column="28" />
       <File FileName="Assets/Script/LoadingScene.cs" Line="39" Column="10" />
       <File FileName="Assets/Script/KukuriAttackButton.cs" Line="22" Column="104" />
-      <File FileName="Assets/Script/UnityChanControlScriptWithRgidBody.cs" Line="368" Column="54" />
+      <File FileName="Assets/Script/UnityChanControlScriptWithRgidBody.cs" Line="156" Column="16" />
       <File FileName="Assets/Script/CameraRotate.cs" Line="88" Column="1" />
-      <File FileName="Assets/Script/KukuriPower.cs" Line="109" Column="80" />
-      <File FileName="Assets/Script/ObjectStatus.cs" Line="50" Column="5" />
-      <File FileName="Assets/Script/GetItemObject.cs" Line="21" Column="80" />
+      <File FileName="Assets/Script/SerializeGameObject.cs" Line="6" Column="1" />
+      <File FileName="Assets/Script/KukuriPower.cs" Line="59" Column="13" />
+      <File FileName="Assets/Script/SpawnPlane.cs" Line="76" Column="9" />
+      <File FileName="Assets/Script/ObjectStatus.cs" Line="89" Column="21" />
+      <File FileName="Assets/Script/GetItemObject.cs" Line="77" Column="15" />
+      <File FileName="Assets/Script/MovePlayerPlane.cs" Line="18" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

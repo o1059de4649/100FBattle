@@ -2,39 +2,76 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnPlane : MonoBehaviour {
+public class SpawnPlane :MonoBehaviour {
     public int _xPlane, _yPlane;
 
     public GameObject planeobj;
     public GameObject[] spawnerobj;
+    public GameObject[] spawneObject;
     public GameObject player;
+    public GameObject[] photon_spawnedObject;
     public bool isSpawned= false,isNewPlane = true;
 
-    public float _tIme;
-    public PhotonView photonView;
+    public float _tIme = 0;
+    PhotonView plane_photonView;
 
     SpawnPlane spawnPlane;
+
+    int random_some,random_kind;
+
+    public bool isSpawned_Object = false;
+    float _lifetime;
+
+    public GameObject col_Plane;
 	// Use this for initialization
 	void Start () {
-        photonView = this.gameObject.GetPhotonView();
-        this.gameObject.name = this.gameObject.name.Replace("(Clone)", "");
        
+
+        plane_photonView = this.gameObject.GetComponent<PhotonView>();
+        this.gameObject.name = this.gameObject.name.Replace("(Clone)", "");
+
+        if(this.gameObject.name == "OldPlane"){
+            return;
+        }
+        Invoke("afterStart", 0.2f);
+
 	}
-	
+
+    void afterStart(){
+        if (this.gameObject.name != "StartPlane")
+        {
+
+            // plane_photonView.RPC("SpawnObject", PhotonTargets.AllBuffered);
+            SpawnObject();
+        }
+    }
 	// Update is called once per frame
 	void Update () {
+
+        _lifetime += Time.deltaTime;
+        if(_lifetime >= 100){
+            isSpawned_Object = false;
+           
+            SpawnObject();
+           // plane_photonView.RPC("SpawnObject", PhotonTargets.AllBuffered);
+            _lifetime = 0;
+        }
+
         if(player == null){
             player = GameObject.Find("PhotonController").GetComponent<PhotonController>().myplayer;
         }
 
-        if(photonView == null){
-            photonView = this.gameObject.GetPhotonView();
-        }
+
 
         _tIme += Time.deltaTime;
 
         if(_tIme > 0.1f){
             isNewPlane = false;
+
+            if(this.gameObject.name =="StartPlane"){
+                return;
+            }
+            SetUpPlane();
         }
 
        
@@ -43,35 +80,64 @@ public class SpawnPlane : MonoBehaviour {
     //PlaneSpawn
     public void OnTriggerEnter(Collider col)
     {
+        if(!PhotonNetwork.isMasterClient){
+            return;
+        }
+
         if(col.gameObject.tag == "Player" && col.gameObject.name == "MyPlayer"){
+
+
+
             if (!isSpawned)
             {
-                if(isNewPlane){
-                    photonView.RPC("OnDestroy", PhotonTargets.All);
+                isSpawned = true;
+
+                //plane_photonView.RPC("SpawnPlanes", PhotonTargets.AllBuffered);
+                SpawnPlanes();
+
+                if(this.gameObject.name == "BattlePlane"){
+                    col_Plane = col.gameObject;
+
+               
+                    plane_photonView.RPC("OnDestroy", PhotonTargets.MasterClient);
                     return;
                 }
 
-                isSpawned = true;
-                SpawnPlanes();
+               
 
             }
         }
 
-        if(col.gameObject.tag == "Plane"&& isNewPlane){
-            photonView.RPC("OnDestroy", PhotonTargets.All);
+        if(col.gameObject.name == "BattlePlane"){
+            Debug.Log("Enter");
+            col_Plane = col.gameObject;
+
+
+            plane_photonView.RPC("OnDestroy", PhotonTargets.MasterClient);
         } 
+
+
        
     }
 
+   
+
+
+
+   
     public void SpawnPlanes()
     {
         for (int i = 0; i < spawnerobj.Length; i++)
         {
-            GameObject plane = PhotonNetwork.Instantiate(planeobj.name, spawnerobj[i].transform.position, Quaternion.identity, 0);
+          //  GameObject plane = Instantiate((GameObject)Resources.Load("BattlePlane"), spawnerobj[i].transform.position, Quaternion.identity);
+            GameObject plane = PhotonNetwork.Instantiate(Resources.Load("BattlePlane").name, spawnerobj[i].transform.position, Quaternion.identity,0) as GameObject;
+            //plane.GetComponent<PhotonView>().viewID = i + plane_photonView.viewID + 1;
 
             plane.GetComponent<SpawnPlane>().isSpawned = false;
             plane.GetComponent<SpawnPlane>().isNewPlane= true;
+
             plane.GetComponent<SpawnPlane>()._tIme = 0;
+            plane.name = "BattlePlane";
            // plane.GetComponent<SpawnPlane>().planeobj = this.gameObject;
         }
 
@@ -79,10 +145,43 @@ public class SpawnPlane : MonoBehaviour {
 
     }
 
-   
-    public void IsSpawned(){
-       
+
+    [PunRPC]
+    public void SetUpPlane()
+    {
+        this.gameObject.name = "OldPlane";
     }
+
+
+
+    public void SpawnObject()
+    {
+
+        if (!PhotonNetwork.isMasterClient)
+        {
+            return;
+        }
+
+        random_some = Random.Range(0, 3);
+        random_kind = Random.Range(0, spawneObject.Length);
+
+        for (int i = 0; i < random_some; i++)
+        {
+            if (isSpawned_Object)
+            {
+                return;
+            }
+
+            //photon_spawnedObject[i] = 
+            GameObject obj = PhotonNetwork.Instantiate(spawneObject[random_kind].name, this.transform.position + new Vector3(Random.Range(-10, 10), 0f, Random.Range(-10, 10)), Quaternion.EulerAngles(new Vector3(0, Random.Range(-90, 90),0)),0);
+
+            random_kind = Random.Range(0, spawneObject.Length);
+        }
+        isSpawned_Object = true;
+    }
+
+   
+  
 
 
     //PlaneDestroy
@@ -94,7 +193,16 @@ public class SpawnPlane : MonoBehaviour {
     [PunRPC]
     public void OnDestroy()
     {
-        Destroy(this.gameObject);
+        /* for (int i;i < photon_spawnedObject.Length;i++){
+             Destroy(photon_spawnedObject[i]);
+         }
+        */
+        if(!PhotonNetwork.isMasterClient){
+            return;
+        }
+       
+        Destroy(col_Plane.gameObject);
+
     }
 
     void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
@@ -102,11 +210,18 @@ public class SpawnPlane : MonoBehaviour {
 
         if (stream.isWriting)
         {
+            
+          
             stream.SendNext(isSpawned);
             stream.SendNext(_tIme);
+            stream.SendNext(isSpawned_Object);
+            stream.SendNext(_lifetime);
+         
         }else{
             isSpawned = (bool)stream.ReceiveNext();
             _tIme = (float)stream.ReceiveNext();
+            isSpawned_Object = (bool)stream.ReceiveNext();
+            _lifetime = (float)stream.ReceiveNext();
 
         }
     }

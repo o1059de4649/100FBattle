@@ -9446,7 +9446,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.5
-  far clip plane: 500
+  far clip plane: 100
   field of view: 50
   orthographic: 0
   orthographic size: 5
@@ -14430,6 +14430,8 @@ MonoBehaviour:
   - {fileID: 1555203608305940}
   isBattleMode: 1
   isStoryMode: 0
+  wooditem: 0
+  stoneitem: 0
 --- !u!114 &114509855646965412
 MonoBehaviour:
   m_ObjectHideFlags: 1
