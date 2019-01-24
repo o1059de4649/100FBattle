@@ -456,12 +456,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objLife: 5
+  _preLife: 0
   _maxObjLife: 5
   itemobj:
   - {fileID: 1819681354460380, guid: 4b587bd0332a84ebca3d928bab0f2ef0, type: 2}
+  - {fileID: 1819681354460380, guid: 4b587bd0332a84ebca3d928bab0f2ef0, type: 2}
+  - {fileID: 1819681354460380, guid: 4b587bd0332a84ebca3d928bab0f2ef0, type: 2}
+  - {fileID: 1299709392688894, guid: 74402e9ce89ae460c9b647ce88cdfa87, type: 2}
   canvasObj: {fileID: 1921346141817712}
   sliderObj: {fileID: 1001906431572194}
   spawnObj: {fileID: 1693930779442716}
+  myplayer_camera: {fileID: 0}
 --- !u!114 &114701073838436442
 MonoBehaviour:
   m_ObjectHideFlags: 1

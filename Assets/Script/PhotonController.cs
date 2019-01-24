@@ -37,4 +37,6 @@ public class PhotonController : MonoBehaviour {
        // myplayer.GetComponentInChildren<Camera>().enabled = true;
 
     }
+
+
 }

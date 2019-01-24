@@ -40,7 +40,7 @@ public class ObjectStatus : Photon.MonoBehaviour {
         random = Random.Range(0,itemobj.Length);
         if(_objLife <= 0){
             
-            obj_photonView.RPC("OnDestroy", PhotonTargets.All);
+            obj_photonView.RPC("OnDestroy", PhotonTargets.AllBufferedViaServer);
             
 
             //photonView.RPC("OnDestroy", PhotonTargets.All);
@@ -88,6 +88,7 @@ public class ObjectStatus : Photon.MonoBehaviour {
 
     public void SpawnItem()
     {
+      
         
             PhotonNetwork.Instantiate(itemobj[random].name, spawnObj.transform.position, Quaternion.identity, 0);
        

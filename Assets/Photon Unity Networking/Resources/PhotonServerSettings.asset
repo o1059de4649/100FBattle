@@ -44,4 +44,19 @@ MonoBehaviour:
   - SetUpPlane
   - SpawnItemWithPhoton
   - Damage
+  - AttackColliderOff
+  - AttackColliderOn
+  - EnemyDamage
+  - PlayerDamage
+  - CureWithCamp
+  - RemoveMeat
+  - FireOff
+  - FireOn
+  - RemoveWater
+  - CureWithNuts
+  - DamageObject
+  - CureWithWaterBottle
+  - StoneFireOff
+  - StoneFireOn
+  - RenoveWater
   DisableAutoOpenWizard: 1

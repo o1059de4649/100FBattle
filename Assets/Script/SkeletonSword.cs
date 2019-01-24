@@ -59,6 +59,17 @@ namespace UnityStandardAssets.CrossPlatformInput
                     col.gameObject.GetComponent<PlayerTeamAI>()._life -= _swordPower;
                     _attackDelay = 0;
                 }
+
+                //Battleモード
+                    if(col.gameObject.name == "MyPlayer"){
+                    col.gameObject.GetPhotonView().RPC("PlayerDamage",PhotonTargets.All,_swordPower - (col.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>()._shirdPower / 10));
+                    }
+
+                if (col.gameObject.tag == "PlayerObject")
+                {
+                    col.gameObject.GetPhotonView().RPC("DamageObject", PhotonTargets.All);
+                }
+                
             }
         }
     }

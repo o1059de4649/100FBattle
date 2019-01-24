@@ -143,10 +143,12 @@ namespace UnityStandardAssets.CrossPlatformInput
         public GameObject[] shirldObject;
         //BattleMode
         public bool isBattleMode = false,isStoryMode = false;
-        public int wooditem = 0,stoneitem = 0;
-
-
+        public int wooditem = 0, stoneitem = 0, meatitem = 0, blueMetalitem = 0, nutsItem = 0,glassItem = 0,bottleItem = 0,water_bottleItem = 0;
+        public float _meatPoint = 1000,max_meatPoint = 1000,_waterPoint = 1000,max_waterPoint = 1000;
+        float remove_time_meat = 0,remove_time_water = 0;
+        public GameObject spawnedPositionObject;
         PhotonView photonView;
+        public Slider meat_slider,water_slider;
         void Start()
         {
             photonView = GetComponent<PhotonView>();
@@ -345,6 +347,8 @@ namespace UnityStandardAssets.CrossPlatformInput
                 stream.SendNext(player_Level);
                 stream.SendNext(life);
                 stream.SendNext(maxLife);
+                stream.SendNext(_meatPoint);
+                stream.SendNext(_waterPoint);
                 stream.SendNext(_attackPower);
                 stream.SendNext(_shirdPower);
 
@@ -354,6 +358,13 @@ namespace UnityStandardAssets.CrossPlatformInput
 
                 stream.SendNext(wooditem);
                 stream.SendNext(stoneitem);
+                stream.SendNext(meatitem);
+                stream.SendNext(blueMetalitem);
+                stream.SendNext(nutsItem);
+                stream.SendNext(glassItem);
+                stream.SendNext(bottleItem);
+                stream.SendNext(water_bottleItem);
+
             }
             else
             {
@@ -361,6 +372,9 @@ namespace UnityStandardAssets.CrossPlatformInput
                 player_Level = (int)stream.ReceiveNext();
                 life = (float)stream.ReceiveNext();
                 maxLife = (float)stream.ReceiveNext();
+                _meatPoint = (float)stream.ReceiveNext();
+                _waterPoint = (float)stream.ReceiveNext();
+
                 _attackPower = (float)stream.ReceiveNext();
                 _shirdPower = (float)stream.ReceiveNext();
 
@@ -370,6 +384,12 @@ namespace UnityStandardAssets.CrossPlatformInput
 
                 wooditem = (int)stream.ReceiveNext();
                 stoneitem = (int)stream.ReceiveNext();
+                meatitem = (int)stream.ReceiveNext();
+                blueMetalitem = (int)stream.ReceiveNext();
+                nutsItem = (int)stream.ReceiveNext();
+                glassItem = (int)stream.ReceiveNext();
+                bottleItem = (int)stream.ReceiveNext();
+                water_bottleItem = (int)stream.ReceiveNext();
                 // 他クライアント所有のオブジェクトの状態変更を受信
 
 
@@ -380,6 +400,32 @@ namespace UnityStandardAssets.CrossPlatformInput
         // 以下、メイン処理.リジッドボディと絡めるので、FixedUpdate内で処理を行う.
         void FixedUpdate()
         {
+            if(isBattleMode && photonView.isMine){
+                
+                meat_slider.maxValue = max_meatPoint;
+                meat_slider.value = _meatPoint;
+                 remove_time_meat += Time.deltaTime;
+
+                water_slider.maxValue = max_waterPoint;
+                water_slider.value = _waterPoint;
+                remove_time_water += Time.deltaTime;
+
+               
+                if(remove_time_meat >= 10){
+                    photonView.RPC("RemoveMeat", PhotonTargets.AllBufferedViaServer);
+                    remove_time_meat = 0;
+                }
+
+                if (remove_time_water >= 10)
+                {
+                    photonView.RPC("RemoveWater", PhotonTargets.AllBufferedViaServer);
+                    remove_time_water = 0;
+                }
+
+                if(_meatPoint <= 0 || _waterPoint <= 0){
+                    life = 0;
+                }
+            }
             if(!photonView.isMine && isBattleMode){
 
 
@@ -427,11 +473,17 @@ namespace UnityStandardAssets.CrossPlatformInput
 
                 for (int i = 0; enemyObjects.Length > i; i++)
                 {
-                    if (enemyObjects[i] != null && enemyObjects[i].GetComponent<SkeletonStatus>()._life > 0)
+                    if (!isBattleMode)
                     {
-                        
-
+                        if (enemyObjects[i] != null && enemyObjects[i].GetComponent<SkeletonStatus>()._life > 0)
+                        {
                             enemyObject = enemyObjects[i];
+                        }
+                    }else{
+                        if (enemyObjects[i] != null && enemyObjects[i].GetComponent<SurvivalEnemyObject>()._life > 0)
+                        {
+                            enemyObject = enemyObjects[i];
+                        }
 
                     }
                 }
@@ -441,25 +493,6 @@ namespace UnityStandardAssets.CrossPlatformInput
                     isLockOn = false;
                     return;
                 }
-
-                /*
-                if(enemyObject.name == "FlyMachine"){
-                    isLockOn = false;
-                    return;
-                }
-*/
-
-
-
-
-
-
-
-                /*
-                Vector3 target = enemyObject.transform.position;
-                target.y = this.transform.position.y;
-                this.transform.LookAt(target);
-*/
 
                 Vector3 targetDir = enemyObject.transform.position - transform.position;
                 float step = 2 * Time.deltaTime;
@@ -526,7 +559,12 @@ namespace UnityStandardAssets.CrossPlatformInput
 
             if (life <= 0)
             {
-                SceneManager.LoadScene("Main");
+                if(isBattleMode){
+                    SceneManager.LoadScene("Title");
+                }else{
+                    SceneManager.LoadScene("Main");
+                }
+
             }
 
 
@@ -769,7 +807,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         }
 
 
-
+        //ロックオンボタンで動作する
         public void EnemyLockOn()
         {
            
@@ -779,11 +817,17 @@ namespace UnityStandardAssets.CrossPlatformInput
                 return;
             }else{
                 isLockOn = true;
-                enemyObjects = GameObject.FindGameObjectsWithTag("Enemy");
+
+                if(!isBattleMode){
+                    enemyObjects = GameObject.FindGameObjectsWithTag("Enemy");
+                }else{
+                    enemyObjects = GameObject.FindGameObjectsWithTag("BattleModeEnemy");
+                }
+               
             }
         }
        
-
+        //糸魔法を受けると処理
         public void OnWormString(){
             forwardSpeed *= 0.5f;
             backwardSpeed *= 0.5f;
@@ -800,6 +844,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         }
 
+        //防御魔法の処理
         public void OnCrystal(){
 
 
@@ -812,10 +857,12 @@ namespace UnityStandardAssets.CrossPlatformInput
            
         }
 
+        //ホームに帰還
         public void GoMyRoom(){
             SceneManager.LoadScene("MyRoom");
         }
 
+        //以下、効果音処理
         public void AttackAudio(){
 
             audioSource.PlayOneShot(audio_clip[0]);
@@ -840,8 +887,9 @@ namespace UnityStandardAssets.CrossPlatformInput
         public void AudioOff(){
             audioSource.Stop();
         }
+        //以上、効果音処理
 
-
+        //以下、攻撃判定処理
         public void AttackSwordOn(){
 
 
@@ -854,11 +902,14 @@ namespace UnityStandardAssets.CrossPlatformInput
             boxCollider[_swordType].enabled = false;
 
         }
+        //以上、攻撃判定処理
 
+        //デバック用データ削除
         public void DeleteSaveData(){
             PlayerPrefs.DeleteAll();
         }
 
+        //シールド装備処理
         public void ShirldSetUp(GameObject shirld){
 
             if (shirldRare == 1)
@@ -895,5 +946,155 @@ namespace UnityStandardAssets.CrossPlatformInput
            
         }
 
+
+        //オンライン専用
+        [PunRPC]
+        public void PlayerDamage(float enemy_damage){
+            life -= enemy_damage;
+        }
+
+        //アイテムドロップ関数一覧
+        public void SpawnCampFire(){
+            if(wooditem > 9 && stoneitem > 9){
+                wooditem -= 10;
+                stoneitem -= 10;
+                PhotonNetwork.Instantiate("LifeFire", spawnedPositionObject.transform.position, Quaternion.identity, 0);
+            }
+          
+        }
+
+        public void SpawnStoneCreateObject()
+        {
+            if (wooditem > 9 && stoneitem > 19 && blueMetalitem >9)
+            {
+                wooditem -= 10;
+                stoneitem -= 20;
+                blueMetalitem -= 10;
+                PhotonNetwork.Instantiate("StoneCreateObject", spawnedPositionObject.transform.position, Quaternion.identity, 0);
+            }
+
+        }
+
+        //以下、サバイバルモードのアイテム処理
+        public void SpawnWoodItem(){
+            if(wooditem > 0){
+                wooditem--;
+                PhotonNetwork.Instantiate("WoodItem", spawnedPositionObject.transform.position, Quaternion.identity, 0);
+            }
+        }
+
+        public void SpawnStoneItem()
+        {
+            if (stoneitem > 0)
+            {
+                stoneitem--;
+                PhotonNetwork.Instantiate("StoneItem", spawnedPositionObject.transform.position, Quaternion.identity, 0);
+            }
+        }
+
+        public void SpawnMeatItem()
+        {
+            if (meatitem > 0)
+            {
+                meatitem--;
+                PhotonNetwork.Instantiate("MeatItem", spawnedPositionObject.transform.position, Quaternion.identity, 0);
+            }
+        }
+
+        public void SpawnBlueMetalItem()
+        {
+            if (blueMetalitem > 0)
+            {
+                blueMetalitem--;
+                PhotonNetwork.Instantiate("BlueMetalItem", spawnedPositionObject.transform.position, Quaternion.identity, 0);
+            }
+        }
+
+        public void SpawnNutsItem()
+        {
+            if (nutsItem > 0)
+            {
+                nutsItem--;
+                PhotonNetwork.Instantiate("NutsItem", spawnedPositionObject.transform.position, Quaternion.identity, 0);
+            }
+        }
+
+        public void SpawnGlassItem()
+        {
+            if (glassItem > 0)
+            {
+                glassItem--;
+                PhotonNetwork.Instantiate("GlassItem", spawnedPositionObject.transform.position, Quaternion.identity, 0);
+            }
+        }
+
+        public void SpawnBottleItem()
+        {
+            if (bottleItem > 0)
+            {
+                bottleItem--;
+                PhotonNetwork.Instantiate("BottleItem", spawnedPositionObject.transform.position, Quaternion.identity, 0);
+            }
+        }
+
+        public void SpawnWaterBottleItem()
+        {
+            if (water_bottleItem > 0)
+            {
+                water_bottleItem--;
+                PhotonNetwork.Instantiate("WaterBottleItem", spawnedPositionObject.transform.position, Quaternion.identity, 0);
+            }
+        }
+
+        public void EatNuts(){
+            if(!photonView.isMine || nutsItem <= 0){
+                return;
+            }
+            photonView.RPC("CureWithNuts", PhotonTargets.AllBufferedViaServer);
+        }
+
+        public void EatWaterBottle()
+        {
+            if (!photonView.isMine || water_bottleItem <= 0)
+            {
+                return;
+            }
+            photonView.RPC("CureWithWaterBottle", PhotonTargets.AllBufferedViaServer);
+        }
+
+        [PunRPC]
+        public void CureWithCamp(){
+            life += 50;
+            _meatPoint += 100;
+            _waterPoint += 10;
+        }
+
+        [PunRPC]
+        public void CureWithNuts()
+        {
+            nutsItem--;
+            life += 10;
+            _meatPoint += 10;
+            _waterPoint += 25;
+        }
+
+        [PunRPC]
+        public void CureWithWaterBottle()
+        {
+            water_bottleItem--;
+            _waterPoint += 300;
+        }
+
+        [PunRPC]
+        public void RemoveMeat(){
+            _meatPoint -= 10;
+        }
+
+        [PunRPC]
+        public void RemoveWater(){
+            _waterPoint -= 10;
+        }
+
+        //以上、サバイバルモードのアイテム処理
     }
 }

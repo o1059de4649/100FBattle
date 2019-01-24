@@ -13,6 +13,9 @@ TagManager:
   - SavePoint
   - Plane
   - Tree
+  - BattleModeEnemy
+  - PlayerObject
+  - Water
   layers:
   - Default
   - TransparentFX

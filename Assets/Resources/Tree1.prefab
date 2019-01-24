@@ -296,9 +296,13 @@ MonoBehaviour:
   _maxObjLife: 5
   itemobj:
   - {fileID: 1600622881126998, guid: c9a6f16c0ca9045638c0bbd8402d3a34, type: 2}
+  - {fileID: 1600622881126998, guid: c9a6f16c0ca9045638c0bbd8402d3a34, type: 2}
+  - {fileID: 1600622881126998, guid: c9a6f16c0ca9045638c0bbd8402d3a34, type: 2}
+  - {fileID: 1346952713619018, guid: 2b78ac99debe1465aadd1716ef25c2fe, type: 2}
   canvasObj: {fileID: 1599649311282422}
   sliderObj: {fileID: 1906664473578462}
   spawnObj: {fileID: 1441424529872854}
+  myplayer_camera: {fileID: 0}
 --- !u!114 &114300931881109062
 MonoBehaviour:
   m_ObjectHideFlags: 1

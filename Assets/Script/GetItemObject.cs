@@ -18,20 +18,24 @@ namespace UnityStandardAssets.CrossPlatformInput
         public string[] item_name;
         public PhotonView target_photonView;
         public int view_ID_target;
+
+        float lifeTime;
         // Use this for initialization
         void Start()
         {
             this.gameObject.GetPhotonView().TransferOwnership(0);
             this.gameObject.name = this.gameObject.name.Replace("(Clone)", "");
-            Destroy(this.gameObject, 100.0f);
+           
             photonView = GetComponent<PhotonView>();
         }
 
         // Update is called once per frame
         void Update()
         {
-
-
+            lifeTime += Time.deltaTime;
+            if(lifeTime >= 50 && PhotonNetwork.isMasterClient){
+                photonView.RPC("OnDestroy", PhotonTargets.AllBufferedViaServer);
+            }
 
         }
 
@@ -85,15 +89,47 @@ namespace UnityStandardAssets.CrossPlatformInput
                     collision.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>().stoneitem++;
                 }
 
+                if (this.transform.gameObject.name == "MeatItem")
+                {
+                    collision.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>().meatitem++;
+                }
+
+                if (this.transform.gameObject.name == "BlueMetalItem")
+                {
+                    collision.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>().blueMetalitem++;
+                }
+
+                if (this.transform.gameObject.name == "NutsItem")
+                {
+                    collision.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>().nutsItem++;
+                }
+
+                if (this.transform.gameObject.name == "GlassItem")
+                {
+                    collision.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>().glassItem++;
+                }
+
+                if (this.transform.gameObject.name == "BottleItem")
+                {
+                    collision.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>().bottleItem++;
+                }
+
+                if (this.transform.gameObject.name == "WaterBottleItem")
+                {
+                    collision.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>().water_bottleItem++;
+                }
+
                 collision.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>().GetEssence();
 
 
-                photonView.RPC("OnDestroy",PhotonTargets.All);
+                photonView.RPC("OnDestroy",PhotonTargets.AllBufferedViaServer);
 
                
              
                 //photonView.RPC("OnDestroy", PhotonTargets.All);
             }
+
+
         }
 
         [PunRPC]

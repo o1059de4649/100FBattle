@@ -7,7 +7,10 @@ public class SpawnPlane :MonoBehaviour {
 
     public GameObject planeobj;
     public GameObject[] spawnerobj;
-    public GameObject[] spawneObject;
+    public GameObject[] spawn_Object;
+    public GameObject[] spawn_monster;
+    public GameObject[] spawnEnemy;
+
     public GameObject player;
     public GameObject[] photon_spawnedObject;
     public bool isSpawned= false,isNewPlane = true;
@@ -17,16 +20,16 @@ public class SpawnPlane :MonoBehaviour {
 
     SpawnPlane spawnPlane;
 
-    int random_some,random_kind;
+    int random_some,random_kind,random_some_monster,random_kind_monster;
 
     public bool isSpawned_Object = false;
     float _lifetime;
-
+    DayControl dayControl;
     public GameObject col_Plane;
 	// Use this for initialization
 	void Start () {
-       
 
+       
         plane_photonView = this.gameObject.GetComponent<PhotonView>();
         this.gameObject.name = this.gameObject.name.Replace("(Clone)", "");
 
@@ -63,6 +66,8 @@ public class SpawnPlane :MonoBehaviour {
 
 
 
+
+
         _tIme += Time.deltaTime;
 
         if(_tIme > 0.1f){
@@ -83,6 +88,8 @@ public class SpawnPlane :MonoBehaviour {
         if(!PhotonNetwork.isMasterClient){
             return;
         }
+
+     
 
         if(col.gameObject.tag == "Player" && col.gameObject.name == "MyPlayer"){
 
@@ -161,23 +168,44 @@ public class SpawnPlane :MonoBehaviour {
         {
             return;
         }
+        dayControl = player.GetComponent<DayControl>();
 
-        random_some = Random.Range(0, 3);
-        random_kind = Random.Range(0, spawneObject.Length);
+        //オブジェクトのランダム処理
+        random_some = Random.Range(1, 3);
+        random_kind = Random.Range(0, spawn_Object.Length);
 
+        //モンスターのランダム処理
+        random_some_monster = Random.Range(0, 2);
+        random_kind_monster = Random.Range(0, dayControl._Day_date);
+
+        //配列管理エラー回避
+        if(spawn_monster.Length < dayControl._Day_date ){
+            random_kind_monster = spawn_monster.Length - 1;
+        }
+
+        if (isSpawned_Object)
+        {
+            return;
+        }
+
+        //オブジェクト生成
         for (int i = 0; i < random_some; i++)
         {
-            if (isSpawned_Object)
-            {
-                return;
-            }
-
-            //photon_spawnedObject[i] = 
-            GameObject obj = PhotonNetwork.Instantiate(spawneObject[random_kind].name, this.transform.position + new Vector3(Random.Range(-10, 10), 0f, Random.Range(-10, 10)), Quaternion.EulerAngles(new Vector3(0, Random.Range(-90, 90),0)),0);
-
-            random_kind = Random.Range(0, spawneObject.Length);
+            PhotonNetwork.Instantiate(spawn_Object[random_kind].name, this.transform.position + new Vector3(Random.Range(-10, 10), 0f, Random.Range(-10, 10)), Quaternion.EulerAngles(new Vector3(0, Random.Range(-90, 90),0)),0);
+            random_kind = Random.Range(0, spawn_Object.Length);
         }
+
+        //モンスター生成
+        for (int p = 0; p < random_some_monster; p++)
+        {
+            Debug.Log(random_kind_monster);
+            PhotonNetwork.Instantiate(spawn_monster[random_kind_monster].name, this.transform.position + new Vector3(Random.Range(-10, 10), 0f, Random.Range(-10, 10)), Quaternion.EulerAngles(new Vector3(0, Random.Range(-90, 90), 0)), 0);
+           
+        }
+
         isSpawned_Object = true;
+
+
     }
 
    

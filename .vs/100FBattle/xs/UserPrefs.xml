@@ -1,19 +1,18 @@
 ﻿<Properties StartupConfiguration="{3E78C741-62A7-DB31-C2C9-7D30606E98C1}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/ObjectStatus.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/WaterObjectStatus.cs">
     <Files>
-      <File FileName="Assets/Script/PhotonController.cs" Line="29" Column="13" />
-      <File FileName="Assets/Script/ControlBattleField.cs" Line="16" Column="3" />
-      <File FileName="Assets/Script/LoadingScene.cs" Line="39" Column="10" />
-      <File FileName="Assets/Script/KukuriAttackButton.cs" Line="22" Column="104" />
-      <File FileName="Assets/Script/UnityChanControlScriptWithRgidBody.cs" Line="156" Column="16" />
-      <File FileName="Assets/Script/CameraRotate.cs" Line="88" Column="1" />
-      <File FileName="Assets/Script/SerializeGameObject.cs" Line="6" Column="1" />
-      <File FileName="Assets/Script/KukuriPower.cs" Line="59" Column="13" />
-      <File FileName="Assets/Script/SpawnPlane.cs" Line="76" Column="9" />
-      <File FileName="Assets/Script/ObjectStatus.cs" Line="89" Column="21" />
-      <File FileName="Assets/Script/GetItemObject.cs" Line="77" Column="15" />
-      <File FileName="Assets/Script/MovePlayerPlane.cs" Line="18" Column="6" />
+      <File FileName="Assets/Script/SurvivalEnemyObject.cs" Line="164" Column="1" />
+      <File FileName="Assets/Script/LifeCampFire.cs" Line="13" Column="46" />
+      <File FileName="Assets/Script/SkeletonSword.cs" Line="70" Column="91" />
+      <File FileName="Assets/Script/SpawnPlane.cs" Line="182" Column="58" />
+      <File FileName="Assets/Script/DayControl.cs" Line="27" Column="85" />
+      <File FileName="Assets/Script/ItemRotate.cs" Line="14" Column="40" />
+      <File FileName="Assets/Script/UnityChanControlScriptWithRgidBody.cs" Line="1080" Column="1" />
+      <File FileName="Assets/Script/GetItemObject.cs" Line="119" Column="112" />
+      <File FileName="Assets/Script/StoneCreateObject.cs" Line="63" Column="32" />
+      <File FileName="Assets/Script/ShowItemCount.cs" Line="58" Column="14" />
+      <File FileName="Assets/Script/WaterObjectStatus.cs" Line="6" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
