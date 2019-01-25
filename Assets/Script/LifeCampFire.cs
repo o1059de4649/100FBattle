@@ -16,7 +16,7 @@ public class LifeCampFire : MonoBehaviour {
     public Text item_text;
     // Use this for initialization
 
-    public int _objLife = 5;
+    public int _objLife = 15;
 	void Start () {
         photonView = this.gameObject.GetPhotonView();
         this.gameObject.name = this.gameObject.name.Replace("(Clone)", "");

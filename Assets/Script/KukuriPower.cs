@@ -65,9 +65,16 @@ namespace UnityStandardAssets.CrossPlatformInput
             if (col.gameObject.tag == "BattleModeEnemy" && myPlayer_battleMode.name == "MyPlayer")
             {
                 float damages = myPlayer_battleMode.GetComponent<UnityChanControlScriptWithRgidBody>()._SwordPower + _swordPower;
-                col.gameObject.GetComponent<PhotonView>().RPC("EnemyDamage", PhotonTargets.All,damages);
+                col.gameObject.GetComponent<PhotonView>().RPC("EnemyDamage", PhotonTargets.All, damages);
 
             }
+
+
+        }
+
+        public void OnCollisionEnter(Collision col)
+        {
+         
         }
 
         void OffEffect()

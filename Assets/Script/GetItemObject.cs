@@ -119,6 +119,11 @@ namespace UnityStandardAssets.CrossPlatformInput
                     collision.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>().water_bottleItem++;
                 }
 
+                if (this.transform.gameObject.name == "NutsBottleItem")
+                {
+                    collision.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>().nuts_bottleItem++;
+                }
+
                 collision.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>().GetEssence();
 
 

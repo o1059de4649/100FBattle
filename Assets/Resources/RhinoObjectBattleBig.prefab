@@ -202,6 +202,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4211093601487386}
+  - component: {fileID: 135873140411181970}
   m_Layer: 0
   m_Name: SpawnPos
   m_TagString: Untagged
@@ -717,7 +718,6 @@ GameObject:
   - component: {fileID: 95639317403707290}
   - component: {fileID: 136711804352396518}
   - component: {fileID: 54941994579863218}
-  - component: {fileID: 135466095355934210}
   - component: {fileID: 114462228158682330}
   - component: {fileID: 114244040498431972}
   - component: {fileID: 114090674815509492}
@@ -1809,17 +1809,17 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
---- !u!135 &135466095355934210
+--- !u!135 &135873140411181970
 SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1941735516067618}
+  m_GameObject: {fileID: 1240430569438096}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 20.1
+  m_Radius: 20
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136711804352396518
 CapsuleCollider:

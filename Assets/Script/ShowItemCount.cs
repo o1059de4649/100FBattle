@@ -56,6 +56,11 @@ namespace UnityStandardAssets.CrossPlatformInput
             {
                 _haveItem.text = GetComponentInParent<UnityChanControlScriptWithRgidBody>().water_bottleItem.ToString();
             }
+
+            if (this.gameObject.name == "ButtonSpawnNutsBottle")
+            {
+                _haveItem.text = GetComponentInParent<UnityChanControlScriptWithRgidBody>().nuts_bottleItem.ToString();
+            }
         }
     }
 }

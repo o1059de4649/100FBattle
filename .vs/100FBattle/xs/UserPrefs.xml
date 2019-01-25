@@ -1,18 +1,21 @@
 ﻿<Properties StartupConfiguration="{3E78C741-62A7-DB31-C2C9-7D30606E98C1}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/WaterObjectStatus.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/FenceStatus.cs">
     <Files>
-      <File FileName="Assets/Script/SurvivalEnemyObject.cs" Line="164" Column="1" />
-      <File FileName="Assets/Script/LifeCampFire.cs" Line="13" Column="46" />
+      <File FileName="Assets/Script/SurvivalEnemyObject.cs" Line="195" Column="1" />
+      <File FileName="Assets/Script/LifeCampFire.cs" Line="19" Column="30" />
       <File FileName="Assets/Script/SkeletonSword.cs" Line="70" Column="91" />
-      <File FileName="Assets/Script/SpawnPlane.cs" Line="182" Column="58" />
+      <File FileName="Assets/Script/SpawnPlane.cs" Line="190" Column="1" />
       <File FileName="Assets/Script/DayControl.cs" Line="27" Column="85" />
       <File FileName="Assets/Script/ItemRotate.cs" Line="14" Column="40" />
-      <File FileName="Assets/Script/UnityChanControlScriptWithRgidBody.cs" Line="1080" Column="1" />
-      <File FileName="Assets/Script/GetItemObject.cs" Line="119" Column="112" />
-      <File FileName="Assets/Script/StoneCreateObject.cs" Line="63" Column="32" />
-      <File FileName="Assets/Script/ShowItemCount.cs" Line="58" Column="14" />
-      <File FileName="Assets/Script/WaterObjectStatus.cs" Line="6" Column="1" />
+      <File FileName="Assets/Script/UnityChanControlScriptWithRgidBody.cs" Line="1095" Column="1" />
+      <File FileName="Assets/Script/GetItemObject.cs" Line="124" Column="111" />
+      <File FileName="Assets/Script/StoneCreateObject.cs" Line="152" Column="6" />
+      <File FileName="Assets/Script/ShowItemCount.cs" Line="62" Column="120" />
+      <File FileName="Assets/Script/WaterObjectStatus.cs" Line="31" Column="86" />
+      <File FileName="Assets/Script/KukuriPower.cs" Line="68" Column="106" />
+      <File FileName="Assets/Script/TableBattleModeObject.cs" Line="163" Column="6" />
+      <File FileName="Assets/Script/FenceStatus.cs" Line="9" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

@@ -106,6 +106,19 @@ namespace UnityStandardAssets.CrossPlatformInput
                // Death();
             }
 
+            if (_life <= 0)
+            {
+                v = 0;
+
+                if (_isDeath == false)
+                {
+                    if (PhotonNetwork.isMasterClient)
+                    {
+                        Death();
+                    }
+                }
+            }
+
             //RandomMove
             if(player == null){
                 random_move_time += Time.deltaTime;
@@ -143,18 +156,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 _life = _maxLife;
             }
 
-            if (_life <= 0)
-            {
-                v = 0;
 
-                if (_isDeath == false)
-                {
-                    if (PhotonNetwork.isMasterClient)
-                    {
-                        Death();
-                    }
-                }
-            }
 
 
             _delay_attack += Time.deltaTime;
@@ -374,6 +376,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         //索敵フラグ
         private void OnTriggerEnter(Collider collider)
         {
+            
             if(collider.gameObject.tag == "Player" && PhotonNetwork.isMasterClient){
                 player = collider.gameObject;
             }

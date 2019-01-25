@@ -143,7 +143,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         public GameObject[] shirldObject;
         //BattleMode
         public bool isBattleMode = false,isStoryMode = false;
-        public int wooditem = 0, stoneitem = 0, meatitem = 0, blueMetalitem = 0, nutsItem = 0,glassItem = 0,bottleItem = 0,water_bottleItem = 0;
+        public int wooditem = 0, stoneitem = 0, meatitem = 0, blueMetalitem = 0, nutsItem = 0,glassItem = 0,bottleItem = 0,water_bottleItem = 0,nuts_bottleItem = 0;
         public float _meatPoint = 1000,max_meatPoint = 1000,_waterPoint = 1000,max_waterPoint = 1000;
         float remove_time_meat = 0,remove_time_water = 0;
         public GameObject spawnedPositionObject;
@@ -364,6 +364,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 stream.SendNext(glassItem);
                 stream.SendNext(bottleItem);
                 stream.SendNext(water_bottleItem);
+                stream.SendNext(nuts_bottleItem);
 
             }
             else
@@ -390,6 +391,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 glassItem = (int)stream.ReceiveNext();
                 bottleItem = (int)stream.ReceiveNext();
                 water_bottleItem = (int)stream.ReceiveNext();
+                nuts_bottleItem = (int)stream.ReceiveNext();
                 // 他クライアント所有のオブジェクトの状態変更を受信
 
 
@@ -975,6 +977,28 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         }
 
+        public void SpawnTableObject()
+        {
+            if (wooditem > 19 && blueMetalitem > 9)
+            {
+                wooditem -= 20;
+                blueMetalitem -= 10;
+                PhotonNetwork.Instantiate("TableObject", spawnedPositionObject.transform.position, Quaternion.identity, 0);
+            }
+
+        }
+
+        public void SpawnFenceObject()
+        {
+            if (wooditem > 14)
+            {
+                wooditem -= 15;
+             
+                PhotonNetwork.Instantiate("FenceObject", spawnedPositionObject.transform.position, Quaternion.identity, 0);
+            }
+
+        }
+
         //以下、サバイバルモードのアイテム処理
         public void SpawnWoodItem(){
             if(wooditem > 0){
@@ -1046,6 +1070,15 @@ namespace UnityStandardAssets.CrossPlatformInput
             }
         }
 
+        public void SpawnNutsBottleItem()
+        {
+            if (nuts_bottleItem > 0)
+            {
+                nuts_bottleItem--;
+                PhotonNetwork.Instantiate("NutsBottleItem", spawnedPositionObject.transform.position, Quaternion.identity, 0);
+            }
+        }
+
         public void EatNuts(){
             if(!photonView.isMine || nutsItem <= 0){
                 return;
@@ -1062,10 +1095,19 @@ namespace UnityStandardAssets.CrossPlatformInput
             photonView.RPC("CureWithWaterBottle", PhotonTargets.AllBufferedViaServer);
         }
 
+        public void EatNutsBottle()
+        {
+            if (!photonView.isMine || nuts_bottleItem <= 0)
+            {
+                return;
+            }
+            photonView.RPC("CureWithNutsBottle", PhotonTargets.AllBufferedViaServer);
+        }
+
         [PunRPC]
         public void CureWithCamp(){
             life += 50;
-            _meatPoint += 100;
+            _meatPoint += 70;
             _waterPoint += 10;
         }
 
@@ -1075,7 +1117,7 @@ namespace UnityStandardAssets.CrossPlatformInput
             nutsItem--;
             life += 10;
             _meatPoint += 10;
-            _waterPoint += 25;
+            _waterPoint += 10;
         }
 
         [PunRPC]
@@ -1083,6 +1125,16 @@ namespace UnityStandardAssets.CrossPlatformInput
         {
             water_bottleItem--;
             _waterPoint += 300;
+            life += 25;
+        }
+
+        [PunRPC]
+        public void CureWithNutsBottle()
+        {
+            nuts_bottleItem--;
+            _waterPoint += 20;
+            _meatPoint += 50;
+            life += 250;
         }
 
         [PunRPC]

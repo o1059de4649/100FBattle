@@ -190,6 +190,7 @@ GameObject:
   - component: {fileID: 4334223952080440}
   - component: {fileID: 114560984177482252}
   - component: {fileID: 65541753232014668}
+  - component: {fileID: 135493930740835986}
   m_Layer: 0
   m_Name: SpawnPos
   m_TagString: Untagged
@@ -721,7 +722,6 @@ GameObject:
   - component: {fileID: 136475276021439742}
   - component: {fileID: 54244042028294042}
   - component: {fileID: 95539139918537398}
-  - component: {fileID: 135086129796315966}
   - component: {fileID: 114348839423913608}
   - component: {fileID: 114199560459801390}
   - component: {fileID: 114408888281216766}
@@ -2497,7 +2497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aee8733a5c5b2435fb29993f2905c762, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _swordPower: 30
+  _swordPower: 25
 --- !u!114 &114652482070839932
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2649,17 +2649,17 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!135 &135086129796315966
+--- !u!135 &135493930740835986
 SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1556844319628366}
+  m_GameObject: {fileID: 1145162748527664}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 8.75
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136475276021439742
 CapsuleCollider:

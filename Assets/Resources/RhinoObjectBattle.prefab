@@ -483,7 +483,6 @@ GameObject:
   - component: {fileID: 95537737543992732}
   - component: {fileID: 136645977943984442}
   - component: {fileID: 54912188321200322}
-  - component: {fileID: 135469826515236180}
   - component: {fileID: 114640349401585054}
   - component: {fileID: 114407115148034106}
   - component: {fileID: 114879578291286404}
@@ -689,6 +688,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4603747826428652}
+  - component: {fileID: 135184973721754618}
   m_Layer: 0
   m_Name: SpawnPos
   m_TagString: Untagged
@@ -1042,7 +1042,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1911286916190214}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 5.58}
+  m_LocalPosition: {x: 0, y: 0, z: -0.43}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4818746885039012}
@@ -1809,17 +1809,17 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!135 &135469826515236180
+--- !u!135 &135184973721754618
 SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1601387115150658}
+  m_GameObject: {fileID: 1911286916190214}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 25.4
+  m_Radius: 24
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136645977943984442
 CapsuleCollider:

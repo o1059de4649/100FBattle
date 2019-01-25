@@ -16,7 +16,7 @@ public class StoneCreateObject : MonoBehaviour {
     public Text item_text;
     // Use this for initialization
 
-    public int _objLife = 5;
+    public int _objLife = 15;
     void Start()
     {
         photonView = this.gameObject.GetPhotonView();
@@ -47,11 +47,11 @@ public class StoneCreateObject : MonoBehaviour {
         }
 
        
-        if(_glass > 2 && _wood > 2){
+        if(_glass > 2 && _wood > 2 && !isFire){
             _glass -= 3;
             _wood -= 3 ;
             _fire_time += 15;
-            photonView.RPC("FireOn", PhotonTargets.AllBufferedViaServer);
+            photonView.RPC("FireOn", PhotonTargets.All);
         }
 
         if(isFire){
@@ -59,7 +59,7 @@ public class StoneCreateObject : MonoBehaviour {
 
             if(_fire_time <= 0){
                 PhotonNetwork.Instantiate("BottleItem", this.transform.localPosition + new Vector3(0, 2, 2), Quaternion.identity, 0);
-                photonView.RPC("FireOff", PhotonTargets.AllBufferedViaServer);
+                photonView.RPC("FireOff", PhotonTargets.All);
                 isFire = false;
             }
         }
@@ -110,7 +110,7 @@ public class StoneCreateObject : MonoBehaviour {
         {
             stream.SendNext(_wood);
             stream.SendNext(_glass);
-
+            stream.SendNext(_fire_time);
             stream.SendNext(_objLife);
 
         }
@@ -118,7 +118,7 @@ public class StoneCreateObject : MonoBehaviour {
         {
             _wood = (int)stream.ReceiveNext();
             _glass = (int)stream.ReceiveNext();
-
+            _fire_time = (float)stream.ReceiveNext();
             _objLife = (int)stream.ReceiveNext();
         }
 

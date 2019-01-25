@@ -175,7 +175,7 @@ public class SpawnPlane :MonoBehaviour {
         random_kind = Random.Range(0, spawn_Object.Length);
 
         //モンスターのランダム処理
-        random_some_monster = Random.Range(0, 2);
+        random_some_monster = Random.Range(-1, 2);
         random_kind_monster = Random.Range(0, dayControl._Day_date);
 
         //配列管理エラー回避

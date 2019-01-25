@@ -418,14 +418,23 @@ MonoBehaviour:
   - {fileID: 1784073166129056, guid: 0ca1bbdc1c9f242908f3dca5c4b9b938, type: 2}
   - {fileID: 1784073166129056, guid: 0ca1bbdc1c9f242908f3dca5c4b9b938, type: 2}
   - {fileID: 1784073166129056, guid: 0ca1bbdc1c9f242908f3dca5c4b9b938, type: 2}
+  - {fileID: 1784073166129056, guid: 0ca1bbdc1c9f242908f3dca5c4b9b938, type: 2}
+  - {fileID: 1784073166129056, guid: 0ca1bbdc1c9f242908f3dca5c4b9b938, type: 2}
+  - {fileID: 1784073166129056, guid: 0ca1bbdc1c9f242908f3dca5c4b9b938, type: 2}
+  - {fileID: 1262028709639750, guid: 801a5b4ad932e43a980601b1151d3575, type: 2}
+  - {fileID: 1262028709639750, guid: 801a5b4ad932e43a980601b1151d3575, type: 2}
+  - {fileID: 1262028709639750, guid: 801a5b4ad932e43a980601b1151d3575, type: 2}
   - {fileID: 1262028709639750, guid: 801a5b4ad932e43a980601b1151d3575, type: 2}
   - {fileID: 1262028709639750, guid: 801a5b4ad932e43a980601b1151d3575, type: 2}
   - {fileID: 1262028709639750, guid: 801a5b4ad932e43a980601b1151d3575, type: 2}
   - {fileID: 1651214934567186, guid: ba610882001174ada8608a2234431105, type: 2}
   spawn_monster:
   - {fileID: 1601387115150658, guid: c8b66b8f7714944e59716af6ca2ab94f, type: 2}
+  - {fileID: 1601387115150658, guid: c8b66b8f7714944e59716af6ca2ab94f, type: 2}
   - {fileID: 1941735516067618, guid: 9d4b67c78e6da4d2cab4b7d2d63701b7, type: 2}
   - {fileID: 1556844319628366, guid: 91749317eb7e347cea5269150df6860b, type: 2}
+  - {fileID: 1188001600904626, guid: 275c80d7766cd4f34b35530ce540ef56, type: 2}
+  - {fileID: 1532377182318086, guid: 09f4eeecee02441d89bdba350e46be2e, type: 2}
   spawnEnemy: []
   player: {fileID: 0}
   photon_spawnedObject: []
