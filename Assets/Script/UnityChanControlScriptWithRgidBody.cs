@@ -143,12 +143,15 @@ namespace UnityStandardAssets.CrossPlatformInput
         public GameObject[] shirldObject;
         //BattleMode
         public bool isBattleMode = false,isStoryMode = false;
-        public int wooditem = 0, stoneitem = 0, meatitem = 0, blueMetalitem = 0, nutsItem = 0,glassItem = 0,bottleItem = 0,water_bottleItem = 0,nuts_bottleItem = 0;
+        public int wooditem = 0, stoneitem = 0, meatitem = 0, blueMetalitem = 0, nutsItem = 0,glassItem = 0,bottleItem = 0,water_bottleItem = 0,nuts_bottleItem = 0,meat_baked_item = 0;
         public float _meatPoint = 1000,max_meatPoint = 1000,_waterPoint = 1000,max_waterPoint = 1000;
         float remove_time_meat = 0,remove_time_water = 0;
         public GameObject spawnedPositionObject;
         PhotonView photonView;
         public Slider meat_slider,water_slider;
+        public string _myPlayer_name;
+
+        public Text myNamePlate;
         void Start()
         {
             photonView = GetComponent<PhotonView>();
@@ -168,11 +171,19 @@ namespace UnityStandardAssets.CrossPlatformInput
                 // photonView.RPC("SetUp", PhotonTargets.All);
                 SetUp();
                 this.gameObject.name = "MyPlayer";
+
+                GameObject.Find("Sun").GetComponent<DayControl>().enabled = true;
+
+                _myPlayer_name = PlayerPrefs.GetString("MyPlayerName", "Noname");
+               
+                myNamePlate.transform.parent.GetComponent<Canvas>().enabled = false;
+
             }
 
             if(isStoryMode){
                 duo_Panel.GetComponent<Canvas>().enabled = true;
                 SetUp();
+               
             }
 
             audioSource = GetComponent<AudioSource>();
@@ -246,7 +257,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
          
             Invoke("EquipSetUp", 2.0f);
-
+           
 
         }
 
@@ -365,7 +376,9 @@ namespace UnityStandardAssets.CrossPlatformInput
                 stream.SendNext(bottleItem);
                 stream.SendNext(water_bottleItem);
                 stream.SendNext(nuts_bottleItem);
-
+                stream.SendNext(meat_baked_item);
+                stream.SendNext(_myPlayer_name);
+               
             }
             else
             {
@@ -392,6 +405,8 @@ namespace UnityStandardAssets.CrossPlatformInput
                 bottleItem = (int)stream.ReceiveNext();
                 water_bottleItem = (int)stream.ReceiveNext();
                 nuts_bottleItem = (int)stream.ReceiveNext();
+                meat_baked_item = (int)stream.ReceiveNext();
+                _myPlayer_name = (string)stream.ReceiveNext();
                 // 他クライアント所有のオブジェクトの状態変更を受信
 
 
@@ -402,6 +417,11 @@ namespace UnityStandardAssets.CrossPlatformInput
         // 以下、メイン処理.リジッドボディと絡めるので、FixedUpdate内で処理を行う.
         void FixedUpdate()
         {
+            if(myNamePlate){
+                myNamePlate.text = _myPlayer_name;
+            }
+           
+
             if(isBattleMode && photonView.isMine){
                 
                 meat_slider.maxValue = max_meatPoint;
@@ -562,7 +582,24 @@ namespace UnityStandardAssets.CrossPlatformInput
             if (life <= 0)
             {
                 if(isBattleMode){
+                   
+
+                    int _play_Days = GameObject.Find("Sun").GetComponent<DayControl>()._Day_date;
+
+                    _money += _play_Days * 5000;
+                    PlayerPrefs.SetFloat("Money",_money);
+                     
+                    if(PlayerPrefs.HasKey("BestDay")){
+                        if(PlayerPrefs.GetInt("BestDay",0) > _play_Days){
+                            PlayerPrefs.SetInt("BestDay", _play_Days);
+                        }
+                    }else{
+                        PlayerPrefs.SetInt("BestDay", _play_Days);
+                    }
+
+
                     SceneManager.LoadScene("Title");
+
                 }else{
                     SceneManager.LoadScene("Main");
                 }
@@ -749,6 +786,9 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         }//Update
 
+        public void Suicide(){
+            life = 0;
+        }
     
      
         public void DeathSceneLoad(){
@@ -1079,6 +1119,15 @@ namespace UnityStandardAssets.CrossPlatformInput
             }
         }
 
+        public void SpawnMeatBakedItem()
+        {
+            if (meat_baked_item > 0)
+            {
+                meat_baked_item--;
+                PhotonNetwork.Instantiate("MeatBakedItem", spawnedPositionObject.transform.position, Quaternion.identity, 0);
+            }
+        }
+
         public void EatNuts(){
             if(!photonView.isMine || nutsItem <= 0){
                 return;
@@ -1104,8 +1153,20 @@ namespace UnityStandardAssets.CrossPlatformInput
             photonView.RPC("CureWithNutsBottle", PhotonTargets.AllBufferedViaServer);
         }
 
+        public void EatBakedMeal()
+        {
+            if (!photonView.isMine || meat_baked_item <= 0)
+            {
+                return;
+            }
+            photonView.RPC("CureWithBakedMeat", PhotonTargets.AllBufferedViaServer);
+        }
+
+
+
         [PunRPC]
-        public void CureWithCamp(){
+        public void CureWithBakedMeat(){
+            meat_baked_item--;
             life += 50;
             _meatPoint += 70;
             _waterPoint += 10;

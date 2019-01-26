@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class FenceStatus : MonoBehaviour {
     
-	int _objLife = 50;
+	int _objLife = 500;
     PhotonView photonView;
     public Text item_lifeText;
     GameObject player;

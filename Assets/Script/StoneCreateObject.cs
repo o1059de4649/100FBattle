@@ -16,7 +16,7 @@ public class StoneCreateObject : MonoBehaviour {
     public Text item_text;
     // Use this for initialization
 
-    public int _objLife = 15;
+    public int _objLife = 450;
     void Start()
     {
         photonView = this.gameObject.GetPhotonView();
@@ -30,7 +30,7 @@ public class StoneCreateObject : MonoBehaviour {
         //破壊処理
         if (_objLife <= 0 && PhotonNetwork.isMasterClient)
         {
-            photonView.RPC("OnDestroy", PhotonTargets.AllBufferedViaServer);
+            photonView.RPC("OnDestroy", PhotonTargets.All);
         }
 
         //テキスト更新

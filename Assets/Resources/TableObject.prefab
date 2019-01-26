@@ -768,7 +768,7 @@ MonoBehaviour:
   _waitTime: 0
   item_text: {fileID: 114309151227613514}
   nuts_text: {fileID: 114147329088505606}
-  _objLife: 15
+  _objLife: 500
 --- !u!114 &114875526971162432
 MonoBehaviour:
   m_ObjectHideFlags: 1

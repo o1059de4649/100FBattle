@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class ObjectStatus : Photon.MonoBehaviour {
-    public float _objLife = 5,_preLife;
+    public float _objLife,_preLife;
     public float _maxObjLife = 5;
     PhotonView obj_photonView;
     int random;
@@ -18,13 +18,17 @@ public class ObjectStatus : Photon.MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        random_scale = Random.Range(1, 5);
+        _objLife += random_scale;
+
+
         this.gameObject.GetPhotonView().TransferOwnership(0);
 
         obj_photonView = GetComponent<PhotonView>();
-       
         slider = sliderObj.GetComponent<Slider>();
-        random_scale = Random.Range(0, 0.3f);
-        this.transform.localScale += new Vector3(random_scale,random_scale,random_scale);
+        _maxObjLife = _objLife;
+
+        this.transform.localScale += new Vector3(random_scale,random_scale,random_scale) * 0.5f;
 
         _preLife = _objLife;
 	}

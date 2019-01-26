@@ -54,10 +54,16 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         float random_move_time,random_move_waitTime = 3,random_realtime_rotate,lifeTime;
 
-  
+        DayControl dayControl;
         // Use this for initialization
         void Start()
         {
+            if(PhotonNetwork.isMasterClient){
+                dayControl = GameObject.Find("Sun").GetComponent<DayControl>();
+                this.transform.localScale += new Vector3(dayControl._Day_date, dayControl._Day_date, dayControl._Day_date) * 0.1f;
+            }
+
+
 
             this.gameObject.name = this.gameObject.name.Replace("(Clone)", "");
             photonView = gameObject.GetPhotonView();

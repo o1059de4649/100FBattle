@@ -30,7 +30,7 @@ public class WaterObjectStatus : MonoBehaviour {
         if(collision.gameObject.name == "BottleItem" && PhotonNetwork.isMasterClient){
             collision.gameObject.GetPhotonView().RPC("OnDestroy", PhotonTargets.All);
             PhotonNetwork.Instantiate("WaterBottleItem", this.transform.position + new Vector3(0, 3, 0), Quaternion.identity, 0);
-            photonView.RPC("RemoveWater", PhotonTargets.AllBufferedViaServer);
+            photonView.RPC("RemoveWater", PhotonTargets.All);
         }
     }
 

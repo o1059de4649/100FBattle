@@ -37,7 +37,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 _haveItem.text = GetComponentInParent<UnityChanControlScriptWithRgidBody>().blueMetalitem.ToString();
             }
 
-            if (this.gameObject.name == "ButtonSpawnNuts")
+            if (this.gameObject.name == "ButtonSpawnNuts" || this.gameObject.name == "EatNutsButton")
             {
                 _haveItem.text = GetComponentInParent<UnityChanControlScriptWithRgidBody>().nutsItem.ToString();
             }
@@ -52,15 +52,21 @@ namespace UnityStandardAssets.CrossPlatformInput
                 _haveItem.text = GetComponentInParent<UnityChanControlScriptWithRgidBody>().bottleItem.ToString();
             }
 
-            if (this.gameObject.name == "ButtonSpawnWaterBottle")
+            if (this.gameObject.name == "ButtonSpawnWaterBottle" || this.gameObject.name == "EatWaterButton")
             {
                 _haveItem.text = GetComponentInParent<UnityChanControlScriptWithRgidBody>().water_bottleItem.ToString();
             }
 
-            if (this.gameObject.name == "ButtonSpawnNutsBottle")
+            if (this.gameObject.name == "ButtonSpawnNutsBottle"|| this.gameObject.name == "EatNutsBottleButton")
             {
                 _haveItem.text = GetComponentInParent<UnityChanControlScriptWithRgidBody>().nuts_bottleItem.ToString();
             }
+
+            if (this.gameObject.name == "EatBakedMeatButton" ||this.gameObject.name == "ButtonSpawnBakedMeat")
+            {
+                _haveItem.text = GetComponentInParent<UnityChanControlScriptWithRgidBody>().meat_baked_item.ToString();
+            }
+
         }
     }
 }

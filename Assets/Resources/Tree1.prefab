@@ -291,7 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7c3adcd55d7c4017a6e47e946d02e9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _objLife: 5
+  _objLife: 6
   _preLife: 0
   _maxObjLife: 5
   itemobj:

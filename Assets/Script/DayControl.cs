@@ -9,30 +9,46 @@ public class DayControl : MonoBehaviour {
 
     public Text _Day_time_text;
 
-    public GameObject sun_Light;
+    public GameObject sun_Light,player;
+
 	// Use this for initialization
 	void Start () {
-        sun_Light = GameObject.Find("Sun");
+       
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        _Day_time_text.text = (_Day_date.ToString() + "日" + Mathf.Floor(_Day_time).ToString() + "時");
+
+        if(!player){
+            player = GameObject.Find("MyPlayer");
+            return;
+        }
+
+        if(_Day_time_text){
+            _Day_time_text.text = (_Day_date.ToString() + "日" + Mathf.Floor(_Day_time).ToString() + "時");
+        }else{
+            _Day_time_text = GameObject.Find("MyPlayer/Canvas/lifeImage/DayTimeText").GetComponent<Text>();
+        }
 
 
 
-        if(PhotonNetwork.isMasterClient){
+
             _Day_time += Time.deltaTime * 0.2f;
 
-            sun_Light.transform.eulerAngles = new Vector3(15 * _Day_time -90, 0, 0);
-          
+            sun_Light.transform.eulerAngles = new Vector3(15 * _Day_time - 90, 0, 0);
 
 
-            if(_Day_time >= 24){
+
+            if (_Day_time >= 24)
+            {
                 _Day_date++;
                 _Day_time = 0;
             }
-        }
+
+
+
+            
+
 
 
 	}

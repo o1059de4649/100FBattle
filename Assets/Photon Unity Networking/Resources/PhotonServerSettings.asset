@@ -60,4 +60,5 @@ MonoBehaviour:
   - StoneFireOn
   - RenoveWater
   - CureWithNutsBottle
+  - CureWithBakedMeat
   DisableAutoOpenWizard: 1

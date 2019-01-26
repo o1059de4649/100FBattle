@@ -719,12 +719,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4709738070650776}
-  - component: {fileID: 136475276021439742}
   - component: {fileID: 54244042028294042}
   - component: {fileID: 95539139918537398}
   - component: {fileID: 114348839423913608}
   - component: {fileID: 114199560459801390}
   - component: {fileID: 114408888281216766}
+  - component: {fileID: 65640648189851108}
   m_Layer: 0
   m_Name: SpiderBattleObject
   m_TagString: BattleModeEnemy
@@ -2274,6 +2274,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65640648189851108
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1556844319628366}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.29, z: 1}
+  m_Center: {x: 0, y: 0.67, z: 0}
 --- !u!95 &95539139918537398
 Animator:
   serializedVersion: 3
@@ -2304,7 +2316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PositionModel:
-    SynchronizeEnabled: 0
+    SynchronizeEnabled: 1
     TeleportEnabled: 1
     TeleportIfDistanceGreaterThan: 3
     InterpolateOption: 2
@@ -2360,12 +2372,12 @@ MonoBehaviour:
     ExtrapolateNumberOfStoredPositions: 1
     DrawErrorGizmo: 1
   m_RotationModel:
-    SynchronizeEnabled: 0
+    SynchronizeEnabled: 1
     InterpolateOption: 1
     InterpolateRotateTowardsSpeed: 180
     InterpolateLerpSpeed: 5
   m_ScaleModel:
-    SynchronizeEnabled: 0
+    SynchronizeEnabled: 1
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
@@ -2661,19 +2673,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 8.75
   m_Center: {x: 0, y: 0, z: 0}
---- !u!136 &136475276021439742
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1556844319628366}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.39, z: 0}
 --- !u!137 &137524687116246872
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

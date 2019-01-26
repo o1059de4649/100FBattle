@@ -34,7 +34,8 @@ public class LifeCampFire : MonoBehaviour {
         item_text.text = ("お肉:" + _meal.ToString() + "\n"
                           + "木材:" + _wood.ToString() + "\n"
                          + "石材:" + _stone.ToString() + "\n"
-                          +"燃焼時間" + Mathf.Floor(_fire_time).ToString()
+                          +"お肉燃焼時間" + Mathf.Floor(_waitTime).ToString()+ "\n"
+                          + "ガラス作成時間" + Mathf.Floor(_glass_wait_time).ToString()
                          );
 
         //マスター処理
@@ -42,52 +43,49 @@ public class LifeCampFire : MonoBehaviour {
             return;
         }
 
-        //燃焼開始処理
-        if(_wood > 0 && _meal > 0 && _fire_time <= 0 && !isStoneFire){
-            _fire_time += 25;
+      
+        if(_wood > 0 && _meal > 0){
             _wood--;
             _meal--;
+            _fire_time += 10;
         }
 
-        if(_wood > 0 && _stone > 0 && !isFire && _glass_wait_time <= 0){
-            _glass_wait_time += 11;
+        if (_wood > 0 && _stone > 0)
+        {
             _wood--;
             _stone--;
+            _glass_wait_time += 10;
         }
 
-        //燃焼切り替え処理
+        //お肉を焼く
         if(_fire_time > 0){
             photonView.RPC("FireOn", PhotonTargets.All);
             _fire_time -= Time.deltaTime;
-        }else{
-            photonView.RPC("FireOff", PhotonTargets.All);
+            _waitTime += Time.deltaTime;
+            if(_waitTime >= 10){
+                PhotonNetwork.Instantiate("MeatBakedItem", this.transform.position + new Vector3(0, 2, 0), Quaternion.identity, 0);
+                _waitTime = 0;
+            }
         }
 
-        //燃焼切り替え処理
+        //
         if (_glass_wait_time > 0)
         {
-            photonView.RPC("StoneFireOn", PhotonTargets.All);
+            photonView.RPC("FireOn", PhotonTargets.All);
             _glass_wait_time -= Time.deltaTime;
-
-            if (isStoneFire && _glass_wait_time > 0)
-            {
-                _wait_stoneTime += Time.deltaTime;
-                if (_wait_stoneTime >= 10)
-                {
-                    _wait_stoneTime = 0;
-                    PhotonNetwork.Instantiate("GlassItem", this.transform.position + new Vector3(0, 2, 0), Quaternion.identity,0);
-
-                }
-
+            _wait_stoneTime += Time.deltaTime;
+            if(_wait_stoneTime >= 10){
+                PhotonNetwork.Instantiate("GlassItem",this.transform.position + new Vector3(0,2,0),Quaternion.identity, 0);
+                _wait_stoneTime = 0;
             }
 
         }
-        else
-        {
-            photonView.RPC("StoneFireOff", PhotonTargets.All);
+
+
+
+        if(_glass_wait_time <= 0 && _fire_time <= 0){
+            photonView.RPC("FireOff", PhotonTargets.All);
         }
-
-
       
 
 
@@ -127,15 +125,7 @@ public class LifeCampFire : MonoBehaviour {
            
         }
 
-        //isFireフラグによる範囲回復
-        if(col.gameObject.name == "MyPlayer" && isFire){
-            _waitTime += Time.deltaTime;
-            if(_waitTime >= 10){
-                _waitTime = 0;
-                col.gameObject.GetPhotonView().RPC("CureWithCamp", PhotonTargets.All);
-            }
-           
-        }
+
 
        
     }
@@ -148,7 +138,8 @@ public class LifeCampFire : MonoBehaviour {
             stream.SendNext(_stone);
             stream.SendNext(_meal);
             stream.SendNext(_objLife);
-           
+            stream.SendNext(_waitTime);
+            stream.SendNext(_glass_wait_time);
         }
         else
         {
@@ -156,6 +147,8 @@ public class LifeCampFire : MonoBehaviour {
             _stone = (int)stream.ReceiveNext();
             _meal = (int)stream.ReceiveNext();
             _objLife = (int)stream.ReceiveNext();
+            _waitTime =(float)stream.ReceiveNext();
+            _glass_wait_time = (float)stream.ReceiveNext();
         }
 
     }
@@ -174,19 +167,7 @@ public class LifeCampFire : MonoBehaviour {
         particle_fire.SetActive(false);
     }
 
-    [PunRPC]
-    public void StoneFireOn()
-    {
-        isStoneFire = true;
-        particle_fire.SetActive(true);
-    }
-
-    [PunRPC]
-    public void StoneFireOff()
-    {
-        isStoneFire = false;
-        particle_fire.SetActive(false);
-    }
+   
 
     [PunRPC]
     public void DamageObject(){

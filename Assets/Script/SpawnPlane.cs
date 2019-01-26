@@ -28,7 +28,7 @@ public class SpawnPlane :MonoBehaviour {
     public GameObject col_Plane;
 	// Use this for initialization
 	void Start () {
-
+        dayControl = GameObject.Find("Sun").GetComponent<DayControl>();
        
         plane_photonView = this.gameObject.GetComponent<PhotonView>();
         this.gameObject.name = this.gameObject.name.Replace("(Clone)", "");
@@ -164,11 +164,11 @@ public class SpawnPlane :MonoBehaviour {
     public void SpawnObject()
     {
 
-        if (!PhotonNetwork.isMasterClient)
+        if (!PhotonNetwork.isMasterClient || this.gameObject.name == "StartPlane")
         {
             return;
         }
-        dayControl = player.GetComponent<DayControl>();
+       
 
         //オブジェクトのランダム処理
         random_some = Random.Range(1, 3);

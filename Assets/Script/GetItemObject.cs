@@ -124,10 +124,16 @@ namespace UnityStandardAssets.CrossPlatformInput
                     collision.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>().nuts_bottleItem++;
                 }
 
+                if (this.transform.gameObject.name == "MeatBakedItem")
+                {
+                    collision.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>().meat_baked_item++;
+                }
+
+
                 collision.gameObject.GetComponent<UnityChanControlScriptWithRgidBody>().GetEssence();
 
 
-                photonView.RPC("OnDestroy",PhotonTargets.AllBufferedViaServer);
+                photonView.RPC("OnDestroy",PhotonTargets.All);
 
                
              
