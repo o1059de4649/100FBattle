@@ -166,8 +166,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 GetComponentInChildren<TPSControll_y>().enabled = true;
                 GetComponentInChildren<AudioListener>().enabled = true;
 
-                GetComponent<PhotonVoiceSpeaker>().enabled = true;
-                GetComponent<PhotonVoiceRecorder>().enabled = true;
+
                 // photonView.RPC("SetUp", PhotonTargets.All);
                 SetUp();
                 this.gameObject.name = "MyPlayer";
@@ -1209,5 +1208,17 @@ namespace UnityStandardAssets.CrossPlatformInput
         }
 
         //以上、サバイバルモードのアイテム処理
+
+        //ViceOff
+        public void VoiceOff(){
+            GetComponent<PhotonVoiceSpeaker>().enabled = false;
+            GetComponent<PhotonVoiceRecorder>().enabled = false;
+        }
+
+        public void VoiceOn()
+        {
+            GetComponent<PhotonVoiceSpeaker>().enabled = true;
+            GetComponent<PhotonVoiceRecorder>().enabled = true;
+        }
     }
 }

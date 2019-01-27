@@ -54,7 +54,10 @@ namespace UnityStandardAssets.CrossPlatformInput
                 {
                     content[i].SetActive(false);
                 }
-                Duo_Panel.GetComponent<Canvas>().enabled = true;
+                if(Duo_Panel){
+                    Duo_Panel.GetComponent<Canvas>().enabled = true;
+                }
+
 
                 for (int i = 0; on_to_off.Length > i; i++)
                 {
@@ -71,7 +74,11 @@ namespace UnityStandardAssets.CrossPlatformInput
                 {
                     content[i].SetActive(true);
                 }
-                Duo_Panel.GetComponent<Canvas>().enabled = false;
+
+                if(Duo_Panel){
+                    Duo_Panel.GetComponent<Canvas>().enabled = false;
+                }
+               
 
                 for (int i = 0; on_to_off.Length > i; i++)
                 {
